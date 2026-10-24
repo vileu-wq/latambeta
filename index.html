@@ -606,9 +606,9 @@
             </div>
 
             <!-- Collapsible Drawer (Invoices Sent To + Key Characteristics + Enter Button) -->
-            <div id="dashboardDrawer-chile" class="card-drawer">
-              <div class="card-drawer-inner">
-                <div class="pt-2.5 border-t border-[#F1F3F5] space-y-2.5">
+            <div id="dashboardDrawer-chile" class="card-drawer w-full min-w-0">
+              <div class="card-drawer-inner w-full min-w-0 overflow-hidden">
+                <div class="pt-2.5 border-t border-[#F1F3F5] space-y-2.5 w-full min-w-0">
                   <!-- Invoices Sent To Highlight -->
                   <div class="px-2 py-2 rounded-xl bg-[#0039A6]/10 border border-[#0039A6]/25 text-center space-y-1">
                     <div class="text-[8.5px] font-bold uppercase tracking-wider text-[#0039A6] flex items-center justify-center gap-1">
@@ -622,32 +622,32 @@
                   </div>
 
                   <!-- Key Characteristics Badges -->
-                  <div class="space-y-1 text-left">
+                  <div class="space-y-1 text-left w-full min-w-0">
                     <span class="text-[8.5px] font-bold uppercase tracking-wider text-[#6C757D] block">Key Characteristics:</span>
-                    <div class="flex flex-col gap-1">
-                      <span class="w-full text-[8.5px] font-bold bg-[#0039A6]/15 text-[#0039A6] border border-[#0039A6]/35 px-2 py-0.5 rounded shadow-2xs flex items-center gap-1.5">
-                        <span>🏛️</span>
-                        <span class="truncate">SII Direct Agency</span>
+                    <div class="flex flex-col gap-1 w-full min-w-0">
+                      <span class="w-full min-w-0 text-[8.5px] font-bold bg-[#0039A6]/15 text-[#0039A6] border border-[#0039A6]/35 px-2 py-0.5 rounded shadow-2xs flex items-center gap-1.5">
+                        <span class="shrink-0">🏛️</span>
+                        <span class="truncate min-w-0">SII Direct Agency</span>
                       </span>
-                      <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
-                        <span>📄</span>
-                        <span class="truncate">CAF &amp; Folios</span>
+                      <span class="w-full min-w-0 text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
+                        <span class="shrink-0">📄</span>
+                        <span class="truncate min-w-0">CAF &amp; Folios</span>
                       </span>
-                      <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
-                        <span>🌐</span>
-                        <span class="truncate">3 Connection Modes</span>
+                      <span class="w-full min-w-0 text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
+                        <span class="shrink-0">🌐</span>
+                        <span class="truncate min-w-0">3 Connection Modes</span>
                       </span>
-                      <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
-                        <span>🔐</span>
-                        <span class="truncate">Digital Cert (.pfx)</span>
+                      <span class="w-full min-w-0 text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
+                        <span class="shrink-0">🔐</span>
+                        <span class="truncate min-w-0">Digital Cert (.pfx)</span>
                       </span>
-                      <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
-                        <span>📑</span>
-                        <span class="truncate">TED Barcode</span>
+                      <span class="w-full min-w-0 text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
+                        <span class="shrink-0">📑</span>
+                        <span class="truncate min-w-0">TED Barcode</span>
                       </span>
-                      <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
-                        <span>🔗</span>
-                        <span class="truncate">Cross References</span>
+                      <span class="w-full min-w-0 text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5" title="Cross References (Referencias de Documentos Cruzados)">
+                        <span class="shrink-0">🔗</span>
+                        <span class="truncate min-w-0">Cross References</span>
                       </span>
                     </div>
                   </div>
@@ -3074,6 +3074,44 @@
     </div>
   </div>
 
+  <!-- ── Chile Credit Note Original Document Date Screenshot Hover Popover (Zero-clipping, Fixed Positioning) ── -->
+  <div
+    id="chileCreditNoteDateScreenshotPopover"
+    data-popover-width="600"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#0039A6] bg-white p-3 hidden max-w-[620px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 57, 166, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-blue-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#0039A6] block leading-tight">Chile Credit Note — Cross Reference Document Date</span>
+          <span class="text-[10px] text-[#475569]">Cross Reference Documents Tab ‣ <code class="font-mono text-[9px] text-[#0039A6] bg-blue-50 px-1 rounded font-bold">Document Date</code> must match original invoice date</span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-blue-50 text-[#0039A6] border border-blue-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        Credit Note: Doc Date ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-blue-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_chile_credit_note_doc_date.png"
+        onerror="this.src='./odoo_chile_credit_note_doc_date.png'"
+        alt="Odoo Chile - Credit Note Cross Reference Document Date"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="pt-2 mt-2 border-t border-blue-100 flex items-center justify-between text-[11px]">
+      <div class="flex items-center gap-1.5 text-[#0039A6] font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#0039A6] animate-ping"></span>
+        <span>Rule: When adding to a credit note, it must reference the original invoice date</span>
+      </div>
+      <span class="font-semibold text-[#0039A6]">Click to enlarge ↗</span>
+    </div>
+  </div>
+
   <!-- ── Chile Step 1 Screenshot Lightbox Modal (SII Folios Request & Odoo CAFs Range) ── -->
   <div id="chileStep1LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeChileStep1Lightbox(event)">
     <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
@@ -3438,6 +3476,47 @@
       <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
         <span class="text-[11px] text-gray-700 leading-snug">Contacts ‣ Partner Profile ‣ <strong>Electronic Invoicing Tab</strong>: In Chile localization, partners must have a valid DTE email address configured (<code class="font-mono text-[10px] text-[#0039A6] bg-blue-50 px-1 py-0.5 rounded font-bold">dte_email</code>) for automated B2B XML dispatch and exchange.</span>
         <button onclick="closeChileDteEmailLightbox(event)" class="px-3 py-1.5 bg-[#0039A6] hover:bg-[#002B80] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Chile Credit Note Original Document Date Screenshot Lightbox Modal ── -->
+  <div id="chileCreditNoteDateLightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeChileCreditNoteDateLightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#0039A6] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Chile Credit Note — Cross Reference Document Date (<code class="font-mono text-xs text-blue-200">Document Date</code>)</h3>
+            <p class="text-[11px] text-white/80">Cross Reference Documents (Referencias de Documentos Cruzados) ‣ When adding to a credit note, it must reference the date of the original invoice</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleChileCreditNoteDateImageZoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="chileCreditNoteDateZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeChileCreditNoteDateLightbox(event)" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white font-bold transition-colors cursor-pointer" title="Close (ESC)">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div id="chileCreditNoteDateImageContainer" class="p-3 sm:p-6 bg-slate-900 overflow-auto flex items-center justify-center flex-1 max-h-[calc(96vh-120px)]">
+        <img
+          id="chileCreditNoteDateModalImg"
+          src="./assets/odoo_chile_credit_note_doc_date.png"
+          onerror="this.src='./odoo_chile_credit_note_doc_date.png'"
+          alt="Odoo Chile - Credit Note Cross Reference Document Date"
+          class="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleChileCreditNoteDateImageZoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">Accounting ‣ Customer Credit Notes ‣ <strong>Cross Reference Documents (Referencias de Documentos Cruzados)</strong>: Under Chilean SII regulations, when creating a credit note referencing a prior invoice, the <code class="font-mono text-[10px] text-[#0039A6] bg-blue-50 px-1 py-0.5 rounded font-bold">Document Date</code> column must match the issuance date of the original invoice.</span>
+        <button onclick="closeChileCreditNoteDateLightbox(event)" class="px-3 py-1.5 bg-[#0039A6] hover:bg-[#002B80] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
           Close Preview
         </button>
       </div>
@@ -4024,10 +4103,10 @@
       },
       cruzados: {
         icon: "🔗",
-        title: "Cross-Document References (Docs Cruzados)",
-        badge: "Cross-Document References",
-        what: "Legally links invoices to prior documents like credit/debit notes, dispatch guides, or purchase orders.",
-        why: "The SII requires predecessor references and reason codes (Anula, Corrige) to validate legal and commercial traceability."
+        title: "Cross References (Referencias de Documentos Cruzados)",
+        badge: "Legal Predecessor Links",
+        what: "Legally links invoices to prior documents like credit/debit notes, dispatch guides, or purchase orders. If adding to a credit note, it must reference the <span class=\"underline decoration-dotted decoration-[#0039A6] text-[#0039A6] font-semibold cursor-help hover:text-blue-800 transition-colors inline\" onmouseenter=\"showChileCreditNoteDateScreenshot(this)\" onmouseleave=\"hideChileCreditNoteDateScreenshot()\" onclick=\"openChileCreditNoteDateLightbox(); event.stopPropagation();\" title=\"Hover to preview Credit Note Document Date screenshot · Click to enlarge\">date of the original invoice (<code class=\"font-mono text-[10px] bg-blue-50 text-[#0039A6] px-1 py-0.5 rounded font-bold\">Document Date</code>) 📸</span>.",
+        why: "The SII requires predecessor references, document dates, and reason codes (Anula, Corrige) to validate legal and commercial traceability."
       }
     };
 
@@ -4265,7 +4344,7 @@
           </button>
           <button id="pillar-btn-cruzados" type="button" onclick="togglePillarBanner('cruzados')" class="pillar-banner-btn px-2.5 py-1 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer bg-white hover:bg-[#EEF2FF] text-[#334155] hover:text-[#4338CA] border-[#D1D5DB] hover:border-[#4338CA]/40 shadow-2xs">
             <span>🔗</span>
-            <span>Cross References</span>
+            <span>Cross References (Referencias de Documentos Cruzados)</span>
           </button>
         `;
       } else if (state.country === "ecuador") {
@@ -4542,13 +4621,6 @@
             tooltip: "Hover or click to view Request CFDI Cancellation (Motivo 02) and Global cancelado state"
           }
         },
-        video: "https://www.youtube.com/watch?v=heSE0gedB8U",
-        videoText: "Cancelación Factura Global POS (18.0+)",
-        flowVideo: "https://www.youtube.com/watch?v=heSE0gedB8U&t=300s",
-        flowTimestamp: "5:00",
-        flowVideoText: "Cancel Global Invoice Flow",
-        flowVideoSubtext: "Step-by-step guidance on cancelling full global invoice in Odoo 18.0+ using Motivo 02",
-        videoDuration: "⏱️ Full Video",
         docsUrl: "https://www.odoo.com/documentation/18.0/es/applications/finance/fiscal_localizations/mexico.html?highlight=#l10n-mx-pos-global-invoice",
         forumUrl: "https://www.odoo.com/es/forum/ayuda-1?search=cancelar+factura+global+pos+l10n_mx&order=name+asc&filters=all&sorting=last_activity_date+desc"
       }
@@ -4570,7 +4642,7 @@
           "<strong>1. Request Folios on SII Portal:</strong> Access the official SII tax authority portal (<code>sii.cl</code>) outside of Odoo to request an authorized folio range for each electronic tax document type you plan to emit (e.g., DTE 33, 34, 39, 52, 56, 61). Download the cryptographically signed authorization XML file (CAF) provided by the SII before configuring sequences in Odoo.",
           "<strong>2. Upload CAF Files to Odoo:</strong> Configure the CAF authorization file according to your environment. In test environments on <strong>Odoo v20</strong>, default test CAFs are built-in automatically (no generation required). On <strong>Odoo 19.4 and earlier</strong>, navigate to <em>Accounting ‣ Configuration ‣ Type of document</em>, select the document type (e.g. <code>(33) Electronic Invoice</code>), and click <strong>'Create Demo CAF File'</strong> (available only when no CAFs exist). For production, go to <em>Accounting ‣ Configuration ‣ Chilean SII ‣ CAFs</em>, click <strong>New</strong>, and upload the signed XML downloaded from <code>sii.cl</code>.",
           "<strong>3. Client Fiscal Prerequisites:</strong> Open the customer record and confirm that mandatory Chilean fiscal fields are completed: a complete <strong>full address</strong>, a validated <strong>RUT</strong>, and a dedicated <strong>DTE Email</strong> under the <em>Electronic Invoicing</em> tab for B2B XML interchange (along with the customer Activity Description). These fields are legally required by the SII to generate valid electronic tax documents.",
-          "<strong>4. Add Cross-Reference Documents &amp; Stamp Invoice:</strong> Before confirming the invoice, open the <strong>'Cross Reference Documents'</strong> ('Referencia de documentos cruzados') tab to create and link any required predecessor documents (such as prior invoices, dispatch guides, or purchase orders). Verify that the <strong>Document Type</strong> is selected correctly, and click <strong>Confirm</strong> to issue the invoice, consume the active CAF folio, and stamp the statutory SII header box (Company RUT, Document Type, and Folio Number) along with the cryptographic 2D barcode (TED).",
+          "<strong>4. Add Cross-Reference Documents (Referencias de Documentos Cruzados) &amp; Stamp Invoice:</strong> Before confirming the invoice, open the <strong>'Cross Reference Documents' (Referencias de Documentos Cruzados)</strong> tab to create and link any required predecessor documents (such as prior invoices, dispatch guides, or purchase orders). If adding to a credit note, it must reference the <span class=\"underline decoration-dotted decoration-[#0039A6] text-[#0039A6] font-semibold cursor-help hover:text-blue-800 transition-colors inline\" onmouseenter=\"showChileCreditNoteDateScreenshot(this); event.stopPropagation();\" onmouseleave=\"hideChileCreditNoteDateScreenshot()\" onclick=\"openChileCreditNoteDateLightbox(); event.stopPropagation();\" title=\"Hover to preview Credit Note Document Date screenshot · Click to enlarge\">date of the original invoice (<code class=\"font-mono text-[10px] bg-blue-50 text-[#0039A6] px-1 py-0.5 rounded font-bold\">Document Date</code>) 📸</span>. Verify that the <strong>Document Type</strong> is selected correctly, and click <strong>Confirm</strong> to issue the invoice, consume the active CAF folio, and stamp the statutory SII header box (Company RUT, Document Type, and Folio Number) along with the cryptographic 2D barcode (TED).",
           "<strong>5. Post-Emission DTE Verification:</strong> After the invoice is confirmed and sent to the SII, verify the Chilean-specific emission fields on the record: check that the dedicated <strong>'SII DTE status'</strong> displays <strong>Accepted</strong> (with the option to <em>Create AEC</em> for factoring), verify that the statutory signed XML file (<code>EnvioDTE</code>) is generated under the upper-right <strong>Documents</strong> smart button, and open the <strong>'Electronic Invoice'</strong> tab to monitor the <strong>'Partner DTE status'</strong> and the SII Send Track ID.",
           "<strong>6. Folio Depletion Alerts & Batch Renewal:</strong> Monitor the remaining available folios counter in Odoo and configure safety alert thresholds (e.g., 50 remaining folios) to request and upload the next sequential CAF batch from <code>sii.cl</code> before reaching the limit, preventing any billing disruptions."
         ],
@@ -5623,9 +5695,9 @@
                     </span>
                   </div>
                   <h4 class="text-xs font-bold text-[#212529] group-hover/cl4:text-[#0039A6] transition-colors">
-                    Cross References &amp; Stamping
+                    Cross References (Referencias de Documentos Cruzados) &amp; Stamping
                   </h4>
-                  <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">Add cross-reference documents (<em>Docs Cruzados</em>) and confirm to stamp the invoice.</p>
+                  <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">Add cross-reference documents (<em>Referencias de Documentos Cruzados</em>). If adding to a credit note, it must reference the <span class="underline decoration-dotted decoration-[#0039A6] text-[#0039A6] font-semibold cursor-help hover:text-blue-800 transition-colors inline" onmouseenter="showChileCreditNoteDateScreenshot(this); event.stopPropagation();" onmouseleave="hideChileCreditNoteDateScreenshot()" onclick="openChileCreditNoteDateLightbox(); event.stopPropagation();" title="Hover to preview Credit Note Document Date screenshot · Click to enlarge">date of the original invoice (<code class="font-mono text-[9px] bg-blue-50 text-[#0039A6] px-1 py-0.5 rounded font-bold">Document Date</code>) 📸</span>, then confirm to stamp the invoice.</p>
                 </div>
                 <div class="mt-2 pt-2 border-t border-gray-100 group-hover/cl4:border-blue-100 flex items-center justify-between text-[10px] text-gray-400 group-hover/cl4:text-[#0039A6] font-semibold transition-colors">
                   <span>Action: <strong>Stamp</strong></span>
@@ -7295,6 +7367,12 @@
         dteEmailPopover.classList.remove("opacity-100", "scale-100");
         dteEmailPopover.classList.add("opacity-0", "scale-95", "hidden");
       }
+      const cnDatePopover = document.getElementById("chileCreditNoteDateScreenshotPopover");
+      if (cnDatePopover) {
+        cnDatePopover.style.display = "none";
+        cnDatePopover.classList.remove("opacity-100", "scale-100");
+        cnDatePopover.classList.add("opacity-0", "scale-95", "hidden");
+      }
       const mxPosPopover = document.getElementById("mxPosStep1ScreenshotPopover");
       if (mxPosPopover) {
         mxPosPopover.style.display = "none";
@@ -8296,6 +8374,12 @@
         dteEmailPopover.classList.remove("opacity-100", "scale-100");
         dteEmailPopover.classList.add("opacity-0", "scale-95", "hidden");
       }
+      const cnDatePopover = document.getElementById("chileCreditNoteDateScreenshotPopover");
+      if (cnDatePopover) {
+        cnDatePopover.style.display = "none";
+        cnDatePopover.classList.remove("opacity-100", "scale-100");
+        cnDatePopover.classList.add("opacity-0", "scale-95", "hidden");
+      }
       const mxPosPopover = document.getElementById("mxPosStep1ScreenshotPopover");
       if (mxPosPopover) {
         mxPosPopover.style.display = "none";
@@ -8561,6 +8645,87 @@
     function toggleChileDteEmailImageZoom() {
       const img = document.getElementById("chileDteEmailModalImg");
       const txt = document.getElementById("chileDteEmailZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    function showChileCreditNoteDateScreenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots();
+      hideAllChileStepScreenshots();
+
+      const popover = document.getElementById("chileCreditNoteDateScreenshotPopover");
+      if (!popover || !targetEl) return;
+      positionMxPosPopover(popover, targetEl);
+    }
+
+    function hideChileCreditNoteDateScreenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("chileCreditNoteDateScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 75);
+    }
+
+    function openChileCreditNoteDateLightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      const modal = document.getElementById("chileCreditNoteDateLightboxModal");
+      const img = document.getElementById("chileCreditNoteDateModalImg");
+      const txt = document.getElementById("chileCreditNoteDateZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+      }
+      if (txt) txt.textContent = "100% Zoom";
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeChileCreditNoteDateLightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("chileCreditNoteDateLightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleChileCreditNoteDateImageZoom() {
+      const img = document.getElementById("chileCreditNoteDateModalImg");
+      const txt = document.getElementById("chileCreditNoteDateZoomText");
       if (!img) return;
       const isZoomed = img.classList.contains("max-w-none");
       if (isZoomed) {
@@ -8905,7 +9070,7 @@
     const showScreenshotHover = showStep1Screenshot;
     const hideScreenshotHover = hideStep1Screenshot;
     function openScreenshotLightbox() { openStep1Lightbox(); }
-    function closeScreenshotLightbox() { closeStep1Lightbox(); closeStep2Lightbox(); closeStep4Lightbox(); closeStep5Lightbox(); closeChileStep1Lightbox(); closeChileStep2Lightbox(); closeChileStep3Lightbox(); closeChileStep4Lightbox(); closeChileStep5Lightbox(); closeCafErrorLightbox(); closeChileDteEmailLightbox(); closeMexicoReconciledPaidLightbox(); closeMxPosStep1Lightbox(); closeMxPosStep2Lightbox(); closeMxPosStep3Lightbox(); closeMxPosStep4Lightbox(); closeMxPosCancelStep1Lightbox(); closeMxPosCancelStep3Lightbox(); }
+    function closeScreenshotLightbox() { closeStep1Lightbox(); closeStep2Lightbox(); closeStep4Lightbox(); closeStep5Lightbox(); closeChileStep1Lightbox(); closeChileStep2Lightbox(); closeChileStep3Lightbox(); closeChileStep4Lightbox(); closeChileStep5Lightbox(); closeCafErrorLightbox(); closeChileDteEmailLightbox(); closeChileCreditNoteDateLightbox(); closeMexicoReconciledPaidLightbox(); closeMxPosStep1Lightbox(); closeMxPosStep2Lightbox(); closeMxPosStep3Lightbox(); closeMxPosStep4Lightbox(); closeMxPosCancelStep1Lightbox(); closeMxPosCancelStep3Lightbox(); }
 
     // ────────────────────────────────────────────────
     // ADD CARD MODAL

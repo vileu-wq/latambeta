@@ -2,32 +2,126 @@
 
 ## Recent Updates
 
-1. **Mexico CFDI 4.0: POS Global Invoice Cancellation Step 1 Screenshot Replacement (Point of Sale ‣ Orders List View & Coherent Teal Annotations)**
-2. **Mexico CFDI 4.0: Step 3 Cancellation Interactive Hover Screenshots & Lightbox (Motivo 02 Dialog & Global Cancelado State)**
-3. **Mexico CFDI 4.0: POS Global Invoice Cancellation Refinement (Motivo 02 Only, Removal of Phase 2, Support Ticket Reference)**
-4. **Chile Localization Basic Configuration: DTE Email Interactive Hover Screenshot & Lightbox Modal**
-5. **Chile Localization Basic Configuration: Giro Hovering Side Tab Flyout (Mexico INFONAVIT-Style Tooltip)**
-6. **Mexico POS Global Invoices: Official Documentation Link Updated (`#l10n-mx-pos-global-invoice`)**
-7. **Mexico POS Global Invoices: Step 4 Interactive Screenshot Hover & Lightbox Modal (CFDI Tab & Sent Global State)**
-8. **Mexico POS Global Invoices: Proximity-Anchored & Neat Hover Popovers Directly Over Steps**
-9. **Mexico POS Global Invoices: Step 3 Interactive Screenshot Hover & Lightbox Modal (Wizard: Set Periodicity & Create)**
-10. **Cleanup of Highlights in the Second Screenshot of Global Invoices (Mexico POS Flow)**
-11. **Chile Localization Basic Configuration: Switching from TEST Mode Back to DEMO Mode to Test Flows**
-12. **Mexico POS Global Invoice: Step 2 Restructuring & Interactive Annotated Screenshot (Action ‣ Create Global Invoice)**
-13. **Neat Highlight on 'Amigo Pedro' Screenshot & Cleanup of Stage 01 Box**
-14. **New Mexico Card: Global Invoices for a Single Client from Point of Sale (POS)**
-15. **Top Navigation Banner Tidying: Eliminated Squished Layout & Restored Generous Breathing Room**
-16. **Main Dashboard Overlap Fix: Tidy, Non-Overlapping Expanded Country Cards Across All 5 Hubs**
-17. **Colombia Active Knowledge Hub on Main Dashboard: DIAN Direct Invoicing, UBL 2.1 & CUFE Taxonomy**
-18. **Argentina Active Knowledge Hub on Main Dashboard: AFIP / ARCA Direct Invoicing, Letters Taxonomy & Punto de Venta**
-19. **Ecuador Initial Block on Main Dashboard: Direct SRI Invoicing, Dual Modes & Single-Line Unique Traits**
-20. **Strict Scope Compliance: Basic Configuration & Flow Cards Suppressed for Ecuador**
-21. **Chile CAF Common Error: Interactive Screenshot Hover & Lightbox Modal**
-22. **Unified & Coherent Process Flow Subtitles Across All Cards (Chile CAF, Mexico & Future Cards)**
+1. **Mexico CFDI 4.0: Video Removal from Cancelling Global Invoices Card (`mx-flow-pos-cancel-global-invoice`)**
+2. **Main Dashboard: Chile Card Layout Cleanup & Boundary Overflow Fix (Drawer & Badge Containment)**
+3. **Chile Localization: Cross References (Referencias de Documentos Cruzados) & Credit Note Original Invoice Date Rule with Interactive Hover Screenshot & Lightbox**
+4. **Mexico CFDI 4.0: POS Global Invoice Cancellation Step 1 Screenshot Replacement (Point of Sale ‣ Orders List View & Coherent Teal Annotations)**
+5. **Mexico CFDI 4.0: Step 3 Cancellation Interactive Hover Screenshots & Lightbox (Motivo 02 Dialog & Global Cancelado State)**
+6. **Mexico CFDI 4.0: POS Global Invoice Cancellation Refinement (Motivo 02 Only, Removal of Phase 2, Support Ticket Reference)**
+7. **Chile Localization Basic Configuration: DTE Email Interactive Hover Screenshot & Lightbox Modal**
+8. **Chile Localization Basic Configuration: Giro Hovering Side Tab Flyout (Mexico INFONAVIT-Style Tooltip)**
+9. **Mexico POS Global Invoices: Official Documentation Link Updated (`#l10n-mx-pos-global-invoice`)**
+10. **Mexico POS Global Invoices: Step 4 Interactive Screenshot Hover & Lightbox Modal (CFDI Tab & Sent Global State)**
+11. **Mexico POS Global Invoices: Proximity-Anchored & Neat Hover Popovers Directly Over Steps**
+12. **Mexico POS Global Invoices: Step 3 Interactive Screenshot Hover & Lightbox Modal (Wizard: Set Periodicity & Create)**
+13. **Cleanup of Highlights in the Second Screenshot of Global Invoices (Mexico POS Flow)**
+14. **Chile Localization Basic Configuration: Switching from TEST Mode Back to DEMO Mode to Test Flows**
+15. **Mexico POS Global Invoice: Step 2 Restructuring & Interactive Annotated Screenshot (Action ‣ Create Global Invoice)**
+16. **Neat Highlight on 'Amigo Pedro' Screenshot & Cleanup of Stage 01 Box**
+17. **New Mexico Card: Global Invoices for a Single Client from Point of Sale (POS)**
+18. **Top Navigation Banner Tidying: Eliminated Squished Layout & Restored Generous Breathing Room**
+19. **Main Dashboard Overlap Fix: Tidy, Non-Overlapping Expanded Country Cards Across All 5 Hubs**
+20. **Colombia Active Knowledge Hub on Main Dashboard: DIAN Direct Invoicing, UBL 2.1 & CUFE Taxonomy**
+21. **Argentina Active Knowledge Hub on Main Dashboard: AFIP / ARCA Direct Invoicing, Letters Taxonomy & Punto de Venta**
+22. **Ecuador Initial Block on Main Dashboard: Direct SRI Invoicing, Dual Modes & Single-Line Unique Traits**
+23. **Strict Scope Compliance: Basic Configuration & Flow Cards Suppressed for Ecuador**
+24. **Chile CAF Common Error: Interactive Screenshot Hover & Lightbox Modal**
+25. **Unified & Coherent Process Flow Subtitles Across All Cards (Chile CAF, Mexico & Future Cards)**
 
 ---
 
-## 1. Mexico CFDI 4.0: POS Global Invoice Cancellation Step 1 Screenshot Replacement (Point of Sale ‣ Orders List View & Coherent Teal Annotations)
+## 1. Mexico CFDI 4.0: Video Removal from Cancelling Global Invoices Card
+
+In response to the user request:
+> *"Remove the videos from the Mexican card, cancelling global invoices."*
+
+### Implementation Details
+1. **Targeted Removal from `mx-flow-pos-cancel-global-invoice`**:
+   - Removed video link and timestamp metadata (`video`, `videoText`, `flowVideo`, `flowTimestamp`, `flowVideoText`, `flowVideoSubtext`, and `videoDuration`) specifically from the **Cancelling Global Invoices from POS** card.
+   - The card for creating global invoices (`mx-flow-pos-global-invoice`) and other standard cards retain their instructional videos as intended.
+2. **Clean Rendering Across Card & Modal**:
+   - **Dashboard Card View**: The card transitions cleanly from the 3-stage process flow pipeline directly into the official reference links bar (`Official Documentation ↗`, `Odoo Forum Discussions ↗`, `View Step-by-Step Guide →`), eliminating the YouTube video block.
+   - **Walkthrough Guide Modal (`openModal`)**: The modal displays the SAT CFDI 4.0 legal notice, procedure steps with annotated screenshots (Step 1 Orders List, Step 2 Sent Global state, Step 3 Motivo 02 dialogue rule), and concludes cleanly with official documentation and forum links.
+3. **Multi-Mirror Synchronization & Integrity**:
+   - Verified 100% balanced HTML tags (`diff = 0`).
+   - Synchronized across all 4 mirrors (`OneDrive`, `Documents`, `scratch`, `brain`) with SHA-256 hash `5C8518AAF6838E8084D21533E3005E0021AD998A1E05027635467768AB3AFC43`.
+
+### Visual Verification
+- **Mexico Hub Card View (Cancelling Global Invoices Expanded, No Videos)**:  
+  [test_mx_cancel_card_expanded_no_video.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_mx_cancel_card_expanded_no_video.png)
+- **Walkthrough Guide Modal View (Clean Layout Without Videos)**:  
+  [test_mx_cancel_modal_no_video.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_mx_cancel_modal_no_video.png)
+
+---
+
+## 2. Main Dashboard: Chile Card Layout Cleanup & Boundary Overflow Fix
+
+In response to the user request:
+> *"Ok, on the main Dashboard, the parts in teh Chile card overlap the box.. clean this up please"*
+
+### Problem & Root Cause Analysis
+- **Observed Glitch**: In the 5-column dashboard grid, clicking on the **Chile** country card to expand its drawer caused the internal contents (`INVOICES SENT TO` container, `KEY CHARACTERISTICS:` header, 6 badge pills, and the `Open Hub >` action button) to extend horizontally by ~80px beyond the right boundary of the white card, overlapping onto the background and encroaching on the Ecuador card.
+- **Root Cause**: The summary pill on line 650 had been set to `Cross References (Referencias de Documentos Cruzados)`. Inside CSS flexbox (`flex items-center gap-1.5`) without an explicit `min-w-0` on both the flex container and its text child, the flex item defaulted to `min-width: auto` and expanded to ~260px. Combined with `.card-drawer.open > .card-drawer-inner` having `overflow: visible`, every child element styled with `w-full` stretched to 260px and spilled out of the ~180px card column.
+
+### Implementation Details
+1. **Restored Concise Dashboard Badge**:
+   - Reverted the dashboard summary pill text on line 650 back to concise **`Cross References`**, keeping it strictly consistent with the compact badges of all other 4 country cards (1–3 words).
+   - Retained the complete official regulatory terminology as an accessible tooltip: `title="Cross References (Referencias de Documentos Cruzados)"`.
+   - The full bilingual title remains active across the Chile Hub view, pillar navigation, and process pipelines.
+2. **Defensive CSS Flexbox & Container Constraints**:
+   - Added `w-full min-w-0` to `#dashboardDrawer-chile` and its inner container (`<div class="card-drawer-inner w-full min-w-0 overflow-hidden">`).
+   - Added `min-w-0` and `shrink-0` to all 6 characteristic badges in the Chile card to ensure emojis never shrink and long text always truncates cleanly within the card column without expanding the layout.
+3. **Multi-Mirror Synchronization & Tag Verification**:
+   - Verified 100% HTML tag balance (`diff = 0` across all 10 tracked tags).
+   - Synchronized across all 4 mirrors (`OneDrive`, `Documents`, `scratch`, `brain`) with matching SHA-256 hash `32F83F04FF744D8ACA76094D36321CE86FD8C2EF74E6E0FD3B0B61522AF2CF6B`.
+
+### Visual Verification
+- **Expanded Chile Card on Dashboard (Clean & Fully Contained)**:  
+  [test_dashboard_chile_fixed.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_dashboard_chile_fixed.png)
+  - All contents (`INVOICES SENT TO: SII (Direct Agency)`, 6 characteristic badges, and `Open Hub >` button) are neatly aligned with even padding inside the card borders without any horizontal overflow.
+
+---
+
+## 2. Chile Localization: Cross References (Referencias de Documentos Cruzados) & Credit Note Original Invoice Date Rule
+
+In response to the user request:
+> *"Ok, now in Chile, for the cross References put in brackets (Referencias de Documentos Cruzados). and include that if adding to a credit note, it must reference the date of the original invoice.*  
+> *And add this screenshot when I hover my mouse over a small part of this section and hightlight the Document Date in the same way that you have highlighted other screenshots in the hub. Make sure that teh syle is coherent with other screenshots and highlights"*
+
+### Implementation Details
+
+1. **Bilingual Clarification across Chile Hub**:
+   - Updated the pillar title, navigation pills, and Stage 4 pipeline headers to **Cross References (Referencias de Documentos Cruzados)**.
+   - Clarified statutory requirement: Under Chilean SII regulation, when issuing an electronic credit note (`(61) Electronic Credit Note`), the cross-document reference must link the original predecessor document number and explicitly specify the issuance date of the original invoice in the **Document Date** field.
+
+2. **Precision Highlighting Cleaned Up with Zero Overlap (`odoo_chile_credit_note_doc_date.png`)**:
+   - **Target Highlight (Document Date Column & Value)**: Rounded bounding box in statutory Chile Blue (`#0039A6`, `2.0px`) with soft translucent wash (`rgba(0, 57, 166, 0.08)`) encompassing both the `Document Date` header and the `Oct 24` cell (`X: 822, Y: 494, W: 106, H: 58`), with 12px horizontal and 10px vertical breathing room.
+   - **Streamlined Single Callout Pill**: Sleek, solid Chile Blue pill badge `Document Date • Must Match Original Invoice Date` with bold white typography, positioned in the open whitespace above the table (`X: 618, Y: 444, W: 312, H: 26`).
+   - **Seamless Downward Pointer Arrow**: Clean triangular pointer connecting directly from the bottom edge of the pill (`Y: 470`) straight to the top border of the `Document Date` bounding box (`Y: 494`) at `X: 875` (the exact horizontal center of the `Document Date` column).
+   - **Elimination of All Overlaps**:
+     - Removed the redundant bounding box and badge over the `Cross Reference Documents` tab, preserving Odoo's native active purple tab indicator line and dividers without any obstruction.
+     - Kept generous clearance from adjacent table cells (`Reason: TEST` on the left, trash icon `🗑` on the right) and above fields (`Document Type (61) Electronic Credit Note` and `SII DTE status ?`).
+     - Zero text, border, or icon intrusion across the entire screen.
+
+3. **Subtle Interactive Hover Trigger ("Small Part of this Section")**:
+   - Wrapped the specific phrase:
+     `date of the original invoice (Document Date) 📸`
+     in an interactive dotted underline trigger with cursor help (`showChileCreditNoteDateScreenshot(this)` / `hideChileCreditNoteDateScreenshot()`).
+   - Hovering specifically over this phrase immediately summons the floating popover with Chile Blue border and drop shadow.
+   - Clicking opens the dedicated full-screen lightbox modal (`#chileCreditNoteDateLightboxModal`) with `100% Zoom` toggle and ESC key dismissal.
+
+### Visual Verification
+
+- **Pillar Banner with Referencias de Documentos Cruzados & Credit Note Rule**:  
+  [test_chile_cruzados_pillar.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_chile_cruzados_pillar.png)
+- **Interactive Hover Popover over 'date of the original invoice' in Stage 04**:  
+  [test_chile_card_expanded_stage4_hover.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_chile_card_expanded_stage4_hover.png)
+- **Full-Screen Lightbox Modal Preview with Zoom**:  
+  [test_chile_cn_date_lightbox.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_chile_cn_date_lightbox.png)
+
+---
+
+## 2. Mexico CFDI 4.0: POS Global Invoice Cancellation Step 1 Screenshot Replacement (Point of Sale ‣ Orders List View & Coherent Teal Annotations)
 
 In response to the user request:
 > *"Replace the first screenshot of the first step of the cancelling globasl invoices with this one and highlight accordingly, keeping it coherent in stlye and format with the rest of the card"*
