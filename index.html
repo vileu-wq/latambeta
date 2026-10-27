@@ -2027,6 +2027,109 @@
               </div>
 
             </div>
+
+            <!-- Ecuador Configuration Content (POS & SRI Payment Method) -->
+            <div id="configContentEcuador" class="max-w-3xl mx-auto pt-3 hidden">
+              
+              <!-- Ecuador POS & SRI Setup Card -->
+              <div id="ecuadorPosConfigCard" class="border-2 border-amber-500/30 rounded-xl bg-amber-50/20 overflow-hidden flex flex-col transition-all shadow-2xs">
+                <!-- Header (Clickable Toggle) -->
+                <div
+                  id="ecuadorPosConfigHeader"
+                  onclick="toggleEcuadorPosConfig()"
+                  class="p-3.5 flex items-center justify-between gap-2 cursor-pointer bg-amber-50 hover:bg-amber-100/70 transition-colors select-none group/ec border-b border-amber-500/20"
+                  title="Click to expand/collapse Ecuador POS Configuration"
+                >
+                  <div class="flex items-center gap-2.5">
+                    <span class="p-2 rounded-xl bg-amber-600 text-white shadow-2xs shrink-0">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                      </svg>
+                    </span>
+                    <div class="flex items-center gap-1.5">
+                      <h3 class="text-xs sm:text-sm font-bold text-amber-900">Point of Sale (POS) &amp; SRI Payment Methods</h3>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-1.5 text-[11px] font-semibold text-white bg-amber-600 hover:bg-amber-700 px-2.5 py-1 rounded-lg transition-colors shadow-2xs shrink-0">
+                    <span id="ecuadorPosToggleText">Expand</span>
+                    <svg id="ecuadorPosChevron" class="w-3.5 h-3.5 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Expandable Drawer -->
+                <div id="ecuadorPosDrawer" class="card-drawer">
+                  <div class="card-drawer-inner">
+                    <div class="p-4 space-y-3.5 bg-white/70">
+                      <!-- Condensed Checklist -->
+                      <div class="space-y-2 text-xs">
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-amber-800 flex items-center gap-1.5">
+                          <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                          <span>Point of Sale Testing Checklist &amp; SRI Setup</span>
+                        </div>
+
+                        <ul class="space-y-2">
+                          <!-- Step 1: Navigate to POS Payment Methods -->
+                          <li class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-amber-200/80 shadow-2xs">
+                            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-amber-600 text-white text-[10px] font-bold shrink-0 mt-0.5">1</span>
+                            <div class="text-xs text-[#343A40] leading-snug">
+                              <span class="font-semibold text-[#212529]">Navigate to Point of Sale Configuration</span>
+                              <span class="block text-[11px] text-[#6C757D] mt-0.5">Open the <strong>Point of Sale</strong> application and go to <em>Configuration ‣ Payment Methods</em> (or search <strong>SRI payment method</strong>).</span>
+                            </div>
+                          </li>
+
+                          <!-- Step 2: Configure SRI Payment Method (WITH HOVER TRIGGER!) -->
+                          <li class="flex items-start gap-2 bg-white p-2.5 rounded-lg border-2 border-amber-400/60 shadow-2xs">
+                            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-amber-600 text-white text-[10px] font-bold shrink-0 mt-0.5">2</span>
+                            <div class="text-xs text-[#343A40] leading-snug">
+                              <span class="font-semibold text-[#212529]">Mandatory SRI Payment Method when Testing</span>
+                              <span class="block text-[11px] text-[#6C757D] mt-0.5">For every active payment method (e.g. Card, Cash, Bank), you <strong>must add an SRI Payment method when testing</strong>. In the payment method form under <span class="underline decoration-dotted decoration-amber-600 text-amber-800 font-semibold cursor-help hover:text-amber-900 transition-colors inline-flex items-center gap-0.5" onmouseenter="showEcuadorPosSriPaymentScreenshot(this)" onmouseleave="hideEcuadorPosSriPaymentScreenshot()" onclick="openEcuadorPosSriPaymentLightbox()" title="Hover to preview SRI Payment Method screenshot • Click to enlarge"><span>POS - Configuration - SRI payment method</span> (<code class="font-mono text-[10px] bg-amber-50 text-amber-800 px-1 py-0.5 rounded font-bold">SRI Payment Method</code>) 📸</span>, select the appropriate SRI classification (e.g. <em>Debit Card</em>, <em>Credit Card</em>, or <em>Otros con utilización del sistema financiero</em>).</span>
+                            </div>
+                          </li>
+
+                          <!-- Step 3: Session & Testing Validation -->
+                          <li class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-amber-200/80 shadow-2xs">
+                            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-amber-600 text-white text-[10px] font-bold shrink-0 mt-0.5">3</span>
+                            <div class="text-xs text-[#343A40] leading-snug">
+                              <span class="font-semibold text-[#212529]">Open POS Shop Session &amp; Test Orders</span>
+                              <span class="block text-[11px] text-[#6C757D] mt-0.5">Once the SRI Payment method is assigned, start the POS session. Completed orders will generate validated electronic receipts without encountering SRI payment validation errors.</span>
+                            </div>
+                          </li>
+                        </ul>
+
+                        <!-- Callout Banner -->
+                        <div class="p-2.5 rounded-lg bg-amber-50 border border-amber-300 shadow-2xs flex items-start gap-2 mt-2">
+                          <span class="text-amber-700 text-sm mt-0.5 shrink-0">⚠️</span>
+                          <p class="text-[11px] text-amber-900 leading-snug">
+                            <strong>Testing Prerequisite:</strong> Under SRI electronic billing rules, any POS receipt dispatched or synced to the accounting journal must declare an authorized SRI payment code. Configuring this field under <em>POS ‣ Configuration ‣ Payment Methods</em> is required for smooth testing and sandbox flow validation.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Documentation Link Row -->
+                      <div class="pt-1">
+                        <a
+                          href="https://www.odoo.com/documentation/17.0/applications/finance/fiscal_localizations/ecuador.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="flex items-center justify-between px-3 py-2 rounded-lg bg-white hover:bg-amber-50 border border-amber-300 text-amber-800 hover:text-amber-900 text-xs font-semibold transition-colors group/ecdoc shadow-2xs"
+                          title="Open official Odoo Ecuador Fiscal Localization documentation"
+                        >
+                          <div class="flex items-center gap-1.5 truncate">
+                            <svg class="w-3.5 h-3.5 shrink-0 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            <span class="truncate">Official Docs: Ecuador Fiscal Localization</span>
+                          </div>
+                          <span class="font-bold text-xs shrink-0 ml-1 group-hover/ecdoc:translate-x-0.5 transition-transform">↗</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -3112,6 +3215,44 @@
     </div>
   </div>
 
+  <!-- ── Ecuador POS SRI Payment Method Screenshot Hover Popover (Zero-clipping, Fixed Positioning) ── -->
+  <div
+    id="ecuadorPosSriPaymentScreenshotPopover"
+    data-popover-width="600"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-amber-500 bg-white p-3 hidden max-w-[620px]"
+    style="filter: drop-shadow(0 20px 25px rgba(217, 119, 6, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-amber-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-amber-900 block leading-tight">Ecuador POS — SRI Payment Method (Testing Prerequisite)</span>
+          <span class="text-[10px] text-[#475569]">Point of Sale ‣ Configuration ‣ Payment Methods ‣ <code class="font-mono text-[9px] text-amber-800 bg-amber-50 px-1 rounded font-bold">SRI Payment Method</code> field</span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        POS: SRI Method ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-amber-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_ec_pos_sri_payment_method.png"
+        onerror="this.src='./odoo_ec_pos_sri_payment_method.png'"
+        alt="Odoo Ecuador POS - SRI Payment Method Configuration"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="pt-2 mt-2 border-t border-amber-100 flex items-center justify-between text-[11px]">
+      <div class="flex items-center gap-1.5 text-amber-800 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span>
+        <span>Requirement: Must add an SRI Payment method when testing</span>
+      </div>
+      <span class="font-semibold text-amber-800">Click to enlarge ↗</span>
+    </div>
+  </div>
+
   <!-- ── Chile Step 1 Screenshot Lightbox Modal (SII Folios Request & Odoo CAFs Range) ── -->
   <div id="chileStep1LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeChileStep1Lightbox(event)">
     <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
@@ -3517,6 +3658,47 @@
       <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
         <span class="text-[11px] text-gray-700 leading-snug">Accounting ‣ Customer Credit Notes ‣ <strong>Cross Reference Documents (Referencias de Documentos Cruzados)</strong>: Under Chilean SII regulations, when creating a credit note referencing a prior invoice, the <code class="font-mono text-[10px] text-[#0039A6] bg-blue-50 px-1 py-0.5 rounded font-bold">Document Date</code> column must match the issuance date of the original invoice.</span>
         <button onclick="closeChileCreditNoteDateLightbox(event)" class="px-3 py-1.5 bg-[#0039A6] hover:bg-[#002B80] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Ecuador POS SRI Payment Method Screenshot Lightbox Modal ── -->
+  <div id="ecuadorPosSriPaymentLightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeEcuadorPosSriPaymentLightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-amber-600 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Ecuador Point of Sale (POS) — SRI Payment Method (<code class="font-mono text-xs text-amber-200">SRI Payment Method</code>)</h3>
+            <p class="text-[11px] text-white/80">Point of Sale ‣ Configuration ‣ Payment Methods ‣ Mandatory SRI Payment Method selection for testing</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleEcuadorPosSriPaymentImageZoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="ecuadorPosSriPaymentZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeEcuadorPosSriPaymentLightbox(event)" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white font-bold transition-colors cursor-pointer" title="Close (ESC)">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div id="ecuadorPosSriPaymentImageContainer" class="p-3 sm:p-6 bg-slate-900 overflow-auto flex items-center justify-center flex-1 max-h-[calc(96vh-120px)]">
+        <img
+          id="ecuadorPosSriPaymentModalImg"
+          src="./assets/odoo_ec_pos_sri_payment_method.png"
+          onerror="this.src='./odoo_ec_pos_sri_payment_method.png'"
+          alt="Odoo Ecuador POS - SRI Payment Method Configuration"
+          class="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleEcuadorPosSriPaymentImageZoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">Point of Sale ‣ Configuration ‣ <strong>Payment Methods (SRI payment method)</strong>: In Ecuador localization, you must add an SRI Payment method when testing. Under the payment method form (e.g. Card, Cash), select the statutory classification from the <code class="font-mono text-[10px] text-amber-800 bg-amber-50 px-1 py-0.5 rounded font-bold">SRI Payment Method</code> dropdown (such as <em>Debit Card</em>, <em>Credit Card</em>, or <em>Sin utilización del sistema financiero</em>) before opening sessions and testing orders.</span>
+        <button onclick="closeEcuadorPosSriPaymentLightbox(event)" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
           Close Preview
         </button>
       </div>
@@ -4659,6 +4841,38 @@
       }
     ];
 
+    const ECUADOR_OFFICIAL_DATA = [
+      {
+        id: "ec-config-pos-sri",
+        country: "ecuador",
+        category: "flow",
+        title: "Point of Sale (POS): SRI Payment Method Configuration",
+        module: "point_of_sale / l10n_ec",
+        flowType: "Point of Sale (POS)",
+        flowSubtitle: "SRI Payment Method Setup",
+        scope: "Mandatory Testing Prerequisite",
+        versionNotice: "Available in Odoo v17.0, v18.0 and above",
+        tldr: "When testing Point of Sale in Ecuador localization, you must add an SRI Payment method to every active payment method. This is configured under POS - Configuration - SRI payment method.",
+        steps: [
+          "<strong>1. Navigate to POS Configuration:</strong> In the Point of Sale application, go to <em>Configuration ‣ Payment Methods</em> (or search <strong>SRI payment method</strong>).",
+          "<strong>2. Configure SRI Payment Method (Mandatory for Testing):</strong> For every active payment method (e.g. Card, Cash, Bank), you <strong>must add an SRI Payment method when testing</strong>. In the payment method form under <span class=\"underline decoration-dotted decoration-amber-600 text-amber-800 font-semibold cursor-help hover:text-amber-900 transition-colors inline-flex items-center gap-0.5\" onmouseenter=\"showEcuadorPosSriPaymentScreenshot(this)\" onmouseleave=\"hideEcuadorPosSriPaymentScreenshot()\" onclick=\"openEcuadorPosSriPaymentLightbox()\" title=\"Hover to preview SRI Payment Method screenshot · Click to enlarge\"><span>POS - Configuration - SRI payment method</span> (<code class=\"font-mono text-[10px] bg-amber-50 text-amber-800 px-1 py-0.5 rounded font-bold\">SRI Payment Method</code>) 📸</span>, select the appropriate SRI classification (e.g. <em>Debit Card</em>, <em>Credit Card</em>, or <em>Otros con utilización del sistema financiero</em>).",
+          "<strong>3. Validate in Register Session:</strong> Open a POS shop register session and execute test transactions. With the SRI payment method assigned, electronic receipts are generated without validation errors."
+        ],
+        stepScreenshots: {
+          1: {
+            badge: "📸 SRI Payment Method",
+            hoverFn: "showEcuadorPosSriPaymentScreenshot(this)",
+            leaveFn: "hideEcuadorPosSriPaymentScreenshot()",
+            clickFn: "openEcuadorPosSriPaymentLightbox()",
+            subStatus: "SRI Method: <strong>Debit Card</strong>",
+            viewAction: "View ↗",
+            tooltip: "Hover or click to view Point of Sale SRI Payment Method form configuration"
+          }
+        },
+        docsUrl: "https://www.odoo.com/documentation/17.0/applications/finance/fiscal_localizations/ecuador.html"
+      }
+    ];
+
     const CATEGORIES = [
       { id: "all",         name: "All Topics" },
       { id: "flow",        name: "🔄 Standard Flows" },
@@ -4679,7 +4893,7 @@
     // INIT
     // ────────────────────────────────────────────────
     function init() {
-      state.items = [...MEXICO_OFFICIAL_DATA, ...CHILE_OFFICIAL_DATA];
+      state.items = [...MEXICO_OFFICIAL_DATA, ...CHILE_OFFICIAL_DATA, ...ECUADOR_OFFICIAL_DATA];
       localStorage.setItem("odoo_latam_hub_data", JSON.stringify(state.items));
       setCountry('dashboard');
 
@@ -4689,7 +4903,7 @@
           e.preventDefault();
           searchInput.focus();
         }
-        if (e.key === "Escape") { closeModal(); closeAddModal(); closeScreenshotLightbox(); }
+        if (e.key === "Escape") { closeModal(); closeAddModal(); closeScreenshotLightbox(); closeEcuadorPosSriPaymentLightbox(); }
       });
     }
 
@@ -5055,22 +5269,24 @@
         closePillarBanner();
       }
 
-      // 4. Basic Configuration Visibility & Text (Suppressed for Ecuador, Argentina & Colombia per instructions)
+      // 4. Basic Configuration Visibility & Text (Suppressed for Argentina & Colombia; Ecuador has POS & SRI config card)
       const configPanelContainer = document.getElementById("configPanelContainer");
       const configMx = document.getElementById("configContentMexico");
       const configCl = document.getElementById("configContentChile");
+      const configEc = document.getElementById("configContentEcuador");
       const configTitle = document.getElementById("configTitleText");
       const configBadge = document.getElementById("configCountryBadge");
       const configDesc = document.getElementById("configDescText");
       const configLink = document.getElementById("configDocsLink");
 
-      if (c === 'ecuador' || c === 'argentina' || c === 'colombia') {
+      if (c === 'argentina' || c === 'colombia') {
         if (configPanelContainer) configPanelContainer.classList.add("hidden");
       } else {
         if (configPanelContainer) configPanelContainer.classList.remove("hidden");
         if (c === 'chile') {
           if (configMx) configMx.classList.add("hidden");
           if (configCl) configCl.classList.remove("hidden");
+          if (configEc) configEc.classList.add("hidden");
           if (configTitle) configTitle.textContent = "Basic Configuration: Electronic Invoicing";
           if (configBadge) {
             configBadge.textContent = "Chile (SII)";
@@ -5081,9 +5297,24 @@
             configLink.href = "https://www.odoo.com/documentation/19.0/applications/finance/fiscal_localizations/chile.html";
             configLink.title = "Open official Odoo Chile Fiscal Localization documentation";
           }
+        } else if (c === 'ecuador') {
+          if (configMx) configMx.classList.add("hidden");
+          if (configCl) configCl.classList.add("hidden");
+          if (configEc) configEc.classList.remove("hidden");
+          if (configTitle) configTitle.textContent = "Basic Configuration: Point of Sale (POS) & SRI";
+          if (configBadge) {
+            configBadge.textContent = "Ecuador (SRI)";
+            configBadge.className = "text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-700 px-2 py-0.5 rounded-full";
+          }
+          if (configDesc) configDesc.textContent = "Point of Sale (POS) setup, mandatory SRI payment methods configuration when testing, and electronic billing prerequisites.";
+          if (configLink) {
+            configLink.href = "https://www.odoo.com/documentation/17.0/applications/finance/fiscal_localizations/ecuador.html";
+            configLink.title = "Open official Odoo Ecuador Fiscal Localization documentation";
+          }
         } else {
           if (configMx) configMx.classList.remove("hidden");
           if (configCl) configCl.classList.add("hidden");
+          if (configEc) configEc.classList.add("hidden");
           if (configTitle) configTitle.textContent = "Basic Configuration: Invoicing & Payroll";
           if (configBadge) {
             configBadge.textContent = "Mexico (SAT)";
@@ -5278,14 +5509,30 @@
             <div>
               <h3 class="text-sm sm:text-base font-bold text-[#212529]">Ecuador Knowledge Hub</h3>
               <p class="text-xs text-[#6C757D] mt-1 max-w-md mx-auto">
-                Explore official SRI direct web services, 49-digit Clave de Acceso, and unique localization traits in the banner above.
+                Explore official SRI direct web services, 49-digit Clave de Acceso, Point of Sale (POS) setup, and mandatory SRI Payment Methods in the configuration and procedures below.
               </p>
             </div>
             <div class="flex items-center justify-center gap-2 pt-2 flex-wrap">
               <button
                 type="button"
-                onclick="setCountry('dashboard')"
+                onclick="setSearch('POS')"
                 class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold shadow-xs transition-all cursor-pointer"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <span>Search "POS"</span>
+              </button>
+              <button
+                type="button"
+                onclick="showAllCountryCards()"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-800 hover:bg-amber-50 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
+              >
+                <span>Browse Ecuador POS Card (${ECUADOR_OFFICIAL_DATA.length})</span>
+                <span>→</span>
+              </button>
+              <button
+                type="button"
+                onclick="setCountry('dashboard')"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-slate-700 text-xs font-semibold shadow-xs transition-all cursor-pointer"
               >
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                 <span>Return to Main Dashboard</span>
@@ -6328,28 +6575,35 @@
 
       container.innerHTML = filtered.map(item => {
         const isChile = item.country === 'chile';
+        const isEcuador = item.country === 'ecuador';
         const isFlow  = item.category === "flow";
         const isError = item.category === "error";
 
         const categoryLabel = item.id === 'cl-config-caf'
           ? "⚙️ CAF Sequence Setup"
-          : isFlow
-            ? "🔄 Standard Flow"
-            : isError
-              ? (isChile ? "⚠️ SII Error" : "⚠️ SAT Error")
-              : (isChile ? "📄 SII Setup" : "📄 Certificates / Config");
+          : item.id === 'ec-config-pos-sri'
+            ? "⚙️ POS SRI Setup"
+            : isFlow
+              ? "🔄 Standard Flow"
+              : isError
+                ? (isChile ? "⚠️ SII Error" : "⚠️ SAT Error")
+                : (isChile ? "📄 SII Setup" : "📄 Certificates / Config");
 
         const categoryTagStyle = item.id === 'cl-config-caf'
           ? "bg-blue-50 text-[#0039A6] border-blue-200"
-          : isFlow
-            ? "bg-teal-50 text-teal-800 border-teal-200"
-            : isError
-              ? "bg-red-50 text-red-800 border-red-200"
-              : "bg-purple-50 text-purple-800 border-purple-200";
+          : item.id === 'ec-config-pos-sri'
+            ? "bg-amber-50 text-amber-800 border-amber-300"
+            : isFlow
+              ? "bg-teal-50 text-teal-800 border-teal-200"
+              : isError
+                ? "bg-red-50 text-red-800 border-red-200"
+                : "bg-purple-50 text-purple-800 border-purple-200";
 
-        const borderStyle = isChile
-          ? (isFlow ? "border-l-4 border-l-[#0039A6]" : isError ? "border-l-4 border-l-[#D52B1E]" : "border-l-4 border-l-[#0039A6]")
-          : (isFlow ? "border-l-4 border-l-[#00A09D]" : isError ? "border-l-4 border-l-[#D9534F]" : "border-l-4 border-l-[#714B67]");
+        const borderStyle = isEcuador
+          ? "border-l-4 border-l-amber-500"
+          : isChile
+            ? (isFlow ? "border-l-4 border-l-[#0039A6]" : isError ? "border-l-4 border-l-[#D52B1E]" : "border-l-4 border-l-[#0039A6]")
+            : (isFlow ? "border-l-4 border-l-[#00A09D]" : isError ? "border-l-4 border-l-[#D9534F]" : "border-l-4 border-l-[#714B67]");
 
         // Cards appear collapsed by default; only expand when explicitly toggled by user
         const isExpanded = state.expandedIds.has(item.id);
@@ -6365,11 +6619,13 @@
                 <div class="flex items-center gap-1.5 flex-wrap">
                   <!-- Country Flag Badge -->
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border ${
-                    isChile 
-                      ? 'bg-blue-50 text-[#0039A6] border-blue-200' 
-                      : 'bg-emerald-50 text-[#006847] border-emerald-200'
+                    isEcuador
+                      ? 'bg-amber-50 text-amber-800 border-amber-300'
+                      : isChile 
+                        ? 'bg-blue-50 text-[#0039A6] border-blue-200' 
+                        : 'bg-emerald-50 text-[#006847] border-emerald-200'
                   }">
-                    ${isChile ? '🇨🇱 Chile (SII)' : '🇲🇽 Mexico (SAT)'}
+                    ${isEcuador ? '🇪🇨 Ecuador (SRI)' : isChile ? '🇨🇱 Chile (SII)' : '🇲🇽 Mexico (SAT)'}
                   </span>
 
                   <span class="text-[10px] font-semibold px-2 py-0.5 rounded border ${categoryTagStyle}">
@@ -7409,6 +7665,12 @@
         mxPosCancel1Popover.classList.remove("opacity-100", "scale-100");
         mxPosCancel1Popover.classList.add("opacity-0", "scale-95", "hidden");
       }
+      const ecPosPopover = document.getElementById("ecuadorPosSriPaymentScreenshotPopover");
+      if (ecPosPopover) {
+        ecPosPopover.style.display = "none";
+        ecPosPopover.classList.remove("opacity-100", "scale-100");
+        ecPosPopover.classList.add("opacity-0", "scale-95", "hidden");
+      }
     }
 
     function showStepScreenshot(stepNum, targetEl) {
@@ -8404,6 +8666,12 @@
         mxPos4Popover.classList.remove("opacity-100", "scale-100");
         mxPos4Popover.classList.add("opacity-0", "scale-95", "hidden");
       }
+      const ecPosPopover = document.getElementById("ecuadorPosSriPaymentScreenshotPopover");
+      if (ecPosPopover) {
+        ecPosPopover.style.display = "none";
+        ecPosPopover.classList.remove("opacity-100", "scale-100");
+        ecPosPopover.classList.add("opacity-0", "scale-95", "hidden");
+      }
     }
 
     function showChileStepScreenshot(stepNum, targetEl) {
@@ -8726,6 +8994,106 @@
     function toggleChileCreditNoteDateImageZoom() {
       const img = document.getElementById("chileCreditNoteDateModalImg");
       const txt = document.getElementById("chileCreditNoteDateZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    // ── Ecuador POS Configuration & SRI Payment Method Helper Functions ──
+    function toggleEcuadorPosConfig() {
+      const drawer = document.getElementById("ecuadorPosDrawer");
+      const chevron = document.getElementById("ecuadorPosChevron");
+      const text = document.getElementById("ecuadorPosToggleText");
+      if (!drawer) return;
+      const isOpen = drawer.classList.contains("open");
+      if (isOpen) {
+        drawer.classList.remove("open");
+        if (chevron) chevron.classList.remove("open");
+        if (text) text.textContent = "Expand";
+      } else {
+        drawer.classList.add("open");
+        if (chevron) chevron.classList.add("open");
+        if (text) text.textContent = "Collapse";
+      }
+    }
+
+    function showEcuadorPosSriPaymentScreenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots();
+      hideAllChileStepScreenshots();
+
+      const popover = document.getElementById("ecuadorPosSriPaymentScreenshotPopover");
+      if (!popover || !targetEl) return;
+      positionMxPosPopover(popover, targetEl);
+    }
+
+    function hideEcuadorPosSriPaymentScreenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("ecuadorPosSriPaymentScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 75);
+    }
+
+    function openEcuadorPosSriPaymentLightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      const modal = document.getElementById("ecuadorPosSriPaymentLightboxModal");
+      const img = document.getElementById("ecuadorPosSriPaymentModalImg");
+      const txt = document.getElementById("ecuadorPosSriPaymentZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+      }
+      if (txt) txt.textContent = "100% Zoom";
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeEcuadorPosSriPaymentLightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("ecuadorPosSriPaymentLightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleEcuadorPosSriPaymentImageZoom() {
+      const img = document.getElementById("ecuadorPosSriPaymentModalImg");
+      const txt = document.getElementById("ecuadorPosSriPaymentZoomText");
       if (!img) return;
       const isZoomed = img.classList.contains("max-w-none");
       if (isZoomed) {
@@ -9136,7 +9504,7 @@
       if (confirm("Reset to the official Odoo LATAM dataset?")) {
         localStorage.removeItem("odoo_mexico_hub_data");
         localStorage.removeItem("odoo_latam_hub_data");
-        state.items = [...MEXICO_OFFICIAL_DATA, ...CHILE_OFFICIAL_DATA];
+        state.items = [...MEXICO_OFFICIAL_DATA, ...CHILE_OFFICIAL_DATA, ...ECUADOR_OFFICIAL_DATA];
         renderFilters();
         renderCards();
       }

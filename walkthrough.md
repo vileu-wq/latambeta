@@ -2,35 +2,90 @@
 
 ## Recent Updates
 
-1. **Mexico CFDI 4.0: Video Removal from Cancelling Global Invoices Card (`mx-flow-pos-cancel-global-invoice`)**
-2. **Main Dashboard: Chile Card Layout Cleanup & Boundary Overflow Fix (Drawer & Badge Containment)**
-3. **Chile Localization: Cross References (Referencias de Documentos Cruzados) & Credit Note Original Invoice Date Rule with Interactive Hover Screenshot & Lightbox**
-4. **Mexico CFDI 4.0: POS Global Invoice Cancellation Step 1 Screenshot Replacement (Point of Sale ‣ Orders List View & Coherent Teal Annotations)**
-5. **Mexico CFDI 4.0: Step 3 Cancellation Interactive Hover Screenshots & Lightbox (Motivo 02 Dialog & Global Cancelado State)**
-6. **Mexico CFDI 4.0: POS Global Invoice Cancellation Refinement (Motivo 02 Only, Removal of Phase 2, Support Ticket Reference)**
-7. **Chile Localization Basic Configuration: DTE Email Interactive Hover Screenshot & Lightbox Modal**
-8. **Chile Localization Basic Configuration: Giro Hovering Side Tab Flyout (Mexico INFONAVIT-Style Tooltip)**
-9. **Mexico POS Global Invoices: Official Documentation Link Updated (`#l10n-mx-pos-global-invoice`)**
-10. **Mexico POS Global Invoices: Step 4 Interactive Screenshot Hover & Lightbox Modal (CFDI Tab & Sent Global State)**
-11. **Mexico POS Global Invoices: Proximity-Anchored & Neat Hover Popovers Directly Over Steps**
-12. **Mexico POS Global Invoices: Step 3 Interactive Screenshot Hover & Lightbox Modal (Wizard: Set Periodicity & Create)**
-13. **Cleanup of Highlights in the Second Screenshot of Global Invoices (Mexico POS Flow)**
-14. **Chile Localization Basic Configuration: Switching from TEST Mode Back to DEMO Mode to Test Flows**
-15. **Mexico POS Global Invoice: Step 2 Restructuring & Interactive Annotated Screenshot (Action ‣ Create Global Invoice)**
-16. **Neat Highlight on 'Amigo Pedro' Screenshot & Cleanup of Stage 01 Box**
-17. **New Mexico Card: Global Invoices for a Single Client from Point of Sale (POS)**
-18. **Top Navigation Banner Tidying: Eliminated Squished Layout & Restored Generous Breathing Room**
-19. **Main Dashboard Overlap Fix: Tidy, Non-Overlapping Expanded Country Cards Across All 5 Hubs**
-20. **Colombia Active Knowledge Hub on Main Dashboard: DIAN Direct Invoicing, UBL 2.1 & CUFE Taxonomy**
-21. **Argentina Active Knowledge Hub on Main Dashboard: AFIP / ARCA Direct Invoicing, Letters Taxonomy & Punto de Venta**
-22. **Ecuador Initial Block on Main Dashboard: Direct SRI Invoicing, Dual Modes & Single-Line Unique Traits**
-23. **Strict Scope Compliance: Basic Configuration & Flow Cards Suppressed for Ecuador**
-24. **Chile CAF Common Error: Interactive Screenshot Hover & Lightbox Modal**
-25. **Unified & Coherent Process Flow Subtitles Across All Cards (Chile CAF, Mexico & Future Cards)**
+1. **Ecuador Localization: Point of Sale (POS) Basic Configuration Card & Mandatory SRI Payment Method Prerequisite with Interactive Hover Screenshot & Lightbox**
+2. **Mexico CFDI 4.0: Video Removal from Cancelling Global Invoices Card (`mx-flow-pos-cancel-global-invoice`)**
+3. **Main Dashboard: Chile Card Layout Cleanup & Boundary Overflow Fix (Drawer & Badge Containment)**
+4. **Chile Localization: Cross References (Referencias de Documentos Cruzados) & Credit Note Original Invoice Date Rule with Interactive Hover Screenshot & Lightbox**
+5. **Mexico CFDI 4.0: POS Global Invoice Cancellation Step 1 Screenshot Replacement (Point of Sale ‣ Orders List View & Coherent Teal Annotations)**
+6. **Mexico CFDI 4.0: Step 3 Cancellation Interactive Hover Screenshots & Lightbox (Motivo 02 Dialog & Global Cancelado State)**
+7. **Mexico CFDI 4.0: POS Global Invoice Cancellation Refinement (Motivo 02 Only, Removal of Phase 2, Support Ticket Reference)**
+8. **Chile Localization Basic Configuration: DTE Email Interactive Hover Screenshot & Lightbox Modal**
+9. **Chile Localization Basic Configuration: Giro Hovering Side Tab Flyout (Mexico INFONAVIT-Style Tooltip)**
+10. **Mexico POS Global Invoices: Official Documentation Link Updated (`#l10n-mx-pos-global-invoice`)**
+11. **Mexico POS Global Invoices: Step 4 Interactive Screenshot Hover & Lightbox Modal (CFDI Tab & Sent Global State)**
+12. **Mexico POS Global Invoices: Proximity-Anchored & Neat Hover Popovers Directly Over Steps**
+13. **Mexico POS Global Invoices: Step 3 Interactive Screenshot Hover & Lightbox Modal (Wizard: Set Periodicity & Create)**
+14. **Cleanup of Highlights in the Second Screenshot of Global Invoices (Mexico POS Flow)**
+15. **Chile Localization Basic Configuration: Switching from TEST Mode Back to DEMO Mode to Test Flows**
+16. **Mexico POS Global Invoice: Step 2 Restructuring & Interactive Annotated Screenshot (Action ‣ Create Global Invoice)**
+17. **Neat Highlight on 'Amigo Pedro' Screenshot & Cleanup of Stage 01 Box**
+18. **New Mexico Card: Global Invoices for a Single Client from Point of Sale (POS)**
+19. **Top Navigation Banner Tidying: Eliminated Squished Layout & Restored Generous Breathing Room**
+20. **Main Dashboard Overlap Fix: Tidy, Non-Overlapping Expanded Country Cards Across All 5 Hubs**
+21. **Colombia Active Knowledge Hub on Main Dashboard: DIAN Direct Invoicing, UBL 2.1 & CUFE Taxonomy**
+22. **Argentina Active Knowledge Hub on Main Dashboard: AFIP / ARCA Direct Invoicing, Letters Taxonomy & Punto de Venta**
+23. **Ecuador Initial Block on Main Dashboard: Direct SRI Invoicing, Dual Modes & Single-Line Unique Traits**
+24. **Strict Scope Compliance: Basic Configuration & Flow Cards Suppressed for Ecuador**
+25. **Chile CAF Common Error: Interactive Screenshot Hover & Lightbox Modal**
+26. **Unified & Coherent Process Flow Subtitles Across All Cards (Chile CAF, Mexico & Future Cards)**
 
 ---
 
-## 1. Mexico CFDI 4.0: Video Removal from Cancelling Global Invoices Card
+## 1. Ecuador Localization: Point of Sale (POS) Basic Configuration Card & Mandatory SRI Payment Method Prerequisite
+
+In response to the user request:
+> *"For the Ecuador localization, please add a card for POS in the configuration part and say that they must add a SRI Payment method when testing. This is found under POS - Configuration - SRI payment method.*  
+> *Please then add this screenshot but only show this screenshot when hovering over the a part of this configuration and description. And add highlights in the screenshot of the important parts, make sure it is coherent with the other screenshots in the hub in style and format"*
+
+### Implementation Details
+
+1. **Ecuador Localization Basic Configuration Card (`#configContentEcuador`)**:
+   - Integrated a dedicated amber-themed configuration card inside the existing `#configPanelContainer` collapsible drawer.
+   - For Ecuador (`state.country === 'ecuador'`), `#configPanelContainer` remains visible with title **Basic Configuration: Point of Sale (POS) & SRI** and badge **Ecuador (SRI)** (`bg-amber-500/10 text-amber-700`).
+   - Contains a collapsible sub-card: **Point of Sale (POS) & SRI Payment Methods** (`#ecuadorPosConfigCard`) featuring:
+     - **3-Stage Testing Checklist**:
+       1. **Navigate to Point of Sale Configuration**: Open `Point of Sale ‣ Configuration ‣ Payment Methods` (or search `SRI payment method`).
+       2. **Mandatory SRI Payment Method when Testing**: For every active payment method (e.g. `Card`, `Cash`, `Bank`), users must assign an SRI Payment Method when testing. Under `POS - Configuration - SRI payment method`, select the statutory classification (such as *Debit Card*, *Credit Card*, or *Otros con utilización del sistema financiero*).
+       3. **Open POS Shop Session & Test Orders**: Launch shop session to validate receipt generation without tax validation errors.
+     - **Testing Prerequisite Banner**: Callout warning explaining that under SRI electronic billing rules, any POS receipt synced to accounting journals must declare an authorized SRI payment code.
+     - **Official Documentation Link**: Direct link to Odoo Ecuador Fiscal Localization documentation.
+
+2. **Precision Highlighting Cleaned Up with Zero Overlap (`odoo_ec_pos_sri_payment_method.png`)**:
+   - **Target Highlight (`SRI Payment Method: Debit Card`)**: Rounded bounding box in statutory Ecuador Amber (`#D97706`, `2.0px`) with soft translucent wash (`rgba(217, 119, 6, 0.07)`) enclosing `SRI Payment Method: Debit Card` (`X: 21, Y: 262, W: 138, H: 22`).
+   - **Directional Callout Badge**: Solid amber pill badge `SRI Payment Method (Testing Prerequisite)` with sub-pill `POS > Configuration > Payment Methods`, positioned in natural whitespace to the right (`X: 178, Y: 252, W: 286, H: 22`).
+   - **Left-Pointing Apex**: Clean triangular pointer from callout badge (`(178, 273)`) connecting to the target bounding box (`(161, 273)`).
+   - **Zero Overlap**:
+     - Leaves top breadcrumbs (`Payment Methods / Card`), company badge (`EC Company`), and form tabs completely clear.
+     - Zero text, input field, or icon obstruction across the entire screen.
+   - Deployed across **all 7 asset mirrors** with identical SHA-256 hash.
+
+3. **Restricted Hover Trigger ("Only Show When Hovering over a Part of this Configuration and Description")**:
+   - Wrapped the specific trigger phrase:
+     `POS - Configuration - SRI payment method (SRI Payment Method) 📸`
+     in an interactive dotted underline trigger with cursor help (`showEcuadorPosSriPaymentScreenshot(this)` / `hideEcuadorPosSriPaymentScreenshot()`).
+   - The screenshot popover **does not display by default** and **only appears when hovering** over this specific trigger or the flow stage.
+   - Proximity-anchored floating popover `#ecuadorPosSriPaymentScreenshotPopover` (`data-popover-width="600"`) with amber border, glowing shadow, and animated ping badge.
+   - Clicking opens the dedicated full-screen lightbox modal (`#ecuadorPosSriPaymentLightboxModal`) with `100% Zoom` toggle and ESC key dismissal.
+
+4. **Searchable Ecuador Flow Card (`ec-config-pos-sri`)**:
+   - Added `ECUADOR_OFFICIAL_DATA` entry `Point of Sale (POS): SRI Payment Method Configuration`.
+   - Rendered with warm amber left border `border-l-amber-500`, amber tag `bg-amber-50 text-amber-800 border-amber-300`, and badge `🇪🇨 Ecuador (SRI)`.
+   - Includes 3-stage process flow pipeline with Stage 2 interactive screenshot preview trigger.
+
+### Visual Verification
+
+- **Ecuador Basic Configuration Card (POS & SRI Payment Methods Expanded)**:  
+  [test_ecuador_hub_pos_card.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_ecuador_hub_pos_card.png)
+- **Interactive Screenshot Hover Popover (Triggered on 'SRI payment method' Phrase)**:  
+  [test_ecuador_pos_sri_payment_hover.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_ecuador_pos_sri_payment_hover.png)
+- **Full-Screen Lightbox Modal Preview with 100% Zoom Toggle**:  
+  [test_ecuador_pos_sri_payment_lightbox.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_ecuador_pos_sri_payment_lightbox.png)
+- **Search Result Card (Point of Sale Flow Pipeline Expanded)**:  
+  [test_ecuador_pos_card_expanded_search.png](file:///C:/Users/vivie/.gemini/antigravity/brain/f4d81e82-9262-4d5b-9355-d0156befe3a3/test_ecuador_pos_card_expanded_search.png)
+
+---
+
+## 2. Mexico CFDI 4.0: Video Removal from Cancelling Global Invoices Card
 
 In response to the user request:
 > *"Remove the videos from the Mexican card, cancelling global invoices."*
