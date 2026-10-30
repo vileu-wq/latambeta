@@ -534,6 +534,10 @@
                         <span class="truncate">Cancellation</span>
                       </span>
                       <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
+                        <span>👥</span>
+                        <span class="truncate">Nómina / Payslip</span>
+                      </span>
+                      <span class="w-full text-[8.5px] font-medium bg-[#F8F9FA] text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded flex items-center gap-1.5">
                         <span>🚛</span>
                         <span class="truncate">Carta Porte</span>
                       </span>
@@ -1023,31 +1027,45 @@
         </div>
 
         <!-- 5 Coming Soon Cards in Responsive Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-start">
+        <!-- 5 Coming Soon Cards in Responsive Grid (Form-Fitted & Perfectly Contained) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 max-w-5xl mx-auto items-stretch">
 
           <!-- 🇧🇷 Brazil Card -->
           <div
             id="dashboardCard-brazil"
             role="button"
             tabindex="0"
-            onclick="handleComingSoonClick('Brazil', 'SEFAZ')"
-            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Brazil', 'SEFAZ');}"
-            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-300 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px]"
+            onclick="handleComingSoonClick('Brazil', 'SEFAZ', 'brazil', event)"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Brazil', 'SEFAZ', 'brazil', event);}"
+            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-400 rounded-2xl p-3 sm:p-3.5 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px] w-full min-w-0"
             title="Brazil Localization - Coming Soon"
           >
-            <!-- Top Row: Authority Badge & Coming Soon Pill -->
+            <!-- Top Row: Authority Badge & Coming Soon Pill & Toggle -->
             <div class="flex items-center justify-between">
               <span class="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-[#475569] px-2 py-0.5 rounded-full border border-slate-200">
                 SEFAZ
               </span>
-              <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
-                <span>⏳</span>
-                <span>Coming Soon</span>
-              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
+                  <span>⏳</span>
+                  <span>Coming Soon</span>
+                </span>
+                <button
+                  id="dashboardChevron-brazil"
+                  type="button"
+                  onclick="toggleDashboardCountryCollapse('brazil', event)"
+                  class="p-1 rounded-md text-[#6C757D] hover:text-amber-700 hover:bg-amber-50 transition-all cursor-pointer"
+                  title="Toggle details"
+                >
+                  <svg class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <!-- Centered Hero: Flag + Country Name + Subtitle -->
-            <div class="flex flex-col items-center text-center py-2 space-y-1.5">
+            <div class="flex flex-col items-center text-center py-2 sm:py-2.5 space-y-1.5">
               <div class="w-14 h-9.5 sm:w-16 sm:h-10.5 rounded-lg overflow-hidden border border-black/10 shadow-2xs shrink-0 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105">
                 <svg class="w-full h-full object-cover" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Brazil">
                   <rect width="30" height="20" fill="#009739"/>
@@ -1056,28 +1074,35 @@
                   <path d="M11.2 10.4 c2.4 -1.4 5.2 -1.2 7.6 0.8" stroke="#FFFFFF" stroke-width="0.8" fill="none"/>
                 </svg>
               </div>
-              <div>
-                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight">
+              <div class="w-full">
+                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight min-h-[44px] flex items-center justify-center">
                   Brazil
                 </h3>
-                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5">l10n_br · NF-e / NFS-e</span>
+                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5 truncate">l10n_br · NF-e / NFS-e</span>
               </div>
             </div>
 
-            <!-- Invoices Sent To Highlight -->
-            <div class="px-2 py-1.5 rounded-lg bg-[#F8F9FA] border border-[#E2E8F0] flex items-center justify-between gap-1">
-              <span class="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-[#6C757D] flex items-center gap-1 shrink-0 whitespace-nowrap">
-                <span>📨</span>
-                <span>Invoices Sent To:</span>
-              </span>
-              <span class="text-[10px] font-bold text-[#1E293B] bg-white px-1.5 py-0.5 rounded border border-[#CBD5E1] shadow-2xs">
-                SEFAZ
-              </span>
+            <!-- Collapsed State Prompt -->
+            <div id="dashboardPrompt-brazil" class="pt-2 border-t border-[#F1F3F5] flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C757D] group-hover:text-amber-700 font-semibold transition-colors">
+              <span>View Invoices</span>
+              <svg class="w-3 h-3 text-[#6C757D] group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
 
-            <!-- Bottom: Subtle Status Indicator -->
-            <div class="pt-2 border-t border-[#F1F3F5] text-center text-[10px] text-[#94A3B8] font-medium flex items-center justify-center gap-1">
-              <span>Module in Development</span>
+            <!-- Collapsible Drawer (Invoices Sent To Highlight) -->
+            <div id="dashboardDrawer-brazil" class="card-drawer">
+              <div class="card-drawer-inner">
+                <div class="pt-2.5 border-t border-[#F1F3F5]">
+                  <div class="px-2 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-center space-y-1 w-full max-w-full box-border">
+                    <div class="text-[8.5px] font-bold uppercase tracking-wider text-amber-800 flex items-center justify-center gap-1">
+                      <span>📨</span>
+                      <span>Invoices Sent To</span>
+                    </div>
+                    <div class="inline-flex flex-wrap items-center justify-center gap-1 text-[10.5px] font-bold text-amber-950 bg-white px-2 py-0.5 rounded-md border border-amber-300 shadow-2xs w-full text-center leading-tight">
+                      <span>SEFAZ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1086,24 +1111,37 @@
             id="dashboardCard-peru"
             role="button"
             tabindex="0"
-            onclick="handleComingSoonClick('Peru', 'SUNAT')"
-            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Peru', 'SUNAT');}"
-            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-300 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px]"
+            onclick="handleComingSoonClick('Peru', 'SUNAT', 'peru', event)"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Peru', 'SUNAT', 'peru', event);}"
+            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-400 rounded-2xl p-3 sm:p-3.5 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px] w-full min-w-0"
             title="Peru Localization - Coming Soon"
           >
-            <!-- Top Row: Authority Badge & Coming Soon Pill -->
+            <!-- Top Row: Authority Badge & Coming Soon Pill & Toggle -->
             <div class="flex items-center justify-between">
               <span class="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-[#475569] px-2 py-0.5 rounded-full border border-slate-200">
                 SUNAT
               </span>
-              <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
-                <span>⏳</span>
-                <span>Coming Soon</span>
-              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
+                  <span>⏳</span>
+                  <span>Coming Soon</span>
+                </span>
+                <button
+                  id="dashboardChevron-peru"
+                  type="button"
+                  onclick="toggleDashboardCountryCollapse('peru', event)"
+                  class="p-1 rounded-md text-[#6C757D] hover:text-amber-700 hover:bg-amber-50 transition-all cursor-pointer"
+                  title="Toggle details"
+                >
+                  <svg class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <!-- Centered Hero: Flag + Country Name + Subtitle -->
-            <div class="flex flex-col items-center text-center py-2 space-y-1.5">
+            <div class="flex flex-col items-center text-center py-2 sm:py-2.5 space-y-1.5">
               <div class="w-14 h-9.5 sm:w-16 sm:h-10.5 rounded-lg overflow-hidden border border-black/10 shadow-2xs shrink-0 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105">
                 <svg class="w-full h-full object-cover" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Peru">
                   <rect width="10" height="20" fill="#D91023"/>
@@ -1112,28 +1150,35 @@
                   <path d="M13.5 8.2 h3 v3.2 c0 1 -1.5 1.8 -1.5 1.8 s-1.5 -0.8 -1.5 -1.8 z" fill="#B38622" opacity="0.9"/>
                 </svg>
               </div>
-              <div>
-                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight">
+              <div class="w-full">
+                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight min-h-[44px] flex items-center justify-center">
                   Peru
                 </h3>
-                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5">l10n_pe · SUNAT (PSE/OSE)</span>
+                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5 truncate">l10n_pe · SUNAT (PSE/OSE)</span>
               </div>
             </div>
 
-            <!-- Invoices Sent To Highlight -->
-            <div class="px-2 py-1.5 rounded-lg bg-[#F8F9FA] border border-[#E2E8F0] flex items-center justify-between gap-1">
-              <span class="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-[#6C757D] flex items-center gap-1 shrink-0 whitespace-nowrap">
-                <span>📨</span>
-                <span>Invoices Sent To:</span>
-              </span>
-              <span class="text-[10px] font-bold text-[#1E293B] bg-white px-1.5 py-0.5 rounded border border-[#CBD5E1] shadow-2xs">
-                SUNAT
-              </span>
+            <!-- Collapsed State Prompt -->
+            <div id="dashboardPrompt-peru" class="pt-2 border-t border-[#F1F3F5] flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C757D] group-hover:text-amber-700 font-semibold transition-colors">
+              <span>View Invoices</span>
+              <svg class="w-3 h-3 text-[#6C757D] group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
 
-            <!-- Bottom: Subtle Status Indicator -->
-            <div class="pt-2 border-t border-[#F1F3F5] text-center text-[10px] text-[#94A3B8] font-medium flex items-center justify-center gap-1">
-              <span>Module in Development</span>
+            <!-- Collapsible Drawer (Invoices Sent To Highlight) -->
+            <div id="dashboardDrawer-peru" class="card-drawer">
+              <div class="card-drawer-inner">
+                <div class="pt-2.5 border-t border-[#F1F3F5]">
+                  <div class="px-2 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-center space-y-1 w-full max-w-full box-border">
+                    <div class="text-[8.5px] font-bold uppercase tracking-wider text-amber-800 flex items-center justify-center gap-1">
+                      <span>📨</span>
+                      <span>Invoices Sent To</span>
+                    </div>
+                    <div class="inline-flex flex-wrap items-center justify-center gap-1 text-[10.5px] font-bold text-amber-950 bg-white px-2 py-0.5 rounded-md border border-amber-300 shadow-2xs w-full text-center leading-tight">
+                      <span>SUNAT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1142,24 +1187,37 @@
             id="dashboardCard-uruguay"
             role="button"
             tabindex="0"
-            onclick="handleComingSoonClick('Uruguay', 'DGI')"
-            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Uruguay', 'DGI');}"
-            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-300 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px]"
+            onclick="handleComingSoonClick('Uruguay', 'DGI', 'uruguay', event)"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Uruguay', 'DGI', 'uruguay', event);}"
+            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-400 rounded-2xl p-3 sm:p-3.5 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px] w-full min-w-0"
             title="Uruguay Localization - Coming Soon"
           >
-            <!-- Top Row: Authority Badge & Coming Soon Pill -->
+            <!-- Top Row: Authority Badge & Coming Soon Pill & Toggle -->
             <div class="flex items-center justify-between">
               <span class="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-[#475569] px-2 py-0.5 rounded-full border border-slate-200">
                 DGI
               </span>
-              <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
-                <span>⏳</span>
-                <span>Coming Soon</span>
-              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
+                  <span>⏳</span>
+                  <span>Coming Soon</span>
+                </span>
+                <button
+                  id="dashboardChevron-uruguay"
+                  type="button"
+                  onclick="toggleDashboardCountryCollapse('uruguay', event)"
+                  class="p-1 rounded-md text-[#6C757D] hover:text-amber-700 hover:bg-amber-50 transition-all cursor-pointer"
+                  title="Toggle details"
+                >
+                  <svg class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <!-- Centered Hero: Flag + Country Name + Subtitle -->
-            <div class="flex flex-col items-center text-center py-2 space-y-1.5">
+            <div class="flex flex-col items-center text-center py-2 sm:py-2.5 space-y-1.5">
               <div class="w-14 h-9.5 sm:w-16 sm:h-10.5 rounded-lg overflow-hidden border border-black/10 shadow-2xs shrink-0 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105">
                 <svg class="w-full h-full object-cover" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Uruguay">
                   <rect width="30" height="20" fill="#FFFFFF"/>
@@ -1172,28 +1230,35 @@
                   <circle cx="5.5" cy="4.5" r="1.1" fill="#843511"/>
                 </svg>
               </div>
-              <div>
-                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight">
+              <div class="w-full">
+                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight min-h-[44px] flex items-center justify-center">
                   Uruguay
                 </h3>
-                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5">l10n_uy · DGI CFE Localizations</span>
+                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5 truncate">l10n_uy · DGI CFE Localizations</span>
               </div>
             </div>
 
-            <!-- Invoices Sent To Highlight -->
-            <div class="px-2 py-1.5 rounded-lg bg-[#F8F9FA] border border-[#E2E8F0] flex items-center justify-between gap-1">
-              <span class="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-[#6C757D] flex items-center gap-1 shrink-0 whitespace-nowrap">
-                <span>📨</span>
-                <span>Invoices Sent To:</span>
-              </span>
-              <span class="text-[10px] font-bold text-[#1E293B] bg-white px-1.5 py-0.5 rounded border border-[#CBD5E1] shadow-2xs">
-                DGI
-              </span>
+            <!-- Collapsed State Prompt -->
+            <div id="dashboardPrompt-uruguay" class="pt-2 border-t border-[#F1F3F5] flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C757D] group-hover:text-amber-700 font-semibold transition-colors">
+              <span>View Invoices</span>
+              <svg class="w-3 h-3 text-[#6C757D] group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
 
-            <!-- Bottom: Subtle Status Indicator -->
-            <div class="pt-2 border-t border-[#F1F3F5] text-center text-[10px] text-[#94A3B8] font-medium flex items-center justify-center gap-1">
-              <span>Module in Development</span>
+            <!-- Collapsible Drawer (Invoices Sent To Highlight) -->
+            <div id="dashboardDrawer-uruguay" class="card-drawer">
+              <div class="card-drawer-inner">
+                <div class="pt-2.5 border-t border-[#F1F3F5]">
+                  <div class="px-2 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-center space-y-1 w-full max-w-full box-border">
+                    <div class="text-[8.5px] font-bold uppercase tracking-wider text-amber-800 flex items-center justify-center gap-1">
+                      <span>📨</span>
+                      <span>Invoices Sent To</span>
+                    </div>
+                    <div class="inline-flex flex-wrap items-center justify-center gap-1 text-[10.5px] font-bold text-amber-950 bg-white px-2 py-0.5 rounded-md border border-amber-300 shadow-2xs w-full text-center leading-tight">
+                      <span>DGI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1202,24 +1267,37 @@
             id="dashboardCard-guatemala"
             role="button"
             tabindex="0"
-            onclick="handleComingSoonClick('Guatemala', 'SAT (FEL)')"
-            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Guatemala', 'SAT (FEL)');}"
-            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-300 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px]"
+            onclick="handleComingSoonClick('Guatemala', 'SAT (FEL)', 'guatemala', event)"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Guatemala', 'SAT (FEL)', 'guatemala', event);}"
+            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-400 rounded-2xl p-3 sm:p-3.5 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px] w-full min-w-0"
             title="Guatemala Localization - Coming Soon"
           >
-            <!-- Top Row: Authority Badge & Coming Soon Pill -->
+            <!-- Top Row: Authority Badge & Coming Soon Pill & Toggle -->
             <div class="flex items-center justify-between">
               <span class="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-[#475569] px-2 py-0.5 rounded-full border border-slate-200">
                 SAT (FEL)
               </span>
-              <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
-                <span>⏳</span>
-                <span>Coming Soon</span>
-              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
+                  <span>⏳</span>
+                  <span>Coming Soon</span>
+                </span>
+                <button
+                  id="dashboardChevron-guatemala"
+                  type="button"
+                  onclick="toggleDashboardCountryCollapse('guatemala', event)"
+                  class="p-1 rounded-md text-[#6C757D] hover:text-amber-700 hover:bg-amber-50 transition-all cursor-pointer"
+                  title="Toggle details"
+                >
+                  <svg class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <!-- Centered Hero: Flag + Country Name + Subtitle -->
-            <div class="flex flex-col items-center text-center py-2 space-y-1.5">
+            <div class="flex flex-col items-center text-center py-2 sm:py-2.5 space-y-1.5">
               <div class="w-14 h-9.5 sm:w-16 sm:h-10.5 rounded-lg overflow-hidden border border-black/10 shadow-2xs shrink-0 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105">
                 <svg class="w-full h-full object-cover" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Guatemala">
                   <rect width="10" height="20" fill="#4997D0"/>
@@ -1229,28 +1307,35 @@
                   <path d="M13.5 12.5 q1.5 2 3 0" stroke="#B38622" stroke-width="0.8" fill="none"/>
                 </svg>
               </div>
-              <div>
-                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight">
+              <div class="w-full">
+                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight min-h-[44px] flex items-center justify-center">
                   Guatemala
                 </h3>
-                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5">l10n_gt · FEL E-Invoicing</span>
+                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5 truncate">l10n_gt · FEL E-Invoicing</span>
               </div>
             </div>
 
-            <!-- Invoices Sent To Highlight -->
-            <div class="px-2 py-1.5 rounded-lg bg-[#F8F9FA] border border-[#E2E8F0] flex items-center justify-between gap-1">
-              <span class="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-[#6C757D] flex items-center gap-1 shrink-0 whitespace-nowrap">
-                <span>📨</span>
-                <span>Invoices Sent To:</span>
-              </span>
-              <span class="text-[9px] font-bold text-[#1E293B] bg-white px-1.5 py-0.5 rounded border border-[#CBD5E1] shadow-2xs shrink-0 whitespace-nowrap">
-                SAT (FEL)
-              </span>
+            <!-- Collapsed State Prompt -->
+            <div id="dashboardPrompt-guatemala" class="pt-2 border-t border-[#F1F3F5] flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C757D] group-hover:text-amber-700 font-semibold transition-colors">
+              <span>View Invoices</span>
+              <svg class="w-3 h-3 text-[#6C757D] group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
 
-            <!-- Bottom: Subtle Status Indicator -->
-            <div class="pt-2 border-t border-[#F1F3F5] text-center text-[10px] text-[#94A3B8] font-medium flex items-center justify-center gap-1">
-              <span>Module in Development</span>
+            <!-- Collapsible Drawer (Invoices Sent To Highlight) -->
+            <div id="dashboardDrawer-guatemala" class="card-drawer">
+              <div class="card-drawer-inner">
+                <div class="pt-2.5 border-t border-[#F1F3F5]">
+                  <div class="px-2 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-center space-y-1 w-full max-w-full box-border">
+                    <div class="text-[8.5px] font-bold uppercase tracking-wider text-amber-800 flex items-center justify-center gap-1">
+                      <span>📨</span>
+                      <span>Invoices Sent To</span>
+                    </div>
+                    <div class="inline-flex flex-wrap items-center justify-center gap-1 text-[10.5px] font-bold text-amber-950 bg-white px-2 py-0.5 rounded-md border border-amber-300 shadow-2xs w-full text-center leading-tight">
+                      <span>SAT (FEL)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1259,24 +1344,37 @@
             id="dashboardCard-dominican"
             role="button"
             tabindex="0"
-            onclick="handleComingSoonClick('Dominican Republic', 'DGII')"
-            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Dominican Republic', 'DGII');}"
-            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-300 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px]"
+            onclick="handleComingSoonClick('Dominican Republic', 'DGII', 'dominican', event)"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();handleComingSoonClick('Dominican Republic', 'DGII', 'dominican', event);}"
+            class="group relative bg-white border border-[#E2E8F0] hover:border-amber-400 rounded-2xl p-3 sm:p-3.5 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer select-none flex flex-col justify-between min-h-[210px] sm:min-h-[220px] w-full min-w-0"
             title="Dominican Republic Localization - Coming Soon"
           >
-            <!-- Top Row: Authority Badge & Coming Soon Pill -->
+            <!-- Top Row: Authority Badge & Coming Soon Pill & Toggle -->
             <div class="flex items-center justify-between">
               <span class="text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-[#475569] px-2 py-0.5 rounded-full border border-slate-200">
                 DGII
               </span>
-              <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
-                <span>⏳</span>
-                <span>Coming Soon</span>
-              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200/80 flex items-center gap-1">
+                  <span>⏳</span>
+                  <span>Coming Soon</span>
+                </span>
+                <button
+                  id="dashboardChevron-dominican"
+                  type="button"
+                  onclick="toggleDashboardCountryCollapse('dominican', event)"
+                  class="p-1 rounded-md text-[#6C757D] hover:text-amber-700 hover:bg-amber-50 transition-all cursor-pointer"
+                  title="Toggle details"
+                >
+                  <svg class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <!-- Centered Hero: Flag + Country Name + Subtitle -->
-            <div class="flex flex-col items-center text-center py-2 space-y-1.5">
+            <div class="flex flex-col items-center text-center py-2 sm:py-2.5 space-y-1.5">
               <div class="w-14 h-9.5 sm:w-16 sm:h-10.5 rounded-lg overflow-hidden border border-black/10 shadow-2xs shrink-0 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105">
                 <svg class="w-full h-full object-cover" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Dominican Republic">
                   <rect width="13.25" height="8.25" fill="#002F6C"/>
@@ -1289,28 +1387,35 @@
                   <circle cx="15" cy="10" r="0.8" fill="#CE1126"/>
                 </svg>
               </div>
-              <div>
-                <h3 class="text-base sm:text-lg font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight">
+              <div class="w-full">
+                <h3 class="text-sm sm:text-[15px] font-bold text-[#212529] group-hover:text-amber-800 transition-colors leading-tight min-h-[44px] flex items-center justify-center">
                   Dominican Republic
                 </h3>
-                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5">l10n_do · e-CF Localizations</span>
+                <span class="text-[10px] sm:text-[11px] text-[#6C757D] font-medium block mt-0.5 truncate">l10n_do · e-CF Localizations</span>
               </div>
             </div>
 
-            <!-- Invoices Sent To Highlight -->
-            <div class="px-2.5 py-1.5 rounded-lg bg-[#F8F9FA] border border-[#E2E8F0] flex items-center justify-between">
-              <span class="text-[9px] font-bold uppercase tracking-wider text-[#6C757D] flex items-center gap-1">
-                <span>📨</span>
-                <span>Invoices Sent To:</span>
-              </span>
-              <span class="text-[10px] font-bold text-[#1E293B] bg-white px-1.5 py-0.5 rounded border border-[#CBD5E1] shadow-2xs">
-                DGII
-              </span>
+            <!-- Collapsed State Prompt -->
+            <div id="dashboardPrompt-dominican" class="pt-2 border-t border-[#F1F3F5] flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C757D] group-hover:text-amber-700 font-semibold transition-colors">
+              <span>View Invoices</span>
+              <svg class="w-3 h-3 text-[#6C757D] group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </div>
 
-            <!-- Bottom: Subtle Status Indicator -->
-            <div class="pt-2 border-t border-[#F1F3F5] text-center text-[10px] text-[#94A3B8] font-medium flex items-center justify-center gap-1">
-              <span>Module in Development</span>
+            <!-- Collapsible Drawer (Invoices Sent To Highlight) -->
+            <div id="dashboardDrawer-dominican" class="card-drawer">
+              <div class="card-drawer-inner">
+                <div class="pt-2.5 border-t border-[#F1F3F5]">
+                  <div class="px-2 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-center space-y-1 w-full max-w-full box-border">
+                    <div class="text-[8.5px] font-bold uppercase tracking-wider text-amber-800 flex items-center justify-center gap-1">
+                      <span>📨</span>
+                      <span>Invoices Sent To</span>
+                    </div>
+                    <div class="inline-flex flex-wrap items-center justify-center gap-1 text-[10.5px] font-bold text-amber-950 bg-white px-2 py-0.5 rounded-md border border-amber-300 shadow-2xs w-full text-center leading-tight">
+                      <span>DGII</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1461,7 +1566,7 @@
                           </span>
                           <div class="text-[11px] text-[#343A40] leading-snug">
                             <span class="font-bold text-[#714B67] text-[10px] uppercase tracking-wide bg-[#714B67]/10 px-1.5 py-0.5 rounded mr-1">Side Note</span>
-                            Products must have a <strong class="text-[#212529]">UNSPSC Category</strong> (found under the <span class="font-semibold text-[#714B67]">Accounting</span> tab in the product form) in order to invoice.
+                            Products must have a <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5" onmouseenter="showMexicoProductUnspscScreenshot(this)" onmouseleave="hideMexicoProductUnspscScreenshot()" onclick="openMexicoProductUnspscLightbox()" title="Hover to preview UNSPSC Category screenshot • Click to enlarge"><span>UNSPSC Category</span> (<code class="font-mono text-[10px] bg-[#E6F6F5] text-[#008481] px-1 py-0.5 rounded font-bold">unspsc_code_id</code>) 📸</span> (found under the <span class="font-semibold text-[#714B67]">Accounting</span> tab in the product form) in order to invoice.
                           </div>
                         </div>
                       </div>
@@ -1609,8 +1714,8 @@
                             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#00A09D] text-white text-[10px] font-bold shrink-0 mt-0.5">4</span>
                             <div class="text-xs text-[#343A40] leading-snug flex-1 min-w-0">
                               <div class="flex items-center justify-between gap-2">
-                                <div class="flex items-center gap-1.5 min-w-0">
-                                  <span class="font-semibold text-[#212529] truncate">Configure INFONAVIT / FONACOT Tab</span>
+                                <div class="flex items-center gap-1.5 min-w-0 flex-wrap">
+                                  <span class="font-semibold text-[#212529]">Configure <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5" onmouseenter="showMexicoInfonavitFonacotScreenshot(this)" onmouseleave="hideMexicoInfonavitFonacotScreenshot()" onclick="openMexicoInfonavitFonacotLightbox()" title="Hover to preview INFONAVIT / FONACOT employee configuration screenshot • Click to enlarge"><span>INFONAVIT</span> / <span>FONACOT</span> 📸</span> Tab</span>
                                   <span class="text-[9px] font-bold uppercase tracking-wider bg-[#00A09D]/15 text-[#008481] border border-[#00A09D]/30 px-1.5 py-0.5 rounded-full shrink-0">Mexico Specific 🇲🇽</span>
                                 </div>
 
@@ -1648,13 +1753,13 @@
 
                                     <div class="relative z-10 space-y-2 text-[11px]">
                                       <div>
-                                        <strong class="text-[#38BDF8] block">🏠 INFONAVIT (Housing Institute):</strong>
+                                        <strong class="text-[#38BDF8] block">🏠 <span class="underline decoration-dotted decoration-[#38BDF8] cursor-help hover:text-white transition-colors" onmouseenter="showMexicoInfonavitFonacotScreenshot(this)" onmouseleave="hideMexicoInfonavitFonacotScreenshot()" onclick="openMexicoInfonavitFonacotLightbox()" title="Hover to preview INFONAVIT screenshot • Click to enlarge">INFONAVIT</span> (Housing Institute):</strong>
                                         <p class="text-slate-300 leading-snug text-[10px]">
                                           Affordable mortgage loan deductions from paychecks (Fixed Fee, %, or Discount Factor).
                                         </p>
                                       </div>
                                       <div>
-                                        <strong class="text-[#38BDF8] block">💳 FONACOT (Consumer Credit):</strong>
+                                        <strong class="text-[#38BDF8] block">💳 <span class="underline decoration-dotted decoration-[#38BDF8] cursor-help hover:text-white transition-colors" onmouseenter="showMexicoInfonavitFonacotScreenshot(this)" onmouseleave="hideMexicoInfonavitFonacotScreenshot()" onclick="openMexicoInfonavitFonacotLightbox()" title="Hover to preview FONACOT screenshot • Click to enlarge">FONACOT</span> (Consumer Credit):</strong>
                                         <p class="text-slate-300 leading-snug text-[10px]">
                                           Low-interest government consumer loan deductions as a fixed monthly amount.
                                         </p>
@@ -1677,7 +1782,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <span class="block text-[11px] text-[#6C757D] mt-0.5">Set statutory housing (INFONAVIT) or consumer loan (FONACOT) retentions; mark status as "Closed" once paid off. <a href="https://www.odoo.com/documentation/19.0/applications/hr/payroll/payroll_localizations/mexico.html#infonavit-fonacot-tab" target="_blank" rel="noopener noreferrer" class="text-[#008481] hover:underline font-semibold">Docs ↗</a></span>
+                              <span class="block text-[11px] text-[#6C757D] mt-0.5">Set statutory housing (<span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold cursor-help hover:text-teal-900 transition-colors" onmouseenter="showMexicoInfonavitFonacotScreenshot(this)" onmouseleave="hideMexicoInfonavitFonacotScreenshot()" onclick="openMexicoInfonavitFonacotLightbox()" title="Hover to preview INFONAVIT / FONACOT employee configuration screenshot â€¢ Click to enlarge">INFONAVIT</span>) or consumer loan (<span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold cursor-help hover:text-teal-900 transition-colors" onmouseenter="showMexicoInfonavitFonacotScreenshot(this)" onmouseleave="hideMexicoInfonavitFonacotScreenshot()" onclick="openMexicoInfonavitFonacotLightbox()" title="Hover to preview INFONAVIT / FONACOT employee configuration screenshot â€¢ Click to enlarge">FONACOT</span>) retentions; mark status as "Closed" once paid off. <a href="https://www.odoo.com/documentation/19.0/applications/hr/payroll/payroll_localizations/mexico.html#infonavit-fonacot-tab" target="_blank" rel="noopener noreferrer" class="text-[#008481] hover:underline font-semibold">Docs ↗</a></span>
                             </div>
                           </li>
 
@@ -1686,7 +1791,7 @@
                             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#00A09D] text-white text-[10px] font-bold shrink-0 mt-0.5">5</span>
                             <div class="text-xs text-[#343A40] leading-snug">
                               <span class="font-semibold text-[#212529]">Payslip Stamping (Timbrado de Nómina)</span>
-                              <span class="block text-[11px] text-[#6C757D] mt-0.5">Uses company SAT CSD Certificate and configured PAC to stamp payslips and generate signed XML + PDF.</span>
+                              <span class="block text-[11px] text-[#6C757D] mt-0.5">Uses company SAT CSD Certificate and configured PAC to stamp payslips and generate signed XML + PDF. <button type="button" onclick="setSearch('nomina')" class="text-[#008481] hover:underline font-semibold cursor-pointer">View Issuing Nómina CFDI Flow ↗</button></span>
                             </div>
                           </li>
                         </ul>
@@ -3253,6 +3358,283 @@
     </div>
   </div>
 
+  <!-- ── Mexico Product UNSPSC Category Screenshot Hover Popover (Zero-clipping, Fixed Positioning) ── -->
+  <div
+    id="mexicoProductUnspscScreenshotPopover"
+    data-popover-width="620"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[640px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico CFDI 4.0 — Product UNSPSC Category (Invoicing Prerequisite)</span>
+          <span class="text-[10px] text-[#475569]">Product Form ‣ Accounting Tab ‣ <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">UNSPSC Category</code> field</span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        CFDI: UNSPSC ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_mx_product_unspsc_category.png"
+        onerror="this.src='./odoo_mx_product_unspsc_category.png'"
+        alt="Odoo Mexico - Product UNSPSC Category Configuration"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="pt-2 mt-2 border-t border-teal-100 flex items-center justify-between text-[11px]">
+      <div class="flex items-center gap-1.5 text-[#008481] font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#008481] animate-ping"></span>
+        <span>Requirement: Products must declare an official UNSPSC code to invoice</span>
+      </div>
+      <span class="font-semibold text-[#008481]">Click to enlarge ↗</span>
+    </div>
+  </div>
+
+  <!-- ── Mexico Employee INFONAVIT & FONACOT Screenshot Hover Popover (Zero-clipping, Fixed Positioning) ── -->
+  <div
+    id="mexicoInfonavitFonacotScreenshotPopover"
+    data-popover-width="620"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[640px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico Payroll — INFONAVIT &amp; FONACOT Statutory Deductions</span>
+          <span class="text-[10px] text-[#475569]">Employees ‣ Employee Record ‣ <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">Infonavit / Fonacot</code> Tab</span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        Payroll: MX Retentions ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_mx_employee_infonavit_fonacot.png"
+        onerror="this.src='./odoo_mx_employee_infonavit_fonacot.png'"
+        alt="Odoo Mexico - INFONAVIT and FONACOT Payroll Configuration"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="pt-2 mt-2 border-t border-teal-100 flex items-center justify-between text-[11px]">
+      <div class="flex items-center gap-1.5 text-[#008481] font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#008481] animate-ping"></span>
+        <span>Requirement: Configure deduction mode &amp; set status to "Closed" once paid off</span>
+      </div>
+      <span class="font-semibold text-[#008481]">Click to enlarge ↗</span>
+    </div>
+  </div>
+
+  <!-- ── Mexico Payroll Salary Structure (v20 vs v19) Hover Popover (Zero-clipping, Fixed Positioning) ── -->
+  <div
+    id="mexicoSalaryStructureScreenshotPopover"
+    data-popover-width="640"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[660px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico Payroll — Salary Structure Placement</span>
+          <span class="text-[10px] text-[#475569]">Comparison: <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">Odoo v20</code> vs <code class="font-mono text-[9px] text-purple-700 bg-purple-50 px-1 rounded font-bold">Odoo v19 / v18</code></span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        v20 vs v19 Comparison ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_mx_payroll_salary_structure_comparison.png"
+        onerror="this.src='./odoo_mx_payroll_salary_structure_comparison.png'"
+        alt="Odoo Mexico - Salary Structure Placement Comparison v20 vs v19"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="mt-2 pt-2 border-t border-teal-100 space-y-1 text-[11px]">
+      <div class="flex items-center justify-between text-[#008481] font-medium">
+        <div class="flex items-center gap-1.5 truncate">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#008481] shrink-0"></span>
+          <span class="truncate"><strong>v20:</strong> 'Other info' tab ‣ Pay Structure &nbsp;|&nbsp; <strong>v19:</strong> Form header</span>
+        </div>
+        <span class="font-semibold text-[#008481] shrink-0 ml-2">Click to enlarge ↗</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 3 (Compute Sheet) Hover Popover (Zero-clipping, Fixed Positioning) 📸 -->
+  <div
+    id="mexicoNominaStep3ScreenshotPopover"
+    data-popover-width="640"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[660px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico Payroll — Stage 03: Compute &amp; Validate Payslip</span>
+          <span class="text-[10px] text-[#475569]">Form Action: <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">Compute Sheet</code> (Calcular Hoja) &bull; Status: <code class="font-mono text-[9px] text-teal-800 bg-teal-50 px-1 rounded font-bold">Draft ➔ Validated</code></span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        Stage 03 Verification ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_mx_payroll_step3_compute_sheet.png"
+        onerror="this.src='./odoo_mx_payroll_step3_compute_sheet.png'"
+        alt="Odoo Mexico - Compute Sheet &amp; Validate Payslip Form"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="mt-2 pt-2 border-t border-teal-100 space-y-1 text-[11px]">
+      <div class="flex items-center justify-between text-[#008481] font-medium">
+        <div class="flex items-center gap-1.5 truncate">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#008481] shrink-0"></span>
+          <span class="truncate">Click <strong>Compute Sheet</strong> to recalculate rules &amp; retentions before clicking <strong>Validate</strong></span>
+        </div>
+        <span class="font-semibold text-[#008481] shrink-0 ml-2">Click to enlarge ↗</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 4 (Approve Journal Entries) Hover Popover (Zero-clipping, Fixed Positioning) 📸 -->
+  <div
+    id="mexicoNominaStep4ScreenshotPopover"
+    data-popover-width="640"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[660px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico Payroll — Stage 04: Approve Journal Entries</span>
+          <span class="text-[10px] text-[#475569]">Smart Button: <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">Journal Entry (Draft)</code> &bull; Status: <code class="font-mono text-[9px] text-teal-800 bg-teal-50 px-1 rounded font-bold">Validated</code></span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        Stage 04 Verification ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_mx_payroll_step4_journal_entry.png"
+        onerror="this.src='./odoo_mx_payroll_step4_journal_entry.png'"
+        alt="Odoo Mexico - Approve Journal Entries (Draft) Form"
+        class="w-full h-auto object-contain block aspect-[1024/679]"
+      />
+    </div>
+
+    <div class="mt-2 pt-2 border-t border-teal-100 space-y-1 text-[11px]">
+      <div class="flex items-center justify-between text-[#008481] font-medium">
+        <div class="flex items-center gap-1.5 truncate">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#008481] shrink-0"></span>
+          <span class="truncate">Click <strong>Journal Entry (Draft)</strong> to review &amp; post entries before clicking <strong>Pay</strong></span>
+        </div>
+        <span class="font-semibold text-[#008481] shrink-0 ml-2">Click to enlarge ↗</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 5 (Pay and Mark as Paid) Hover Popover (Zero-clipping, Fixed Positioning) 📸 -->
+  <div
+    id="mexicoNominaStep5ScreenshotPopover"
+    data-popover-width="640"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[660px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico Payroll — Stage 05: Pay &amp; 'Mark as Paid'</span>
+          <span class="text-[10px] text-[#475569]">Odoo v20 Modal: <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">Mark as Paid</code> &bull; Mode: <code class="font-mono text-[9px] text-teal-800 bg-teal-50 px-1 rounded font-bold">Manually</code></span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        Stage 05 Verification ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        src="./assets/odoo_mx_payroll_step5_mark_as_paid.png"
+        onerror="this.src='./odoo_mx_payroll_step5_mark_as_paid.png'"
+        alt="Odoo Mexico - Pay and Mark as Paid Modal Form"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="mt-2 pt-2 border-t border-teal-100 space-y-1 text-[11px]">
+      <div class="flex items-center justify-between text-[#008481] font-medium">
+        <div class="flex items-center gap-1.5 truncate">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#008481] shrink-0"></span>
+          <span class="truncate">Click <strong>Pay</strong>, verify Mode/Date, and click <strong>Mark as Paid</strong> to unlock <strong>Generate CFDI</strong></span>
+        </div>
+        <span class="font-semibold text-[#008481] shrink-0 ml-2">Click to enlarge ↗</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 6 (Generate CFDI & Stamped UUID) Hover Popover (Zero-clipping, Fixed Positioning) 📸 -->
+  <div
+    id="mexicoNominaStep6ScreenshotPopover"
+    data-popover-width="640"
+    class="fixed z-[95] pointer-events-none transition-all duration-200 opacity-0 scale-95 shadow-2xl rounded-2xl border-2 border-[#008481] bg-white p-3 hidden max-w-[660px]"
+    style="filter: drop-shadow(0 20px 25px rgba(0, 132, 129, 0.25));"
+  >
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-teal-100">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📸</span>
+        <div>
+          <span class="font-bold text-xs text-[#008481] block leading-tight">Mexico Payroll — Stage 06: Generate CFDI &amp; Stamped UUID</span>
+          <span class="text-[10px] text-[#475569]">Action: <code class="font-mono text-[9px] text-[#008481] bg-[#E6F6F5] px-1 rounded font-bold">Generate CFDI</code> &bull; Status: <code class="font-mono text-[9px] text-teal-800 bg-teal-50 px-1 rounded font-bold">Signed (UUID)</code></span>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold bg-[#E6F6F5] text-[#008481] border border-teal-200 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+        Stage 06 Verification ✓
+      </span>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-teal-100 shadow-inner bg-slate-900">
+      <img
+        id="mexicoNominaStep6PopoverImg"
+        src="./assets/odoo_mx_payroll_step6_generate_cfdi.png"
+        onerror="this.src='./odoo_mx_payroll_step6_generate_cfdi.png'"
+        alt="Odoo Mexico - Generate CFDI Button Unlocked and Stamped UUID"
+        class="w-full h-auto object-contain block"
+      />
+    </div>
+
+    <div class="mt-2 pt-2 border-t border-teal-100 space-y-1 text-[11px]">
+      <div class="flex items-center justify-between text-[#008481] font-medium">
+        <div class="flex items-center gap-1.5 truncate">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#008481] shrink-0"></span>
+          <span class="truncate">Click <strong>Generate CFDI</strong> to stamp with PAC &bull; Dual view: Button unlocked &amp; Stamped PDF</span>
+        </div>
+        <span class="font-semibold text-[#008481] shrink-0 ml-2">Click to enlarge (Dual View) ↗</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Chile Step 1 Screenshot Lightbox Modal (SII Folios Request & Odoo CAFs Range) ── -->
   <div id="chileStep1LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeChileStep1Lightbox(event)">
     <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
@@ -3701,6 +4083,417 @@
         <button onclick="closeEcuadorPosSriPaymentLightbox(event)" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
           Close Preview
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Mexico Product UNSPSC Category Screenshot Lightbox Modal ── -->
+  <div id="mexicoProductUnspscLightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoProductUnspscLightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico CFDI 4.0 — Product UNSPSC Category (<code class="font-mono text-xs text-teal-100">unspsc_code_id</code>)</h3>
+            <p class="text-[11px] text-white/80">Products ‣ Product Form ‣ Accounting Tab ‣ Mandatory UNSPSC Category classification for SAT CFDI 4.0</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoProductUnspscImageZoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoProductUnspscZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoProductUnspscLightbox(event)" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white font-bold transition-colors cursor-pointer" title="Close (ESC)">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div id="mexicoProductUnspscImageContainer" class="p-3 sm:p-6 bg-slate-900 overflow-auto flex items-center justify-center flex-1 max-h-[calc(96vh-120px)]">
+        <img
+          id="mexicoProductUnspscModalImg"
+          src="./assets/odoo_mx_product_unspsc_category.png"
+          onerror="this.src='./odoo_mx_product_unspsc_category.png'"
+          alt="Odoo Mexico - Product UNSPSC Category Configuration"
+          class="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoProductUnspscImageZoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">Products ‣ Product Form ‣ <strong>Accounting Tab (UNSPSC Category)</strong>: In Mexico localization, all invoiced items must have an official 8-digit SAT UNSPSC product/service code assigned (<code class="font-mono text-[10px] text-[#008481] bg-[#E6F6F5] px-1 py-0.5 rounded font-bold">UNSPSC Category</code>, technical field <code class="font-mono text-[10px] text-[#008481] bg-[#E6F6F5] px-1 py-0.5 rounded font-bold">unspsc_code_id</code>) before confirming and stamping invoices under CFDI 4.0 regulations.</span>
+        <button onclick="closeMexicoProductUnspscLightbox(event)" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Mexico Employee INFONAVIT & FONACOT Screenshot Lightbox Modal ── -->
+  <div id="mexicoInfonavitFonacotLightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoInfonavitFonacotLightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico Payroll — INFONAVIT &amp; FONACOT Statutory Deductions Configuration</h3>
+            <p class="text-[11px] text-white/80">Employees ‣ Employee Record ‣ "Infonavit / Fonacot" tab • Housing &amp; Consumer Loan Retentions</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoInfonavitFonacotImageZoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoInfonavitFonacotZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoInfonavitFonacotLightbox()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 text-lg font-bold transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Context Bar -->
+      <div class="bg-[#E6F6F5] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-bold text-[#008481]">Mexico Statutory Deductions:</span>
+          <span class="text-[11px] text-slate-700"><strong>INFONAVIT</strong> (Housing Mortgage: Fixed Fee, %, or Discount Factor) &amp; <strong>FONACOT</strong> (Consumer Credit: Fixed Monthly Amount) • <em>Crucial:</em> Mark status as "Closed" once paid off</span>
+        </div>
+        <span class="text-[11px] text-[#008481] font-medium">Click image to toggle zoom • Press ESC to close</span>
+      </div>
+
+      <div class="p-3 sm:p-5 bg-[#111827] overflow-auto flex-1 flex items-center justify-center min-h-[380px]">
+        <img
+          id="mexicoInfonavitFonacotModalImg"
+          src="./assets/odoo_mx_employee_infonavit_fonacot.png"
+          onerror="this.src='./odoo_mx_employee_infonavit_fonacot.png'"
+          alt="Odoo Mexico - INFONAVIT and FONACOT Payroll Configuration"
+          class="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoInfonavitFonacotImageZoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">Employees ‣ <strong>Infonavit / Fonacot Tab</strong>: Configure statutory employee retention lines for housing loans (INFONAVIT) and consumer credit (FONACOT). Deductions are automatically subtracted from stamped payslips (<code class="font-mono text-[10px] text-[#008481] bg-[#E6F6F5] px-1 py-0.5 rounded font-bold">Timbrado de Nómina</code>). When the debt is fully settled, update status to <strong class="text-[#008481]">Closed</strong> to prevent further deductions.</span>
+        <button onclick="closeMexicoInfonavitFonacotLightbox(event)" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Mexico Payroll Salary Structure (v20 vs v19) Screenshot Lightbox Modal ── -->
+  <div id="mexicoSalaryStructureLightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoSalaryStructureLightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico Payroll — Salary Structure Placement: Odoo v20 vs Odoo v19 / v18</h3>
+            <p class="text-[11px] text-white/80">Payslip Setup Architecture • Where to find and select "Mexico: Regular Pay" Structure</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoSalaryStructureImageZoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoSalaryStructureZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoSalaryStructureLightbox()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 text-lg font-bold transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive View Switcher Tabs -->
+      <div class="bg-gray-100 border-b border-gray-200 px-3 sm:px-4 py-2 flex items-center justify-between gap-2 flex-wrap">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <button
+            id="salStructTabCompare"
+            type="button"
+            onclick="setMexicoSalaryStructureView('compare')"
+            class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-[#008481] text-white shadow-xs"
+          >
+            📊 Side-by-Side Comparison
+          </button>
+          <button
+            id="salStructTabV20"
+            type="button"
+            onclick="setMexicoSalaryStructureView('v20')"
+            class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-gray-700 hover:bg-teal-50 hover:text-[#008481] border border-gray-200"
+          >
+            🆕 Odoo v20 ('Other info' Tab)
+          </button>
+          <button
+            id="salStructTabV19"
+            type="button"
+            onclick="setMexicoSalaryStructureView('v19')"
+            class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-gray-700 hover:bg-purple-50 hover:text-[#714B67] border border-gray-200"
+          >
+            📦 Odoo v19 / v18 (Header Placement)
+          </button>
+        </div>
+        <span class="text-[11px] text-[#008481] font-medium hidden sm:inline">Click image to toggle zoom • Press ESC to close</span>
+      </div>
+
+      <!-- Quick Context Bar -->
+      <div class="bg-[#E6F6F5] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span id="mexicoSalaryStructureContextLabel" class="text-[11px] font-bold text-[#008481]">Key Architecture Difference:</span>
+          <span id="mexicoSalaryStructureContextText" class="text-[11px] text-slate-700">In <strong>v20</strong>, the structure field moved into the <strong>'Other info'</strong> tab. In <strong>v19 / v18</strong>, it resides in the <strong>primary header</strong>.</span>
+        </div>
+      </div>
+
+      <div class="p-3 sm:p-5 bg-[#111827] overflow-auto flex-1 flex items-center justify-center min-h-[380px]">
+        <img
+          id="mexicoSalaryStructureModalImg"
+          src="./assets/odoo_mx_payroll_salary_structure_comparison.png"
+          onerror="this.src='./odoo_mx_payroll_salary_structure_comparison.png'"
+          alt="Odoo Mexico - Salary Structure Placement Comparison"
+          class="max-w-full max-h-[72vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoSalaryStructureImageZoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">
+          <strong>Why this matters:</strong> Selecting the correct salary structure (<code class="font-mono text-[10px] text-[#008481] bg-[#E6F6F5] px-1 py-0.5 rounded font-bold">Mexico: Regular Pay</code>) loads statutory Mexican calculation rules (ISR tax table, IMSS social security, Subsidio al Empleo, INFONAVIT / FONACOT retentions). In <strong>v20</strong>, users who cannot find the field in the header must switch to the <strong>'Other info'</strong> tab.
+        </span>
+        <button onclick="closeMexicoSalaryStructureLightbox(event)" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 3 (Compute Sheet) Screenshot Lightbox Modal 📸 -->
+  <div id="mexicoNominaStep3LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoNominaStep3Lightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico Payroll — Stage 03: Compute &amp; Validate Payslip</h3>
+            <p class="text-[11px] text-white/80">Odoo Payslip Form Execution &bull; Compute Sheet, Recalculate Retentions &amp; Status Transition (Draft ➔ Validated)</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoNominaStep3Zoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoNominaStep3ZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoNominaStep3Lightbox()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 text-lg font-bold transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Context Bar -->
+      <div class="bg-[#E6F6F5] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-bold text-[#008481]">Key Stage Instructions:</span>
+          <span class="text-[11px] text-slate-700">1. Click <strong>'Compute Sheet'</strong> (Calcular Hoja) to run Python salary rules &bull; 2. Confirm employee retentions under <strong>'Salary Computation'</strong> &bull; 3. Click <strong>'Validate'</strong> to transition from <strong>Draft</strong> to <strong>Validated</strong>.</span>
+        </div>
+        <span class="text-[11px] text-[#008481] font-medium hidden sm:inline">Click image to toggle zoom &bull; Press ESC to close</span>
+      </div>
+
+      <div class="p-3 sm:p-5 bg-[#111827] overflow-auto flex-1 flex items-center justify-center min-h-[380px]">
+        <img
+          id="mexicoNominaStep3ModalImg"
+          src="./assets/odoo_mx_payroll_step3_compute_sheet.png"
+          onerror="this.src='./odoo_mx_payroll_step3_compute_sheet.png'"
+          alt="Odoo Mexico - Compute Sheet &amp; Validate Payslip Form"
+          class="max-w-full max-h-[72vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoNominaStep3Zoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">
+          <strong>Highlight Annotations:</strong> <span class="text-[#008481] font-bold">Teal Bounding Box #1</span> marks <em>Compute Sheet</em> button &bull; <span class="text-[#008481] font-bold">Box #2</span> marks status pipeline (<em>Draft ➔ Validated</em>) &bull; <span class="text-[#008481] font-bold">Box #3</span> highlights the <em>Salary Computation</em> tab where calculated rules populate.
+        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="closeMexicoNominaStep3Lightbox()" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+            Close Preview
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 4 (Approve Journal Entries) Screenshot Lightbox Modal 📸 -->
+  <div id="mexicoNominaStep4LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoNominaStep4Lightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico Payroll — Stage 04: Approve Journal Entries</h3>
+            <p class="text-[11px] text-white/80">Odoo Payslip Form Execution &bull; Draft Journal Entry Smart Button, Status (Validated) &amp; Next Action (Pay)</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoNominaStep4Zoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoNominaStep4ZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoNominaStep4Lightbox()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 text-lg font-bold transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Context Bar -->
+      <div class="bg-[#E6F6F5] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-bold text-[#008481]">Key Stage Instructions:</span>
+          <span class="text-[11px] text-slate-700">1. Click <strong>'Journal Entry (Draft)'</strong> smart button &bull; 2. Confirm salary expense debits &amp; retention credits &bull; 3. Post move, then proceed to <strong>Pay</strong> (Mark as Paid in Stage 05).</span>
+        </div>
+        <span class="text-[11px] text-[#008481] font-medium hidden sm:inline">Click image to toggle zoom &bull; Press ESC to close</span>
+      </div>
+
+      <div class="p-3 sm:p-5 bg-[#111827] overflow-auto flex-1 flex items-center justify-center min-h-[380px]">
+        <img
+          id="mexicoNominaStep4ModalImg"
+          src="./assets/odoo_mx_payroll_step4_journal_entry.png"
+          onerror="this.src='./odoo_mx_payroll_step4_journal_entry.png'"
+          alt="Odoo Mexico - Approve Journal Entries (Draft) Form"
+          class="max-w-full max-h-[72vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoNominaStep4Zoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">
+          <strong>Highlight Annotations:</strong> <span class="text-[#008481] font-bold">Teal Bounding Box #1</span> marks <em>Journal Entry (Draft)</em> smart button &bull; <span class="text-[#008481] font-bold">Box #2</span> marks status pipeline (<em>Validated</em>) &bull; <span class="text-[#008481] font-bold">Box #3</span> marks <em>Pay</em> button ready for next stage.
+        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="closeMexicoNominaStep4Lightbox()" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+            Close Preview
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 5 (Pay and Mark as Paid) Screenshot Lightbox Modal 📸 -->
+  <div id="mexicoNominaStep5LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoNominaStep5Lightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico Payroll — Stage 05: Pay &amp; 'Mark as Paid'</h3>
+            <p class="text-[11px] text-white/80">Odoo v20 Dedicated Payment Window &bull; Payment Mode (Manually), Effective Date &amp; Primary 'Mark as Paid' Action</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoNominaStep5Zoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoNominaStep5ZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoNominaStep5Lightbox()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 text-lg font-bold transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Context Bar -->
+      <div class="bg-[#E6F6F5] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-bold text-[#008481]">Key Stage Instructions:</span>
+          <span class="text-[11px] text-slate-700">1. Click <strong>'Pay'</strong> header action &bull; 2. Confirm Payment Mode (e.g. <em>Manually</em>) and date &bull; 3. Click <strong>'Mark as Paid'</strong> to transition payslip to <em>Paid</em> and unlock <strong>'Generate CFDI'</strong>.</span>
+        </div>
+        <span class="text-[11px] text-[#008481] font-medium hidden sm:inline">Click image to toggle zoom &bull; Press ESC to close</span>
+      </div>
+
+      <div class="p-3 sm:p-5 bg-[#111827] overflow-auto flex-1 flex items-center justify-center min-h-[380px]">
+        <img
+          id="mexicoNominaStep5ModalImg"
+          src="./assets/odoo_mx_payroll_step5_mark_as_paid.png"
+          onerror="this.src='./odoo_mx_payroll_step5_mark_as_paid.png'"
+          alt="Odoo Mexico - Pay and Mark as Paid Modal Form"
+          class="max-w-full max-h-[72vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoNominaStep5Zoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span class="text-[11px] text-gray-700 leading-snug">
+          <strong>Highlight Annotations:</strong> <span class="text-[#008481] font-bold">Teal Box #1</span> indicates the primary <em>'Mark as Paid'</em> button &bull; <span class="text-[#008481] font-bold">Teal Box #2</span> highlights the dedicated v20 payment dialog (Mode &amp; Date) &bull; <span class="text-[#008481] font-bold">Box #3</span> marks the header <em>'Pay'</em> trigger.
+        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="closeMexicoNominaStep5Lightbox()" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+            Close Preview
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 Mexico Payroll Step 6 (Generate CFDI & Stamped Official Receipt) Screenshot Lightbox Modal 📸 -->
+  <div id="mexicoNominaStep6LightboxModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden flex items-center justify-center p-2 sm:p-4" onclick="closeMexicoNominaStep6Lightbox(event)">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[96vh] overflow-hidden shadow-2xl flex flex-col border border-white/20" onclick="event.stopPropagation()">
+      <div class="p-3.5 sm:p-4 bg-[#008481] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">📸</span>
+          <div>
+            <h3 class="font-bold text-sm">Mexico Payroll — Stage 06: Generate CFDI &amp; Stamped Official Receipt</h3>
+            <p class="text-[11px] text-white/80">1. Generate CFDI Action Unlocked (Status: Paid) | 2. Stamped CFDI (Status: Signed, UUID &amp; SAT 2D Barcode PDF)</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMexicoNominaStep6Zoom()" class="px-2.5 py-1 bg-white/15 hover:bg-white/25 text-white rounded-lg text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+            <span>🔍</span>
+            <span id="mexicoNominaStep6ZoomText">100% Zoom</span>
+          </button>
+          <button onclick="closeMexicoNominaStep6Lightbox()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 text-lg font-bold transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- View Switcher Tabs in Lightbox -->
+      <div class="bg-[#F0FDFB] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] text-[#008481] font-bold">Select View:</span>
+          <div class="inline-flex rounded-lg border border-teal-200 p-0.5 bg-white text-xs shadow-2xs">
+            <button id="salNom6TabButton" type="button" onclick="setMexicoNominaStep6Image('button')" class="px-3 py-1 rounded-md font-bold transition-all bg-[#008481] text-white shadow-2xs cursor-pointer">🏛️ 1. Generate CFDI Button Unlocked</button>
+            <button id="salNom6TabStamped" type="button" onclick="setMexicoNominaStep6Image('stamped')" class="px-3 py-1 rounded-md text-gray-700 hover:text-black transition-all cursor-pointer">📜 2. Stamped UUID &amp; PDF Receipt</button>
+          </div>
+        </div>
+        <span class="text-[11px] text-[#008481] font-medium hidden sm:inline">Click image to toggle zoom &bull; Press ESC to close</span>
+      </div>
+
+      <!-- Quick Context Bar -->
+      <div id="mexicoNominaStep6ContextBar" class="bg-[#E6F6F5] border-b border-teal-200 px-4 py-2 flex items-center justify-between gap-3 text-xs flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-bold text-[#008481]">Key Stage Instructions:</span>
+          <span id="mexicoNominaStep6ContextText" class="text-[11px] text-slate-700">1. Verify payslip is in <strong>Paid</strong> status &bull; 2. The primary purple <strong>'Generate CFDI'</strong> button is now visible &bull; 3. Click to transmit XML payload to Solución Factible PAC.</span>
+        </div>
+      </div>
+
+      <div class="p-3 sm:p-5 bg-[#111827] overflow-auto flex-1 flex items-center justify-center min-h-[380px]">
+        <img
+          id="mexicoNominaStep6ModalImg"
+          src="./assets/odoo_mx_payroll_step6_generate_cfdi.png"
+          onerror="this.src='./odoo_mx_payroll_step6_generate_cfdi.png'"
+          alt="Odoo Mexico - Generate CFDI Action Unlocked and Stamped UUID"
+          class="max-w-full max-h-[72vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 transition-all duration-200 cursor-zoom-in"
+          onclick="toggleMexicoNominaStep6Zoom()"
+          title="Click image to toggle zoom"
+        />
+      </div>
+
+      <div class="p-3 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <span id="mexicoNominaStep6FooterText" class="text-[11px] text-gray-700 leading-snug">
+          <strong>Highlight Annotations:</strong> <span class="text-[#008481] font-bold">Teal Box #1</span> marks <em>Generate CFDI</em> button (unlocked) &bull; <span class="text-[#008481] font-bold">Teal Box #2</span> highlights <em>Paid</em> status chevron &amp; posted journal move &bull; <span class="text-[#008481] font-bold">Box #3</span> marks SAT 3-day statutory deadline warning banner.
+        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="closeMexicoNominaStep6Lightbox()" class="px-3 py-1.5 bg-[#008481] hover:bg-[#006866] text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer shrink-0">
+            Close Preview
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -4805,6 +5598,82 @@
         },
         docsUrl: "https://www.odoo.com/documentation/18.0/es/applications/finance/fiscal_localizations/mexico.html?highlight=#l10n-mx-pos-global-invoice",
         forumUrl: "https://www.odoo.com/es/forum/ayuda-1?search=cancelar+factura+global+pos+l10n_mx&order=name+asc&filters=all&sorting=last_activity_date+desc"
+      },
+      {
+        id: "mx-flow-payroll-nomina-cfdi",
+        country: "mexico",
+        category: "flow",
+        title: "Issuing a Nomina / Payslip to the CFDI",
+        module: "l10n_mx_hr_payroll_account_edi (CFDI Nómina 1.2)",
+        flowType: "Payroll / Nómina",
+        flowSubtitle: "Payslip to CFDI",
+        scope: "Complete Lifecycle: Compute ➔ Pay ➔ Stamp",
+        versionNotice: "Available in Odoo v18.0, v19.0 and v20",
+        tldr: "Creates, computes, validates, marks as paid, and stamps an electronic employee payslip (CFDI de Nómina 1.2). Prerequisite: <u class=\"decoration-[#008481] decoration-1.5 underline-offset-2\"><mark class=\"bg-[#E6F6F5] text-[#00605e] font-bold px-1 py-0.5 rounded\">basic e-invoicing configuration must be set up with test certificates and Solución Factible PAC</mark></u>. In Odoo v20, the salary structure is selected under the 'Other info' tab, and 'Mark as paid' opens in a dedicated confirmation window.",
+        steps: [
+          "<strong>1. Basic E-Invoicing Setup:</strong> Make sure to set up the basic e-invoicing configuration with the test certificate (<code>certificate.cer</code>, <code>certificate.key</code>, password <code>12345678a</code>) and <strong>Solución Factible</strong> PAC in <em>Accounting ‣ Configuration ‣ Settings</em>.",
+          "<strong>2. Create Nómina & Select Structure:</strong> In <em>Payroll ‣ Payslips</em>, create a new employee payslip (nómina) and make sure the correct structure is selected, typically <span class=\"underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5\" onmouseenter=\"showMexicoSalaryStructureScreenshot(this)\" onmouseleave=\"hideMexicoSalaryStructureScreenshot()\" onclick=\"openMexicoSalaryStructureLightbox('compare')\" title=\"Hover to preview Salary Structure (v20 vs v19) • Click to open comparison\"><strong>salary structure</strong> (typically Mexico Regular Pay) 📸</span>. <em><span class=\"text-[#008481] font-semibold\">(Please note that in <span class=\"underline decoration-dotted decoration-[#008481] cursor-pointer hover:text-teal-900 font-bold\" onclick=\"openMexicoSalaryStructureLightbox('v20')\" onmouseenter=\"showMexicoSalaryStructureScreenshot(this)\" onmouseleave=\"hideMexicoSalaryStructureScreenshot()\" title=\"Click to view Odoo v20 'Other info' placement\">v20</span>, it appears under the tab 'Other info', whereas in <span class=\"underline decoration-dotted decoration-[#008481] cursor-pointer hover:text-teal-900 font-bold\" onclick=\"openMexicoSalaryStructureLightbox('v19')\" onmouseenter=\"showMexicoSalaryStructureScreenshot(this)\" onmouseleave=\"hideMexicoSalaryStructureScreenshot()\" title=\"Click to view Odoo v19 / v18 header placement\">v19/v18</span>, it is located directly in the header)</span></em>.",
+          "<strong>3. Compute and Validate Payslip:</strong> Verify employee attendance, salary rules, and statutory deductions/retentions (such as IMSS, ISR, and INFONAVIT / FONACOT). Click <span class=\"underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5\" onmouseenter=\"showMexicoNominaStep3Screenshot(this)\" onmouseleave=\"hideMexicoNominaStep3Screenshot()\" onclick=\"openMexicoNominaStep3Lightbox()\" title=\"Hover to preview Compute Sheet screenshot &amp; highlights • Click to enlarge\"><strong>Compute Sheet</strong> (Calcular hoja) 📸</span> to recalculate amounts, then click <strong>Validate</strong> (Validar) to confirm the payslip.",
+          "<strong>4. Approve Journal Entries:</strong> Navigate to the accounting entries generated upon payslip confirmation. Click <span class=\"underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5\" onmouseenter=\"showMexicoNominaStep4Screenshot(this)\" onmouseleave=\"hideMexicoNominaStep4Screenshot()\" onclick=\"openMexicoNominaStep4Lightbox()\" title=\"Hover to preview Draft Journal Entry smart button &amp; Validated status • Click to enlarge\"><strong>Approve Journal Entries</strong> (Journal Entry Draft) 📸</span> (or post the corresponding accounting move in the payroll journal) to officially book salary expenses and liabilities.",
+          "<strong>5. Pay and Mark as Paid:</strong> Click on <span class=\"underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5\" onmouseenter=\"showMexicoNominaStep5Screenshot(this)\" onmouseleave=\"hideMexicoNominaStep5Screenshot()\" onclick=\"openMexicoNominaStep5Lightbox()\" title=\"Hover to preview Pay &amp; Mark as Paid modal screenshot &amp; highlights • Click to enlarge\"><strong>Pay</strong> and select <strong>'Mark as paid'</strong> 📸</span>. <em><span class=\"text-[#008481] font-semibold\">(In v20, it will appear in a dedicated modal window)</span></em>.",
+          "<strong>6. Generate CFDI & PAC Stamping:</strong> <strong>Only now</strong> will the button <span class=\"underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-teal-900 transition-colors inline-flex items-center gap-0.5\" onmouseenter=\"showMexicoNominaStep6Screenshot(this)\" onmouseleave=\"hideMexicoNominaStep6Screenshot()\" onclick=\"openMexicoNominaStep6Lightbox('button')\" title=\"Hover to preview Generate CFDI button & Stamped UUID • Click to enlarge\"><strong>'Generate CFDI' (Generar CFDI)</strong> 📸</span> appear! Click it so Odoo generates the statutory XML payload, transmits it to the PAC (Solución Factible), signs it with its official <strong>Fiscal Folio (UUID)</strong>, and officially stamps the payslip with the SAT QR barcode."
+        ],
+        stepScreenshots: {
+          1: {
+            badge: "📸 Structure (v20 vs v19)",
+            hoverFn: "showMexicoSalaryStructureScreenshot(this)",
+            leaveFn: "hideMexicoSalaryStructureScreenshot()",
+            clickFn: "openMexicoSalaryStructureLightbox('compare')",
+            subStatus: "v20: 'Other info' &bull; v19: Header",
+            viewAction: "Compare ↗",
+            tooltip: "Hover or click to compare Salary Structure placement in Odoo v20 vs v19/v18"
+          },
+          2: {
+            badge: "📸 Compute Sheet",
+            hoverFn: "showMexicoNominaStep3Screenshot(this)",
+            leaveFn: "hideMexicoNominaStep3Screenshot()",
+            clickFn: "openMexicoNominaStep3Lightbox()",
+            subStatus: "Draft ➔ Validated",
+            viewAction: "View Sheet ↗",
+            tooltip: "Hover or click to preview Compute Sheet form highlights"
+          },
+          3: {
+            badge: "📸 Journal Entries",
+            hoverFn: "showMexicoNominaStep4Screenshot(this)",
+            leaveFn: "hideMexicoNominaStep4Screenshot()",
+            clickFn: "openMexicoNominaStep4Lightbox()",
+            subStatus: "Journal Entry (Draft)",
+            viewAction: "View Entries ↗",
+            tooltip: "Hover or click to preview Draft Journal Entry smart button and Validated status"
+          },
+          4: {
+            badge: "📸 Mark as Paid (v20)",
+            hoverFn: "showMexicoNominaStep5Screenshot(this)",
+            leaveFn: "hideMexicoNominaStep5Screenshot()",
+            clickFn: "openMexicoNominaStep5Lightbox()",
+            subStatus: "v20: Modal &bull; Mode: Manual",
+            viewAction: "View Modal ↗",
+            tooltip: "Hover or click to preview Odoo v20 Pay and Mark as Paid confirmation modal"
+          },
+          5: {
+            badge: "📸 Generate & Stamped CFDI",
+            hoverFn: "showMexicoNominaStep6Screenshot(this)",
+            leaveFn: "hideMexicoNominaStep6Screenshot()",
+            clickFn: "openMexicoNominaStep6Lightbox('button')",
+            subStatus: "Button Unlocked &bull; Signed UUID",
+            viewAction: "View Stamping ↗",
+            tooltip: "Hover or click to view Generate CFDI button unlocked and Stamped UUID with PDF receipt"
+          }
+        },
+        docsUrl: "https://www.odoo.com/documentation/19.0/applications/hr/payroll/payroll_localizations/mexico.html",
+        forumUrl: "https://www.odoo.com/es/forum/ayuda-1?search=nomina+cfdi+mexico+l10n_mx_hr_payroll&order=name+asc&filters=all&sorting=last_activity_date+desc",
+        video: "https://www.youtube.com/watch?v=kswBFiTkHMo&list=PLeN77BoOeEOYphTTnYLkIDCWHNk4aZpcg&index=12",
+        videoText: "Official Odoo Tutorial: Nómina CFDI Lifecycle",
+        videoDuration: "⏱️ Playlist (Video 12)",
+        flowVideo: "https://www.youtube.com/watch?v=kswBFiTkHMo&list=PLeN77BoOeEOYphTTnYLkIDCWHNk4aZpcg&index=12&t=160s",
+        flowTimestamp: "2:40",
+        flowVideoText: "Nómina Stamping & CFDI Flow (Minute 2:40)",
+        flowVideoSubtext: "Demonstrates payslip confirmation, journal posting, mark as paid, and CFDI generation from minute 2:40"
       }
     ];
 
@@ -4903,7 +5772,7 @@
           e.preventDefault();
           searchInput.focus();
         }
-        if (e.key === "Escape") { closeModal(); closeAddModal(); closeScreenshotLightbox(); closeEcuadorPosSriPaymentLightbox(); }
+        if (e.key === "Escape") { closeModal(); closeAddModal(); closeScreenshotLightbox(); closeEcuadorPosSriPaymentLightbox(); closeMexicoProductUnspscLightbox(); closeMexicoInfonavitFonacotLightbox(); closeMexicoSalaryStructureLightbox(); closeMexicoNominaStep3Lightbox(); closeMexicoNominaStep4Lightbox(); closeMexicoNominaStep5Lightbox(); }
       });
     }
 
@@ -4926,6 +5795,11 @@
         collapseDashboardCountry('ecuador');
         collapseDashboardCountry('argentina');
         collapseDashboardCountry('colombia');
+        collapseDashboardCountry('brazil');
+        collapseDashboardCountry('peru');
+        collapseDashboardCountry('uruguay');
+        collapseDashboardCountry('guatemala');
+        collapseDashboardCountry('dominican');
       } else {
         renderFilters();
         renderCards();
@@ -4971,6 +5845,8 @@
           card.classList.add("ring-sky-500/30", "border-sky-500");
         } else if (country === 'colombia') {
           card.classList.add("ring-emerald-500/30", "border-emerald-500");
+        } else if (['brazil', 'peru', 'uruguay', 'guatemala', 'dominican'].includes(country)) {
+          card.classList.add("ring-amber-400/30", "border-amber-400");
         }
       }
     }
@@ -4989,7 +5865,7 @@
         if (svg) svg.classList.remove("rotate-180");
       }
       if (card) {
-        card.classList.remove("ring-2", "ring-[#00A09D]/30", "ring-[#0039A6]/30", "ring-amber-500/30", "ring-sky-500/30", "ring-emerald-500/30", "border-[#00A09D]", "border-[#0039A6]", "border-amber-500", "border-sky-500", "border-emerald-500");
+        card.classList.remove("ring-2", "ring-[#00A09D]/30", "ring-[#0039A6]/30", "ring-amber-500/30", "ring-sky-500/30", "ring-emerald-500/30", "ring-amber-400/30", "border-[#00A09D]", "border-[#0039A6]", "border-amber-500", "border-sky-500", "border-emerald-500", "border-amber-400");
       }
     }
 
@@ -5018,8 +5894,16 @@
       }, 3000);
     }
 
-    function handleComingSoonClick(countryName, entity) {
-      showDashboardToast(`${countryName} localization (${entity}) is coming soon · In development.`);
+    function handleComingSoonClick(countryName, entity, countryId, event) {
+      if (countryId) {
+        if (dashboardExpandedCountries.has(countryId)) {
+          showDashboardToast(`${countryName} localization (${entity}) is coming soon · In development.`);
+        } else {
+          expandDashboardCountry(countryId);
+        }
+      } else {
+        showDashboardToast(`${countryName} localization (${entity}) is coming soon · In development.`);
+      }
     }
 
     function showAllCountryCards() {
@@ -5451,6 +6335,9 @@
             <button type="button" onclick="setSearch('global invoice')" class="px-2 py-0.5 rounded-lg bg-[#F8F9FA] hover:bg-[#E6F6F5] text-[#008481] border border-[#D8DADD] text-[11px] font-medium transition-colors cursor-pointer">
               Global invoice (POS)
             </button>
+            <button type="button" onclick="setSearch('nomina')" class="px-2 py-0.5 rounded-lg bg-[#F8F9FA] hover:bg-[#E6F6F5] text-[#008481] border border-[#D8DADD] text-[11px] font-medium transition-colors cursor-pointer">
+              Nómina / Payslip CFDI
+            </button>
             <button type="button" onclick="setSearch('without reconciliation')" class="px-2 py-0.5 rounded-lg bg-[#F8F9FA] hover:bg-[#F4EFF2] text-[#4A2C43] border border-[#D8DADD] text-[11px] transition-colors cursor-pointer">
               Without reconciliation
             </button>
@@ -5597,7 +6484,7 @@
             <div>
               <h3 class="text-sm sm:text-base font-bold text-[#212529]">Search Mexico Flows</h3>
               <p class="text-xs text-[#6C757D] mt-1 max-w-md mx-auto">
-                Type <strong class="text-[#714B67] font-semibold">"payment complements"</strong> or <strong class="text-[#008481] font-semibold">"global invoice"</strong> in the search bar above to display the step-by-step SAT CFDI 4.0 flows.
+                Type <strong class="text-[#714B67] font-semibold">"payment complements"</strong>, <strong class="text-[#008481] font-semibold">"global invoice"</strong>, or <strong class="text-[#008481] font-semibold">"nomina"</strong> in the search bar above to display the step-by-step SAT CFDI 4.0 flows.
               </p>
             </div>
             <div class="flex items-center justify-center gap-2 pt-1 flex-wrap">
@@ -5608,6 +6495,13 @@
               >
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 <span>Search "payment complements"</span>
+              </button>
+              <button
+                type="button"
+                onclick="setSearch('nomina')"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#F0FDFB] hover:bg-[#E6F6F5] text-[#008481] border border-[#00A09D]/30 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
+              >
+                <span>👥 Nómina / Payslip</span>
               </button>
               <button
                 type="button"
@@ -6411,6 +7305,245 @@
         `;
       }
 
+      if (item.id === 'mx-flow-payroll-nomina-cfdi') {
+        const arrowH = `<div class="hidden sm:flex items-center justify-center text-teal-600 font-bold select-none text-base px-1">→</div>`;
+        const arrowV = `<div class="flex sm:hidden items-center justify-center text-teal-600 font-bold select-none text-sm py-1">↓</div>`;
+
+        return `
+          <div class="space-y-3 w-full max-w-full min-w-0">
+            <!-- Header Bar -->
+            <div class="flex items-center justify-between text-xs pb-1.5 border-b border-gray-100 flex-wrap gap-2">
+              <span class="font-bold text-[#212529] flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#008481]"></span>
+                <span class="uppercase tracking-wider text-[11px] text-[#008481] font-bold">CFDI Nómina 1.2 Lifecycle Pipeline</span>
+              </span>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-teal-50 text-[#008481] border border-teal-200">6 Ordered Stages</span>
+                <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-gray-100 text-[#343A40] border border-gray-200">v18 ➔ v20</span>
+              </div>
+            </div>
+
+            <!-- PHASE 1: Stages 01 to 03 (Calculation & Validation) -->
+            <div>
+              <div class="text-[10.5px] font-bold text-[#008481] uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                <span>Phase 1: Calculation &amp; Validation</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-[1fr,auto,1fr,auto,1fr] items-stretch sm:items-center gap-2" onmouseleave="hideMexicoSalaryStructureScreenshot()">
+
+                <!-- Stage 01: Setup PAC & Certs -->
+                <div onmouseenter="hideMexicoSalaryStructureScreenshot()" class="bg-white border border-[#D8DADD] hover:border-[#008481] hover:bg-[#F0FDFB]/50 rounded-xl p-3 flex flex-col justify-between shadow-2xs hover:shadow-md h-full transition-all duration-200 group/nom1 min-w-0">
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-[#6C757D] group-hover/nom1:bg-teal-50 group-hover/nom1:text-[#008481] transition-colors shrink-0">01</span>
+                      <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-teal-50 text-[#008481] border border-teal-200 transition-colors shrink-0">⚙️ PAC &amp; Certs</span>
+                    </div>
+                    <h4 class="text-xs font-bold text-[#212529] group-hover/nom1:text-[#008481] transition-colors leading-snug">
+                      Basic E-Invoicing Setup
+                    </h4>
+                    <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">
+                      Configure test certificate (.cer/.key) and <strong>Solución Factible</strong> PAC in Accounting settings.
+                    </p>
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-gray-100 group-hover/nom1:border-teal-100 flex items-center justify-between text-[10px] text-gray-400 group-hover/nom1:text-[#008481] font-semibold transition-colors">
+                    <span>PAC: <strong>Solución Factible</strong></span>
+                    <span class="text-[#008481]">Certs ✓</span>
+                  </div>
+                </div>
+
+                <div onmouseenter="hideMexicoSalaryStructureScreenshot()" class="hidden sm:flex items-center justify-center text-teal-600 font-bold select-none text-base px-1">→</div>
+                <div onmouseenter="hideMexicoSalaryStructureScreenshot()" class="flex sm:hidden items-center justify-center text-teal-600 font-bold select-none text-sm py-1">↓</div>
+
+                <!-- Stage 02: Create Nómina & Structure (Step 2 of the Flow with Hover Screenshot & Lightbox) -->
+                <div
+                  onmouseenter="showMexicoSalaryStructureScreenshot(this)"
+                  onmouseleave="hideMexicoSalaryStructureScreenshot()"
+                  onclick="openMexicoSalaryStructureLightbox('compare')"
+                  class="bg-white border border-[#D8DADD] hover:border-[#008481] hover:bg-[#F0FDFB]/50 rounded-xl p-3 flex flex-col justify-between shadow-2xs hover:shadow-md h-full transition-all duration-200 group/nom2 min-w-0 cursor-pointer"
+                  title="Hover to view Salary Structure screenshots (v20 vs v19) • Click to open comparison"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-[#6C757D] group-hover/nom2:bg-teal-50 group-hover/nom2:text-[#008481] transition-colors shrink-0">02</span>
+                      <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-teal-50 text-[#008481] border border-teal-200 group-hover/nom2:bg-[#008481] group-hover/nom2:text-white transition-colors shrink-0 flex items-center gap-1 shadow-2xs">
+                        <span>📸 v20 vs v19</span>
+                      </span>
+                    </div>
+                    <h4 class="text-xs font-bold text-[#212529] group-hover/nom2:text-[#008481] transition-colors leading-snug">
+                      Create Nómina &amp; Structure
+                    </h4>
+                    <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">
+                      Create payslip. Select <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold"><strong>salary structure</strong> (typically Regular Pay)</span> <em>(in <span class="font-semibold text-[#008481] hover:underline" onclick="openMexicoSalaryStructureLightbox('v20'); event.stopPropagation()" title="Click to view Odoo v20 'Other info' placement">v20</span> under <strong>'Other info'</strong>, in <span class="font-semibold text-purple-700 hover:underline" onclick="openMexicoSalaryStructureLightbox('v19'); event.stopPropagation()" title="Click to view Odoo v19 / v18 header placement">v19/v18</span> in header)</em>.
+                    </p>
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-gray-100 group-hover/nom2:border-teal-100 flex items-center justify-between text-[10px] text-gray-400 group-hover/nom2:text-[#008481] font-semibold transition-colors">
+                    <span>Structure: <strong>Regular Pay</strong></span>
+                    <span class="text-[#008481] flex items-center gap-0.5 font-semibold group-hover/nom2:underline">
+                      <span>v20 vs v19</span>
+                      <span>📸 ↗</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div onmouseenter="hideMexicoSalaryStructureScreenshot(); hideMexicoNominaStep3Screenshot()" class="hidden sm:flex items-center justify-center text-teal-600 font-bold select-none text-base px-1">→</div>
+                <div onmouseenter="hideMexicoSalaryStructureScreenshot(); hideMexicoNominaStep3Screenshot()" class="flex sm:hidden items-center justify-center text-teal-600 font-bold select-none text-sm py-1">↓</div>
+
+                <!-- Stage 03: Compute & Validate (Step 3 of the Flow with Hover Screenshot & Lightbox) -->
+                <div
+                  onmouseenter="hideMexicoSalaryStructureScreenshot(); hideMexicoNominaStep4Screenshot(); showMexicoNominaStep3Screenshot(this)"
+                  onmouseleave="hideMexicoNominaStep3Screenshot()"
+                  onclick="openMexicoNominaStep3Lightbox()"
+                  class="bg-white border border-[#D8DADD] hover:border-[#008481] hover:bg-[#F0FDFB]/50 rounded-xl p-3 flex flex-col justify-between shadow-2xs hover:shadow-md h-full transition-all duration-200 group/nom3 min-w-0 cursor-pointer"
+                  title="Hover to view Compute Sheet screenshot &amp; highlights • Click to enlarge"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-[#6C757D] group-hover/nom3:bg-teal-50 group-hover/nom3:text-[#008481] transition-colors shrink-0">03</span>
+                      <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-teal-50 text-[#008481] border border-teal-200 group-hover/nom3:bg-[#008481] group-hover/nom3:text-white transition-colors shrink-0 flex items-center gap-1 shadow-2xs">
+                        <span>📸 Compute Sheet</span>
+                      </span>
+                    </div>
+                    <h4 class="text-xs font-bold text-[#212529] group-hover/nom3:text-[#008481] transition-colors leading-snug">
+                      Compute &amp; Validate Payslip
+                    </h4>
+                    <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">
+                      Click <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold"><strong>Compute Sheet</strong> 📸</span> to recalculate salary rules &amp; retentions, then click <strong>Validate</strong>.
+                    </p>
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-gray-100 group-hover/nom3:border-teal-100 flex items-center justify-between text-[10px] text-gray-400 group-hover/nom3:text-[#008481] font-semibold transition-colors">
+                    <span>Draft ➔ Validated</span>
+                    <span class="text-[#008481] flex items-center gap-0.5 font-semibold group-hover/nom3:underline">
+                      <span>📸 View Sheet</span>
+                      <span>↗</span>
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Inter-Phase Connector -->
+            <div class="flex items-center justify-between text-[11px] font-medium text-[#008481] bg-teal-50/60 border border-teal-100 px-3 py-1 rounded-lg">
+              <span class="flex items-center gap-1.5 text-[#00605e]">
+                <span>✓ Validated</span>
+                <span class="text-gray-300">|</span>
+                <span>Proceed to accounting settlement &amp; electronic stamping:</span>
+              </span>
+              <span class="font-bold flex items-center gap-1">Phase 2 ➔</span>
+            </div>
+
+            <!-- PHASE 2: Stages 04 to 06 (Posting, Payment & CFDI Stamping) -->
+            <div>
+              <div class="text-[10.5px] font-bold text-[#008481] uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                <span>Phase 2: Accounting, Payment &amp; CFDI Stamping</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-[1fr,auto,1fr,auto,1fr] items-stretch sm:items-center gap-2">
+
+                <!-- Stage 04: Approve Journal Entries (Step 4 of the Flow with Hover Screenshot & Lightbox) -->
+                <div
+                  onmouseenter="hideMexicoNominaStep3Screenshot(); hideMexicoNominaStep5Screenshot(); hideMexicoNominaStep6Screenshot(); showMexicoNominaStep4Screenshot(this)"
+                  onmouseleave="hideMexicoNominaStep4Screenshot()"
+                  onclick="openMexicoNominaStep4Lightbox()"
+                  class="bg-white border border-[#D8DADD] hover:border-[#008481] hover:bg-[#F0FDFB]/50 rounded-xl p-3 flex flex-col justify-between shadow-2xs hover:shadow-md h-full transition-all duration-200 group/nom4 min-w-0 cursor-pointer"
+                  title="Hover to view Draft Journal Entry screenshot &amp; highlights • Click to enlarge"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-[#6C757D] group-hover/nom4:bg-teal-50 group-hover/nom4:text-[#008481] transition-colors shrink-0">04</span>
+                      <span onmouseenter="showMexicoNominaStep4Screenshot(this)" class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-teal-50 text-[#008481] border border-teal-200 group-hover/nom4:bg-[#008481] group-hover/nom4:text-white transition-colors shrink-0 flex items-center gap-1 shadow-2xs">
+                        <span>📸 Journal Entries</span>
+                      </span>
+                    </div>
+                    <h4 class="text-xs font-bold text-[#212529] group-hover/nom4:text-[#008481] transition-colors leading-snug">
+                      Approve Journal Entries
+                    </h4>
+                    <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">
+                      Click <span onmouseenter="showMexicoNominaStep4Screenshot(this)" class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold"><strong>Journal Entry (Draft)</strong> 📸</span> to post and book payroll expenses &amp; liabilities in accounting.
+                    </p>
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-gray-100 group-hover/nom4:border-teal-100 flex items-center justify-between text-[10px] text-gray-400 group-hover/nom4:text-[#008481] font-semibold transition-colors">
+                    <span>Smart Button: <strong>Draft</strong></span>
+                    <span onmouseenter="showMexicoNominaStep4Screenshot(this)" class="text-[#008481] flex items-center gap-0.5 font-semibold group-hover/nom4:underline">
+                      <span>📸 View Entries</span>
+                      <span>↗</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div onmouseenter="hideMexicoNominaStep4Screenshot(); hideMexicoNominaStep5Screenshot(); hideMexicoNominaStep6Screenshot()" class="hidden sm:flex items-center justify-center text-teal-600 font-bold select-none text-base px-1">→</div>
+                <div onmouseenter="hideMexicoNominaStep4Screenshot(); hideMexicoNominaStep5Screenshot(); hideMexicoNominaStep6Screenshot()" class="flex sm:hidden items-center justify-center text-teal-600 font-bold select-none text-sm py-1">↓</div>
+
+                <!-- Stage 05: Pay & Mark as Paid (Step 5 of the Flow with Hover Screenshot & Lightbox) -->
+                <div
+                  onmouseenter="hideMexicoNominaStep4Screenshot(); hideMexicoNominaStep6Screenshot(); showMexicoNominaStep5Screenshot(this)"
+                  onmouseleave="hideMexicoNominaStep5Screenshot()"
+                  onclick="openMexicoNominaStep5Lightbox()"
+                  class="bg-white border border-[#D8DADD] hover:border-[#008481] hover:bg-[#F0FDFB]/50 rounded-xl p-3 flex flex-col justify-between shadow-2xs hover:shadow-md h-full transition-all duration-200 group/nom5 min-w-0 cursor-pointer"
+                  title="Hover to view Pay &amp; Mark as Paid modal screenshot &amp; highlights • Click to enlarge"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-[#6C757D] group-hover/nom5:bg-teal-50 group-hover/nom5:text-[#008481] transition-colors shrink-0">05</span>
+                      <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-teal-50 text-[#008481] border border-teal-200 group-hover/nom5:bg-[#008481] group-hover/nom5:text-white transition-colors shrink-0 flex items-center gap-1 shadow-2xs">
+                        <span>📸 Mark as Paid</span>
+                      </span>
+                    </div>
+                    <h4 class="text-xs font-bold text-[#212529] group-hover/nom5:text-[#008481] transition-colors leading-snug">
+                      Pay &amp; 'Mark as Paid'
+                    </h4>
+                    <p class="text-[11px] text-[#6C757D] mt-1 leading-snug">
+                      Click <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-semibold"><strong>Pay</strong> and <strong>'Mark as paid'</strong> 📸</span> <em>(in v20, opens in a dedicated modal window)</em>.
+                    </p>
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-gray-100 group-hover/nom5:border-teal-100 flex items-center justify-between text-[10px] text-gray-400 group-hover/nom5:text-[#008481] font-semibold transition-colors">
+                    <span>Payment: <strong>Registered</strong></span>
+                    <span class="text-[#008481] flex items-center gap-0.5 font-semibold group-hover/nom5:underline">
+                      <span>📸 View Modal</span>
+                      <span>↗</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div onmouseenter="hideMexicoNominaStep5Screenshot(); hideMexicoNominaStep6Screenshot()" class="hidden sm:flex items-center justify-center text-teal-600 font-bold select-none text-base px-1">→</div>
+                <div onmouseenter="hideMexicoNominaStep5Screenshot(); hideMexicoNominaStep6Screenshot()" class="flex sm:hidden items-center justify-center text-teal-600 font-bold select-none text-sm py-1">↓</div>
+
+                <!-- Stage 06: Generate CFDI (Crucial Stamping Step with Hover Screenshot & Dual-View Lightbox) -->
+                <div
+                  onmouseenter="hideMexicoNominaStep4Screenshot(); hideMexicoNominaStep5Screenshot(); showMexicoNominaStep6Screenshot(this)"
+                  onmouseleave="hideMexicoNominaStep6Screenshot()"
+                  onclick="openMexicoNominaStep6Lightbox('button')"
+                  class="bg-white border-2 border-[#00A09D] hover:border-[#008481] hover:bg-[#E6F6F5] rounded-xl p-3 flex flex-col justify-between shadow-2xs hover:shadow-md hover:ring-2 hover:ring-[#00A09D]/30 h-full transition-all duration-200 group/nom6 min-w-0 cursor-pointer"
+                  title="Hover to view Generate CFDI &amp; Stamped UUID screenshots &amp; highlights • Click to enlarge"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                      <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#008481] text-white transition-colors shrink-0">06</span>
+                      <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 group-hover/nom6:bg-[#008481] group-hover/nom6:text-white transition-colors shrink-0 flex items-center gap-1 shadow-2xs">
+                        <span>📸 CFDI Stamped</span>
+                      </span>
+                    </div>
+                    <h4 class="text-xs font-bold text-[#00605e] group-hover/nom6:text-[#004D4B] transition-colors leading-snug">
+                      Generate CFDI &amp; Stamp
+                    </h4>
+                    <p class="text-[11px] text-[#004D4B] mt-1 leading-snug">
+                      <strong>Only now</strong> does the button appear! Click <span class="underline decoration-dotted decoration-[#008481] font-bold"><strong>'Generate CFDI'</strong> 📸</span> to stamp payslip with PAC &amp; assign UUID.
+                    </p>
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-[#00A09D]/30 flex items-center justify-between text-[10px] text-gray-500 group-hover/nom6:text-[#00605e] font-semibold transition-colors">
+                    <span>Status: <strong>Signed ✓</strong></span>
+                    <span class="text-[#008481] flex items-center gap-0.5 font-semibold group-hover/nom6:underline">
+                      <span>📸 View Stamping</span>
+                      <span>↗</span>
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        `;
+      }
+
       // Dynamic Process Pipeline for All Future / Custom Flow Cards
       const isChileCard = item.country === 'chile';
       const bulletColor = isChileCard ? 'bg-[#0039A6]' : 'bg-[#00A09D]';
@@ -6686,6 +7819,7 @@
                   <!-- Slim Overview & Protocol Stack -->
                   <div class="space-y-1.5">
                     <!-- 1. Quick Overview Skim Box (Slim) -->
+                    ${item.id === 'mx-flow-payroll-nomina-cfdi' ? '' : `
                     <div class="bg-[#FFF9EE] border border-[#FFE7B8] px-3 py-1.5 rounded-lg flex items-center gap-2 text-xs leading-tight">
                       <div class="flex items-center gap-1.5 text-[11px] font-bold text-[#995200] shrink-0">
                         <svg class="w-3.5 h-3.5 text-[#D98324]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -6695,6 +7829,7 @@
                         ${item.tldr}
                       </p>
                     </div>
+                    `}
 
                     <!-- 2. Internal Support Protocol (Amber) vs Common Error Notice (Red) -->
                     ${isChile ? `
@@ -6755,6 +7890,23 @@
                               <span>Click banner to collapse details</span>
                             </span>
                           </div>
+                        </div>
+                      </div>
+                    ` : item.id === 'mx-flow-payroll-nomina-cfdi' ? `
+                      <div class="relative bg-[#F0FDFB] border-l-4 border-l-[#008481] border border-[#00A09D]/30 p-2.5 sm:px-3 sm:py-2 rounded-lg flex items-start justify-between gap-2.5 text-xs leading-snug shadow-2xs">
+                        <div class="flex items-start gap-1.5 flex-1 min-w-0">
+                          <svg class="w-3.5 h-3.5 text-[#008481] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                          </svg>
+                          <div class="text-[11px] text-[#004D4B] leading-relaxed">
+                            <p><strong class="text-[#008481]">Odoo Version Notice (v18 ➔ v20):</strong> In Odoo v20, the <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-[#004D4B] transition-colors inline-flex items-center gap-0.5" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" onclick="openMexicoSalaryStructureLightbox('compare'); event.stopPropagation()" title="Hover to preview Salary Structure (v20 vs v19) • Click to open comparison"><strong>salary structure</strong> 📸</span> is located under the <span class="underline decoration-dotted decoration-[#008481] cursor-pointer hover:text-[#004D4B] font-bold" onclick="openMexicoSalaryStructureLightbox('v20'); event.stopPropagation()" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" title="Click to view Odoo v20 'Other info' tab screenshot"><strong>'Other info'</strong></span> tab (in <span class="underline decoration-dotted decoration-[#008481] cursor-pointer hover:text-[#004D4B] font-bold" onclick="openMexicoSalaryStructureLightbox('v19'); event.stopPropagation()" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" title="Click to view Odoo v19 / v18 header screenshot"><strong>v19/v18</strong></span> it is in the header), and clicking <strong>Pay</strong> opens a dedicated confirmation window. The <strong>'Generate CFDI'</strong> button only unlocks once the payslip has been marked as paid.</p>
+                          </div>
+                        </div>
+                        <div class="shrink-0 flex items-center gap-1">
+                          <button type="button" onclick="openMexicoSalaryStructureLightbox('compare'); event.stopPropagation()" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#008481] text-white hover:bg-[#006866] transition-colors shadow-2xs cursor-pointer" title="Compare Salary Structure between v20 and v19">
+                            <span>📸 v20 vs v19</span>
+                            <span>↗</span>
+                          </button>
                         </div>
                       </div>
                     ` : `
@@ -6965,6 +8117,7 @@
 
       let bodyHtml = `
         <div class="space-y-1.5">
+          ${item.id === 'mx-flow-payroll-nomina-cfdi' ? '' : `
           <div class="bg-[#FFF9EE] border border-[#FFE7B8] px-3 py-1.5 rounded-lg flex items-center gap-2 text-xs leading-tight">
             <div class="flex items-center gap-1.5 text-[11px] font-bold text-[#995200] shrink-0">
               <svg class="w-3.5 h-3.5 text-[#D98324]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -6972,6 +8125,7 @@
             </div>
             <p class="text-[11px] text-[#733E00] flex-1 leading-snug">${item.tldr}</p>
           </div>
+          `}
 
           <!-- 2. Internal Support Protocol (Amber) vs Common Error Notice (Red) in Modal -->
           ${item.country === 'chile' ? `
@@ -7045,6 +8199,23 @@
                 </div>
               </div>
             </div>
+          ` : item.id === 'mx-flow-payroll-nomina-cfdi' ? `
+            <div class="relative bg-[#F0FDFB] border-l-4 border-l-[#008481] border border-[#00A09D]/30 p-2.5 sm:px-3 sm:py-2 rounded-lg flex items-start justify-between gap-2.5 text-xs leading-snug shadow-2xs">
+              <div class="flex items-start gap-1.5 flex-1 min-w-0">
+                <svg class="w-3.5 h-3.5 text-[#008481] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <div class="text-[11px] text-[#004D4B] leading-relaxed">
+                  <p><strong class="text-[#008481]">Odoo Version Notice (v18 ➔ v20):</strong> In Odoo v20, the <span class="underline decoration-dotted decoration-[#008481] text-[#008481] font-bold cursor-help hover:text-[#004D4B] transition-colors inline-flex items-center gap-0.5" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" onclick="openMexicoSalaryStructureLightbox('compare'); event.stopPropagation()" title="Hover to preview Salary Structure (v20 vs v19) • Click to open comparison"><strong>salary structure</strong> 📸</span> is located under the <span class="underline decoration-dotted decoration-[#008481] cursor-pointer hover:text-[#004D4B] font-bold" onclick="openMexicoSalaryStructureLightbox('v20'); event.stopPropagation()" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" title="Click to view Odoo v20 'Other info' tab screenshot"><strong>'Other info'</strong></span> tab (in <span class="underline decoration-dotted decoration-[#008481] cursor-pointer hover:text-[#004D4B] font-bold" onclick="openMexicoSalaryStructureLightbox('v19'); event.stopPropagation()" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" title="Click to view Odoo v19 / v18 header screenshot"><strong>v19/v18</strong></span> it is in the header), and clicking <strong>Pay</strong> opens a dedicated modal window to select <em>'Mark as paid'</em>. Crucially, the <strong>'Generate CFDI'</strong> button only unlocks once the payslip has been marked as paid.</p>
+                </div>
+              </div>
+              <div class="shrink-0 flex items-center gap-1">
+                <button type="button" onclick="openMexicoSalaryStructureLightbox('compare'); event.stopPropagation()" onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#008481] text-white hover:bg-[#006866] transition-colors shadow-2xs cursor-pointer" title="Compare Salary Structure between v20 and v19">
+                  <span>📸 v20 vs v19</span>
+                  <span>↗</span>
+                </button>
+              </div>
+            </div>
           ` : `
             <div class="relative bg-[#FFFBEB] border-l-4 border-l-[#D98324] border border-[#FDE68A] p-2.5 sm:px-3 sm:py-2 rounded-lg flex items-start justify-between gap-2.5 text-xs leading-snug shadow-2xs">
               <div class="flex items-start gap-1.5 flex-1 min-w-0">
@@ -7081,18 +8252,97 @@
                 else if (idx === 2) hoverAttrs = 'onmouseenter="showChileStep3Screenshot(this)" onmouseleave="hideChileStep3Screenshot()"';
                 else if (idx === 3) hoverAttrs = 'onmouseenter="showChileStep4Screenshot(this)" onmouseleave="hideChileStep4Screenshot()"';
               } else if (item.id === 'mx-flow-pos-global-invoice') {
-                if (idx === 0) hoverAttrs = 'onmouseenter="showMxPosStep1Screenshot(this)" onmouseleave="hideMxPosStep1Screenshot()" onclick="openMxPosStep1Lightbox()" class="cursor-pointer"';
-                else if (idx === 1) hoverAttrs = 'onmouseenter="showMxPosStep2Screenshot(this)" onmouseleave="hideMxPosStep2Screenshot()" onclick="openMxPosStep2Lightbox()" class="cursor-pointer"';
-                else if (idx === 2) hoverAttrs = 'onmouseenter="showMxPosStep3Screenshot(this)" onmouseleave="hideMxPosStep3Screenshot()" onclick="openMxPosStep3Lightbox()" class="cursor-pointer"';
-                else if (idx === 3) hoverAttrs = 'onmouseenter="showMxPosStep4Screenshot(this)" onmouseleave="hideMxPosStep4Screenshot()" onclick="openMxPosStep4Lightbox()" class="cursor-pointer"';
+                if (idx === 0) hoverAttrs = 'onmouseenter="showMxPosStep1Screenshot(this)" onmouseleave="hideMxPosStep1Screenshot()" onclick="openMxPosStep1Lightbox()"';
+                else if (idx === 1) hoverAttrs = 'onmouseenter="showMxPosStep2Screenshot(this)" onmouseleave="hideMxPosStep2Screenshot()" onclick="openMxPosStep2Lightbox()"';
+                else if (idx === 2) hoverAttrs = 'onmouseenter="showMxPosStep3Screenshot(this)" onmouseleave="hideMxPosStep3Screenshot()" onclick="openMxPosStep3Lightbox()"';
+                else if (idx === 3) hoverAttrs = 'onmouseenter="showMxPosStep4Screenshot(this)" onmouseleave="hideMxPosStep4Screenshot()" onclick="openMxPosStep4Lightbox()"';
               } else if (item.id === 'mx-flow-pos-cancel-global-invoice') {
-                if (idx === 0) hoverAttrs = 'onmouseenter="showMxPosCancelStep1Screenshot(this)" onmouseleave="hideMxPosCancelStep1Screenshot()" onclick="openMxPosCancelStep1Lightbox()" class="cursor-pointer"';
-                else if (idx === 1) hoverAttrs = 'onmouseenter="showMxPosStep4Screenshot(this)" onmouseleave="hideMxPosStep4Screenshot()" onclick="openMxPosStep4Lightbox()" class="cursor-pointer"';
-                else if (idx === 2) hoverAttrs = 'onmouseenter="showMxPosCancelStep3Screenshot(this)" onmouseleave="hideMxPosCancelStep3Screenshot()" onclick="openMxPosCancelStep3Lightbox()" class="cursor-pointer"';
+                if (idx === 0) hoverAttrs = 'onmouseenter="showMxPosCancelStep1Screenshot(this)" onmouseleave="hideMxPosCancelStep1Screenshot()" onclick="openMxPosCancelStep1Lightbox()"';
+                else if (idx === 1) hoverAttrs = 'onmouseenter="showMxPosStep4Screenshot(this)" onmouseleave="hideMxPosStep4Screenshot()" onclick="openMxPosStep4Lightbox()"';
+                else if (idx === 2) hoverAttrs = 'onmouseenter="showMxPosCancelStep3Screenshot(this)" onmouseleave="hideMxPosCancelStep3Screenshot()" onclick="openMxPosCancelStep3Lightbox()"';
+              } else if (item.id === 'mx-flow-payroll-nomina-cfdi') {
+                if (idx === 1) hoverAttrs = 'onmouseenter="showMexicoSalaryStructureScreenshot(this)" onmouseleave="hideMexicoSalaryStructureScreenshot()" onclick="openMexicoSalaryStructureLightbox(\'compare\')"';
+                else if (idx === 2) hoverAttrs = 'onmouseenter="showMexicoNominaStep3Screenshot(this)" onmouseleave="hideMexicoNominaStep3Screenshot()" onclick="openMexicoNominaStep3Lightbox()"';
+                else if (idx === 3) hoverAttrs = 'onmouseenter="showMexicoNominaStep4Screenshot(this)" onmouseleave="hideMexicoNominaStep4Screenshot()" onclick="openMexicoNominaStep4Lightbox()"';
+                else if (idx === 4) hoverAttrs = 'onmouseenter="showMexicoNominaStep5Screenshot(this)" onmouseleave="hideMexicoNominaStep5Screenshot()" onclick="openMexicoNominaStep5Lightbox()"';
+                else if (idx === 5) hoverAttrs = 'onmouseenter="showMexicoNominaStep6Screenshot(this)" onmouseleave="hideMexicoNominaStep6Screenshot()" onclick="openMexicoNominaStep6Lightbox(\'button\')"';
               }
               return `
-              <li ${hoverAttrs} class="p-3 rounded-lg bg-[#F8F9FA] border border-[#E9ECEF] hover:border-[#008481]/50 transition-colors leading-relaxed">
+              <li ${hoverAttrs} class="p-3 rounded-lg bg-[#F8F9FA] border border-[#E9ECEF] hover:border-[#008481]/50 transition-colors leading-relaxed ${hoverAttrs ? 'cursor-pointer' : ''}">
                 <div>${step}</div>
+                ${(item.id === 'mx-flow-payroll-nomina-cfdi' && idx === 1) ? `
+                  <!-- Step 2 Notice: Odoo v20 Structure Location in Other info Tab vs v19 Header -->
+                  <div class="mt-2.5 p-2.5 bg-blue-50/80 border border-blue-200 rounded-lg text-xs text-[#0039A6] flex items-center justify-between gap-2 shadow-2xs flex-wrap">
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm">💡</span>
+                      <span><strong>Salary Structure Placement:</strong> In <span class="underline decoration-dotted decoration-[#0039A6] font-bold cursor-pointer hover:underline" onclick="openMexicoSalaryStructureLightbox('v20'); event.stopPropagation()">Odoo v20</span>, selected under the <strong>'Other info'</strong> tab. In <span class="underline decoration-dotted decoration-[#0039A6] font-bold cursor-pointer hover:underline" onclick="openMexicoSalaryStructureLightbox('v19'); event.stopPropagation()">Odoo v19 / v18</span>, selected directly in the payslip form <strong>header</strong>.</span>
+                    </div>
+                    <button type="button" onclick="openMexicoSalaryStructureLightbox('compare'); event.stopPropagation()" class="px-2 py-0.5 bg-[#0039A6] hover:bg-blue-800 text-white rounded text-[11px] font-bold cursor-pointer transition-colors shrink-0">
+                      📸 Compare v20 vs v19 ↗
+                    </button>
+                  </div>
+                ` : ''}
+                ${(item.id === 'mx-flow-payroll-nomina-cfdi' && idx === 2) ? `
+                  <!-- Step 3 Notice: Compute Sheet & Recalculate -->
+                  <div class="mt-2.5 p-2.5 bg-[#F0FDFB] border border-teal-200 rounded-lg text-xs text-[#00605e] flex items-center justify-between gap-2 shadow-2xs flex-wrap">
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm">📸</span>
+                      <span><strong>Compute Sheet (Calcular Hoja):</strong> Recalculates all salary rules, allowances, and statutory retentions (ISR &amp; IMSS) before confirming from <strong>Draft</strong> to <strong>Validated</strong>.</span>
+                    </div>
+                    <button type="button" onclick="openMexicoNominaStep3Lightbox(); event.stopPropagation()" class="px-2 py-0.5 bg-[#008481] hover:bg-[#006866] text-white rounded text-[11px] font-bold cursor-pointer transition-colors shrink-0">
+                      📸 View Screenshot ↗
+                    </button>
+                  </div>
+                ` : ''}
+                ${(item.id === 'mx-flow-payroll-nomina-cfdi' && idx === 3) ? `
+                  <!-- Step 4 Notice: Draft Journal Entry Smart Button & Approval -->
+                  <div onmouseenter="showMexicoNominaStep4Screenshot(this)" onmouseleave="hideMexicoNominaStep4Screenshot()" class="mt-2.5 p-2.5 bg-[#F0FDFB] border border-teal-200 rounded-lg text-xs text-[#00605e] flex items-center justify-between gap-2 shadow-2xs flex-wrap">
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm">📸</span>
+                      <span><strong>Draft Journal Entry (Asiento Contable Borrador):</strong> Payslip validation automatically creates a draft accounting move. Click the <strong>'Journal Entry (Draft)'</strong> smart button to inspect debits &amp; credits, then post/approve entries.</span>
+                    </div>
+                    <button type="button" onmouseenter="showMexicoNominaStep4Screenshot(this); event.stopPropagation()" onmouseleave="hideMexicoNominaStep4Screenshot()" onclick="openMexicoNominaStep4Lightbox(); event.stopPropagation()" class="px-2 py-0.5 bg-[#008481] hover:bg-[#006866] text-white rounded text-[11px] font-bold cursor-pointer transition-colors shrink-0">
+                      📸 View Screenshot ↗
+                    </button>
+                  </div>
+                ` : ''}
+                ${(item.id === 'mx-flow-payroll-nomina-cfdi' && idx === 4) ? `
+                  <!-- Step 5 Notice: Odoo v20 Payment Window & Mark as Paid Action -->
+                  <div class="mt-2.5 p-2.5 bg-[#F0FDFB] border border-teal-200 rounded-lg text-xs text-[#00605e] flex items-center justify-between gap-2 shadow-2xs flex-wrap">
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm">📸</span>
+                      <span><strong>Pay &amp; 'Mark as Paid' (v20 Window):</strong> Clicking <strong>Pay</strong> launches the confirmation modal. Confirm Payment Mode (<em>Manually</em>) and date, then click <strong>'Mark as Paid'</strong> to transition payslip to <em>Paid</em> and unlock <strong>Generate CFDI</strong>.</span>
+                    </div>
+                    <button type="button" onclick="openMexicoNominaStep5Lightbox(); event.stopPropagation()" class="px-2 py-0.5 bg-[#008481] hover:bg-[#006866] text-white rounded text-[11px] font-bold cursor-pointer transition-colors shrink-0">
+                      📸 View Screenshot ↗
+                    </button>
+                  </div>
+                ` : ''}
+                ${(item.id === 'mx-flow-payroll-nomina-cfdi' && idx === 5) ? `
+                  <!-- Step 6 Crucial Rule: Generate CFDI Only Appears After Marked as Paid -->
+                  <div class="mt-2.5 p-3 bg-[#E6F6F5] border-2 border-[#00A09D] rounded-xl space-y-2 shadow-2xs">
+                    <div class="flex items-center justify-between gap-2 flex-wrap">
+                      <div class="flex items-center gap-2 text-xs font-bold text-[#004D4B]">
+                        <span class="text-base leading-none">⚠️</span>
+                        <span class="uppercase tracking-wide">Crucial Sequence Requirement:</span>
+                        <span class="text-[10px] font-mono font-bold bg-teal-100 text-[#008481] px-1.5 py-0.5 rounded border border-teal-300">CFDI Button Visibility</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 shrink-0">
+                        <button type="button" onclick="openMexicoNominaStep6Lightbox('button'); event.stopPropagation()" class="px-2 py-0.5 bg-[#008481] hover:bg-[#006866] text-white rounded text-[11px] font-bold cursor-pointer transition-colors shadow-2xs flex items-center gap-1">
+                          <span>📸 1. Button Unlocked</span>
+                          <span>↗</span>
+                        </button>
+                        <button type="button" onclick="openMexicoNominaStep6Lightbox('stamped'); event.stopPropagation()" class="px-2 py-0.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded text-[11px] font-bold cursor-pointer transition-colors shadow-2xs flex items-center gap-1">
+                          <span>📜 2. Stamped UUID &amp; PDF</span>
+                          <span>↗</span>
+                        </button>
+                      </div>
+                    </div>
+                    <p class="text-[11px] text-[#00605e] leading-relaxed">
+                      In Odoo, the <strong>'Generate CFDI' (Generar CFDI)</strong> button will <strong>NOT</strong> appear until the payslip has been explicitly <strong>marked as paid</strong> and journal entries are approved. Once marked as paid, the button becomes visible; clicking it sends the payroll payload to <strong>Solución Factible</strong> to stamp the statutory CFDI de Nómina 1.2 with the SAT.
+                    </p>
+                  </div>
+                ` : ''}
                 ${(item.id === 'cl-config-caf' && idx === 0) ? `
                   <!-- Step 1 Highlight Notice: Must First Request from SII Outside of Odoo -->
                   <div class="mt-2.5 p-3 bg-[#FFFBEB] border-2 border-[#D98324] rounded-xl space-y-1 shadow-2xs">
@@ -7255,7 +8505,7 @@
                     </div>
                   </div>
                 ` : ''}
-                ${(item.country === 'mexico' && item.id !== 'mx-flow-pos-global-invoice' && item.id !== 'mx-flow-pos-cancel-global-invoice' && idx === 0) ? `
+                ${(item.country === 'mexico' && item.id !== 'mx-flow-pos-global-invoice' && item.id !== 'mx-flow-pos-cancel-global-invoice' && item.id !== 'mx-flow-payroll-nomina-cfdi' && idx === 0) ? `
                   <!-- Step 1 Screenshot: Customer Invoice with Highlighted Payment Policy PUE -->
                   <div class="mt-3 p-3 bg-white border-2 border-teal-200 rounded-xl space-y-2 shadow-2xs">
                     <div class="flex items-center justify-between text-xs pb-1.5 border-b border-teal-100">
@@ -7509,7 +8759,7 @@
                   <svg class="w-5 h-5 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
                   <span class="text-xs font-bold text-[#714B67]">Official Odoo YouTube Channel Tutorial (@OdooEspanol)</span>
                 </div>
-                <span class="text-[11px] font-mono text-[#6C757D]">${item.id === 'mx-flow-ppd-rep-reconciled' ? 'Minute 0:50 · CFDI 2.0 with Reconciliation' : 'Total Duration: 3:50'}</span>
+                <span class="text-[11px] font-mono text-[#6C757D]">${item.id === 'mx-flow-ppd-rep-reconciled' ? 'Minute 0:50 · CFDI 2.0 with Reconciliation' : item.id === 'mx-flow-payroll-nomina-cfdi' ? 'Minute 2:40 · CFDI de Nómina 1.2' : (item.videoDuration || 'Total Duration: 3:50')}</span>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
@@ -7521,7 +8771,7 @@
                       <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wide">Direct Flow</span>
                     </div>
                     <span class="block font-bold text-xs text-[#212529] mt-1 group-hover/flow:text-[#008481]">${item.flowVideoText || 'Direct Flow Demonstration'}</span>
-                    <span class="text-[11px] text-[#6C757D] block">${item.id === 'mx-flow-ppd-rep-reconciled' ? 'Demonstration of payment complement via bank reconciliation' : 'Direct demonstration of payment execution & CFDI tab update'}</span>
+                    <span class="text-[11px] text-[#6C757D] block">${item.flowVideoSubtext || (item.id === 'mx-flow-ppd-rep-reconciled' ? 'Demonstration of payment complement via bank reconciliation' : 'Direct demonstration of payment execution & CFDI tab update')}</span>
                   </div>
                   <span class="text-xs font-bold text-[#00A09D] ml-2 shrink-0 group-hover/flow:translate-x-0.5 transition-transform">↗</span>
                 </a>
@@ -7530,7 +8780,7 @@
                 <a href="${item.video}" target="_blank" rel="noopener noreferrer" class="p-3 bg-white hover:bg-[#F8F9FA] border border-[#D8DADD] rounded-xl flex items-center justify-between transition-all group/full shadow-2xs">
                   <div>
                     <div class="flex items-center gap-1.5">
-                      <span class="text-[10px] font-mono font-bold bg-[#714B67] text-white px-2 py-0.5 rounded shadow-2xs">${item.id === 'mx-flow-ppd-rep-reconciled' ? '⏱️ Playlist (Video 2)' : '⏱️ 00:00 · 3:50'}</span>
+                      <span class="text-[10px] font-mono font-bold bg-[#714B67] text-white px-2 py-0.5 rounded shadow-2xs">${item.videoDuration || (item.id === 'mx-flow-ppd-rep-reconciled' ? '⏱️ Playlist (Video 2)' : '⏱️ 00:00 · 3:50')}</span>
                       <span class="text-[10px] font-bold text-[#6C757D] uppercase tracking-wide">Full Video</span>
                     </div>
                     <span class="block font-bold text-xs text-[#212529] mt-1 group-hover/full:text-[#714B67]">${item.videoText || 'Full Tutorial from Start'}</span>
@@ -7587,7 +8837,7 @@
     let activeRaf = null;
     let currentHoverStep = null;
 
-    function hideAllStepScreenshots() {
+    function hideAllStepScreenshots(exceptId = null) {
       if (stepHoverTimeout) {
         clearTimeout(stepHoverTimeout);
         stepHoverTimeout = null;
@@ -7597,80 +8847,32 @@
         activeRaf = null;
       }
       currentHoverStep = null;
-      [1, 2, 4, 5].forEach(num => {
-        const popover = document.getElementById(`step${num}ScreenshotPopover`);
-        if (popover) {
+      const hidePopover = (popover) => {
+        if (popover && (!exceptId || popover.id !== exceptId)) {
           popover.style.display = "none";
           popover.classList.remove("opacity-100", "scale-100");
           popover.classList.add("opacity-0", "scale-95", "hidden");
         }
-      });
-      const recPopover = document.getElementById("mexicoReconciledPaidScreenshotPopover");
-      if (recPopover) {
-        recPopover.style.display = "none";
-        recPopover.classList.remove("opacity-100", "scale-100");
-        recPopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const cafErrPopover = document.getElementById("chileCafErrorScreenshotPopover");
-      if (cafErrPopover) {
-        cafErrPopover.style.display = "none";
-        cafErrPopover.classList.remove("opacity-100", "scale-100");
-        cafErrPopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const dteEmailPopover = document.getElementById("chileDteEmailScreenshotPopover");
-      if (dteEmailPopover) {
-        dteEmailPopover.style.display = "none";
-        dteEmailPopover.classList.remove("opacity-100", "scale-100");
-        dteEmailPopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const cnDatePopover = document.getElementById("chileCreditNoteDateScreenshotPopover");
-      if (cnDatePopover) {
-        cnDatePopover.style.display = "none";
-        cnDatePopover.classList.remove("opacity-100", "scale-100");
-        cnDatePopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const mxPosPopover = document.getElementById("mxPosStep1ScreenshotPopover");
-      if (mxPosPopover) {
-        mxPosPopover.style.display = "none";
-        mxPosPopover.classList.remove("opacity-100", "scale-100");
-        mxPosPopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const mxPos2Popover = document.getElementById("mxPosStep2ScreenshotPopover");
-      if (mxPos2Popover) {
-        mxPos2Popover.style.display = "none";
-        mxPos2Popover.classList.remove("opacity-100", "scale-100");
-        mxPos2Popover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const mxPos3Popover = document.getElementById("mxPosStep3ScreenshotPopover");
-      if (mxPos3Popover) {
-        mxPos3Popover.style.display = "none";
-        mxPos3Popover.classList.remove("opacity-100", "scale-100");
-        mxPos3Popover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const mxPos4Popover = document.getElementById("mxPosStep4ScreenshotPopover");
-      if (mxPos4Popover) {
-        mxPos4Popover.style.display = "none";
-        mxPos4Popover.classList.remove("opacity-100", "scale-100");
-        mxPos4Popover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const mxPosCancelPopover = document.getElementById("mxPosCancelStep3ScreenshotPopover");
-      if (mxPosCancelPopover) {
-        mxPosCancelPopover.style.display = "none";
-        mxPosCancelPopover.classList.remove("opacity-100", "scale-100");
-        mxPosCancelPopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const mxPosCancel1Popover = document.getElementById("mxPosCancelStep1ScreenshotPopover");
-      if (mxPosCancel1Popover) {
-        mxPosCancel1Popover.style.display = "none";
-        mxPosCancel1Popover.classList.remove("opacity-100", "scale-100");
-        mxPosCancel1Popover.classList.add("opacity-0", "scale-95", "hidden");
-      }
-      const ecPosPopover = document.getElementById("ecuadorPosSriPaymentScreenshotPopover");
-      if (ecPosPopover) {
-        ecPosPopover.style.display = "none";
-        ecPosPopover.classList.remove("opacity-100", "scale-100");
-        ecPosPopover.classList.add("opacity-0", "scale-95", "hidden");
-      }
+      };
+
+      [1, 2, 4, 5].forEach(num => hidePopover(document.getElementById(`step${num}ScreenshotPopover`)));
+      hidePopover(document.getElementById("mexicoReconciledPaidScreenshotPopover"));
+      hidePopover(document.getElementById("chileCafErrorScreenshotPopover"));
+      hidePopover(document.getElementById("chileDteEmailScreenshotPopover"));
+      hidePopover(document.getElementById("chileCreditNoteDateScreenshotPopover"));
+      hidePopover(document.getElementById("mxPosStep1ScreenshotPopover"));
+      hidePopover(document.getElementById("mxPosStep2ScreenshotPopover"));
+      hidePopover(document.getElementById("mxPosStep3ScreenshotPopover"));
+      hidePopover(document.getElementById("mxPosStep4ScreenshotPopover"));
+      hidePopover(document.getElementById("mxPosCancelStep3ScreenshotPopover"));
+      hidePopover(document.getElementById("mxPosCancelStep1ScreenshotPopover"));
+      hidePopover(document.getElementById("ecuadorPosSriPaymentScreenshotPopover"));
+      hidePopover(document.getElementById("mexicoProductUnspscScreenshotPopover"));
+      hidePopover(document.getElementById("mexicoSalaryStructureScreenshotPopover"));
+      hidePopover(document.getElementById("mexicoNominaStep3ScreenshotPopover"));
+      hidePopover(document.getElementById("mexicoNominaStep4ScreenshotPopover"));
+      hidePopover(document.getElementById("mexicoNominaStep5ScreenshotPopover"));
+      hidePopover(document.getElementById("mexicoNominaStep6ScreenshotPopover"));
     }
 
     function showStepScreenshot(stepNum, targetEl) {
@@ -8672,6 +9874,12 @@
         ecPosPopover.classList.remove("opacity-100", "scale-100");
         ecPosPopover.classList.add("opacity-0", "scale-95", "hidden");
       }
+      const mxUnspscPopover = document.getElementById("mexicoProductUnspscScreenshotPopover");
+      if (mxUnspscPopover) {
+        mxUnspscPopover.style.display = "none";
+        mxUnspscPopover.classList.remove("opacity-100", "scale-100");
+        mxUnspscPopover.classList.add("opacity-0", "scale-95", "hidden");
+      }
     }
 
     function showChileStepScreenshot(stepNum, targetEl) {
@@ -9107,6 +10315,784 @@
       }
     }
 
+    // Mexico Product UNSPSC Category Popover & Lightbox Functions
+    function showMexicoProductUnspscScreenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots();
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+
+      const popover = document.getElementById("mexicoProductUnspscScreenshotPopover");
+      if (!popover || !targetEl) return;
+      positionMxPosPopover(popover, targetEl);
+    }
+
+    function hideMexicoProductUnspscScreenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoProductUnspscScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 75);
+    }
+
+    function openMexicoProductUnspscLightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      const modal = document.getElementById("mexicoProductUnspscLightboxModal");
+      const img = document.getElementById("mexicoProductUnspscModalImg");
+      const txt = document.getElementById("mexicoProductUnspscZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+      }
+      if (txt) txt.textContent = "100% Zoom";
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoProductUnspscLightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoProductUnspscLightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoProductUnspscImageZoom() {
+      const img = document.getElementById("mexicoProductUnspscModalImg");
+      const txt = document.getElementById("mexicoProductUnspscZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    function showMexicoInfonavitFonacotScreenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots();
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+
+      const popover = document.getElementById("mexicoInfonavitFonacotScreenshotPopover");
+      if (!popover || !targetEl) return;
+      positionMxPosPopover(popover, targetEl);
+    }
+
+    function hideMexicoInfonavitFonacotScreenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoInfonavitFonacotScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 75);
+    }
+
+    function openMexicoInfonavitFonacotLightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      const modal = document.getElementById("mexicoInfonavitFonacotLightboxModal");
+      const img = document.getElementById("mexicoInfonavitFonacotModalImg");
+      const txt = document.getElementById("mexicoInfonavitFonacotZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+      }
+      if (txt) txt.textContent = "100% Zoom";
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoInfonavitFonacotLightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoInfonavitFonacotLightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoInfonavitFonacotImageZoom() {
+      const img = document.getElementById("mexicoInfonavitFonacotModalImg");
+      const txt = document.getElementById("mexicoInfonavitFonacotZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[75vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    // ── Mexico Payroll Salary Structure (v20 vs v19) Popover & Lightbox Functions ──
+    let currentSalaryStructureView = 'compare';
+
+    function showMexicoSalaryStructureScreenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots();
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoNominaStep3Screenshot();
+
+      const popover = document.getElementById("mexicoSalaryStructureScreenshotPopover");
+      if (!popover || !targetEl) return;
+      positionMxPosPopover(popover, targetEl);
+    }
+
+    function hideMexicoSalaryStructureScreenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoSalaryStructureScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 75);
+    }
+
+    function setMexicoSalaryStructureView(mode) {
+      currentSalaryStructureView = mode || 'compare';
+      const img = document.getElementById("mexicoSalaryStructureModalImg");
+      const ctxLabel = document.getElementById("mexicoSalaryStructureContextLabel");
+      const ctxText = document.getElementById("mexicoSalaryStructureContextText");
+      const tabCompare = document.getElementById("salStructTabCompare");
+      const tabV20 = document.getElementById("salStructTabV20");
+      const tabV19 = document.getElementById("salStructTabV19");
+
+      // Reset zoom whenever switching view
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+      }
+      const zoomTxt = document.getElementById("mexicoSalaryStructureZoomText");
+      if (zoomTxt) zoomTxt.textContent = "100% Zoom";
+
+      // Reset all tab button styles
+      [tabCompare, tabV20, tabV19].forEach(btn => {
+        if (!btn) return;
+        btn.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-gray-700 hover:bg-gray-100 border border-gray-200";
+      });
+
+      if (currentSalaryStructureView === 'v20') {
+        if (tabV20) tabV20.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-[#008481] text-white shadow-xs border border-transparent";
+        if (img) {
+          img.src = "./assets/odoo_mx_payroll_salary_structure_v20.png";
+          img.onerror = function() { this.src = "./odoo_mx_payroll_salary_structure_v20.png"; };
+          img.alt = "Odoo v20 - Salary Structure under 'Other info' tab";
+        }
+        if (ctxLabel) ctxLabel.textContent = "Odoo v20 Architecture:";
+        if (ctxText) {
+          ctxText.innerHTML = "Step 1: Click the <strong>'Other Info'</strong> tab ‣ Step 2: Set <strong>Pay Structure</strong> to <code>Mexico: Regular Pay</code>.";
+        }
+      } else if (currentSalaryStructureView === 'v19') {
+        if (tabV19) tabV19.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-[#714B67] text-white shadow-xs border border-transparent";
+        if (img) {
+          img.src = "./assets/odoo_mx_payroll_salary_structure_v19.png";
+          img.onerror = function() { this.src = "./odoo_mx_payroll_salary_structure_v19.png"; };
+          img.alt = "Odoo v19 / v18 - Salary Structure in main header";
+        }
+        if (ctxLabel) ctxLabel.textContent = "Odoo v19 / v18 Architecture:";
+        if (ctxText) {
+          ctxText.innerHTML = "Located directly in the <strong>header fields</strong> at the top of the payslip form (<code>Structure: Mexico: Regular Pay</code>).";
+        }
+      } else {
+        // 'compare' view
+        if (tabCompare) tabCompare.className = "px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-[#008481] text-white shadow-xs border border-transparent";
+        if (img) {
+          img.src = "./assets/odoo_mx_payroll_salary_structure_comparison.png";
+          img.onerror = function() { this.src = "./odoo_mx_payroll_salary_structure_comparison.png"; };
+          img.alt = "Side-by-Side Comparison: Odoo v20 vs Odoo v19 / v18";
+        }
+        if (ctxLabel) ctxLabel.textContent = "Key Architecture Difference:";
+        if (ctxText) {
+          ctxText.innerHTML = "In <strong>v20</strong>, the structure field moved into the <strong>'Other info'</strong> tab. In <strong>v19 / v18</strong>, it resides in the <strong>primary header</strong>.";
+        }
+      }
+    }
+
+    function openMexicoSalaryStructureLightbox(mode) {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+
+      setMexicoSalaryStructureView(mode || 'compare');
+
+      const modal = document.getElementById("mexicoSalaryStructureLightboxModal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoSalaryStructureLightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoSalaryStructureLightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoSalaryStructureImageZoom() {
+      const img = document.getElementById("mexicoSalaryStructureModalImg");
+      const txt = document.getElementById("mexicoSalaryStructureZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    // 📸 Mexico Payroll Step 3 (Compute Sheet) Popover & Lightbox Functions 📸
+    function showMexicoNominaStep3Screenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots("mexicoNominaStep3ScreenshotPopover");
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep5Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      const popover = document.getElementById("mexicoNominaStep3ScreenshotPopover");
+      if (!popover || !targetEl) return;
+      const anchorEl = (targetEl.closest && (targetEl.closest('.group\\/nom3') || targetEl.closest('li'))) || targetEl;
+      positionMxPosPopover(popover, anchorEl);
+    }
+
+    function hideMexicoNominaStep3Screenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoNominaStep3ScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 180);
+    }
+
+    function openMexicoNominaStep3Lightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep5Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      const img = document.getElementById("mexicoNominaStep3ModalImg");
+      const zoomTxt = document.getElementById("mexicoNominaStep3ZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+      }
+      if (zoomTxt) zoomTxt.textContent = "100% Zoom";
+
+      const modal = document.getElementById("mexicoNominaStep3LightboxModal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoNominaStep3Lightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoNominaStep3LightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoNominaStep3Zoom() {
+      const img = document.getElementById("mexicoNominaStep3ModalImg");
+      const txt = document.getElementById("mexicoNominaStep3ZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    // 📸 Mexico Payroll Step 4 (Approve Journal Entries) Popover & Lightbox Functions 📸
+    function showMexicoNominaStep4Screenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots("mexicoNominaStep4ScreenshotPopover");
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep5Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      const popover = document.getElementById("mexicoNominaStep4ScreenshotPopover");
+      if (!popover || !targetEl) return;
+      const anchorEl = (targetEl.closest && (targetEl.closest('.group\\/nom4') || targetEl.closest('li'))) || targetEl;
+      positionMxPosPopover(popover, anchorEl);
+    }
+
+    function hideMexicoNominaStep4Screenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoNominaStep4ScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 180);
+    }
+
+    function openMexicoNominaStep4Lightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep5Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      const img = document.getElementById("mexicoNominaStep4ModalImg");
+      const zoomTxt = document.getElementById("mexicoNominaStep4ZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+      }
+      if (zoomTxt) zoomTxt.textContent = "100% Zoom";
+
+      const modal = document.getElementById("mexicoNominaStep4LightboxModal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoNominaStep4Lightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoNominaStep4LightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoNominaStep4Zoom() {
+      const img = document.getElementById("mexicoNominaStep4ModalImg");
+      const txt = document.getElementById("mexicoNominaStep4ZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    // 📸 Mexico Payroll Step 5 (Pay and Mark as Paid) Popover & Lightbox Functions 📸
+    function showMexicoNominaStep5Screenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots("mexicoNominaStep5ScreenshotPopover");
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      const popover = document.getElementById("mexicoNominaStep5ScreenshotPopover");
+      if (!popover || !targetEl) return;
+      const anchorEl = (targetEl.closest && (targetEl.closest('.group\\/nom5') || targetEl.closest('li'))) || targetEl;
+      positionMxPosPopover(popover, anchorEl);
+    }
+
+    function hideMexicoNominaStep5Screenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoNominaStep5ScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 180);
+    }
+
+    function openMexicoNominaStep5Lightbox() {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep5Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      const img = document.getElementById("mexicoNominaStep5ModalImg");
+      const zoomTxt = document.getElementById("mexicoNominaStep5ZoomText");
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+      }
+      if (zoomTxt) zoomTxt.textContent = "100% Zoom";
+
+      const modal = document.getElementById("mexicoNominaStep5LightboxModal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoNominaStep5Lightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoNominaStep5LightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoNominaStep5Zoom() {
+      const img = document.getElementById("mexicoNominaStep5ModalImg");
+      const txt = document.getElementById("mexicoNominaStep5ZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
+    // 📸 Mexico Payroll Step 6 (Generate CFDI & Stamped UUID) Popover & Lightbox Functions 📸
+    const MEXICO_NOMINA_STEP6_IMAGES = {
+      button: "./assets/odoo_mx_payroll_step6_generate_cfdi.png",
+      stamped: "./assets/odoo_mx_payroll_step6_stamped_cfdi.png"
+    };
+
+    let mexicoNominaStep6CurrentMode = 'button';
+
+    function setMexicoNominaStep6Image(mode) {
+      mexicoNominaStep6CurrentMode = (mode === 'stamped') ? 'stamped' : 'button';
+      const isStamped = mexicoNominaStep6CurrentMode === 'stamped';
+      const src = isStamped ? MEXICO_NOMINA_STEP6_IMAGES.stamped : MEXICO_NOMINA_STEP6_IMAGES.button;
+
+      const img = document.getElementById("mexicoNominaStep6ModalImg");
+      const zoomTxt = document.getElementById("mexicoNominaStep6ZoomText");
+      const ctxLabel = document.getElementById("mexicoNominaStep6ContextLabel");
+      const ctxText = document.getElementById("mexicoNominaStep6ContextText");
+      const tabButton = document.getElementById("salNom6TabButton");
+      const tabStamped = document.getElementById("salNom6TabStamped");
+      const footer = document.getElementById("mexicoNominaStep6FooterText");
+
+      // Reset zoom
+      if (img) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        img.src = src;
+        img.onerror = function() {
+          this.src = isStamped ? "./odoo_mx_payroll_step6_stamped_cfdi.png" : "./odoo_mx_payroll_step6_generate_cfdi.png";
+        };
+        img.alt = isStamped
+          ? "Odoo Payroll Mexico - Stamped CFDI de Nómina 1.2 with Fiscal Folio UUID"
+          : "Odoo Payroll Mexico - Generate CFDI Button Unlocked in Paid Status";
+      }
+      if (zoomTxt) zoomTxt.textContent = "100% Zoom";
+
+      // Reset & apply active tab styles
+      const activeClasses = ["bg-[#008481]", "text-white", "shadow-xs", "border-transparent"];
+      const inactiveClasses = ["bg-white", "text-gray-700", "hover:bg-gray-100", "border-gray-200"];
+
+      if (tabButton) {
+        tabButton.className = `px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border ${!isStamped ? activeClasses.join(' ') : inactiveClasses.join(' ')}`;
+      }
+      if (tabStamped) {
+        tabStamped.className = `px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border ${isStamped ? activeClasses.join(' ') : inactiveClasses.join(' ')}`;
+      }
+
+      // Update context banner and highlight text
+      if (isStamped) {
+        if (ctxLabel) ctxLabel.textContent = "View 2 · Stamped Payslip Receipt & UUID:";
+        if (ctxText) {
+          ctxText.innerHTML = "Status updates to <strong>CFDI status: Signed ✓</strong>. Displays official <strong>Fiscal Folio (UUID)</strong>, PAC stamp timestamp (Solución Factible), and provides download for XML and SAT-compliant PDF receipt with 2D QR code barcode.";
+        }
+        if (footer) {
+          footer.innerHTML = `<strong>Highlight Annotations:</strong> <span class="text-[#008481] font-bold">Teal Box #1</span> highlights <em>Fiscal Folio (UUID)</em> &amp; <em>CFDI status: Signed</em> &bull; <span class="text-[#008481] font-bold">Teal Box #2</span> highlights official <em>Stamped Nomina PDF receipt</em> with SAT 2D barcode &amp; statutory retentions.`;
+        }
+      } else {
+        if (ctxLabel) ctxLabel.textContent = "View 1 · Button Unlocked in 'Paid' Status:";
+        if (ctxText) {
+          ctxText.innerHTML = "Notice the payslip status badge is <strong>Paid</strong>. The purple <strong>'Generate CFDI' (Generar CFDI)</strong> button is now visible in the primary action bar. Crucial: Odoo never displays this button while the slip is still in Draft or Validated state.";
+        }
+        if (footer) {
+          footer.innerHTML = `<strong>Highlight Annotations:</strong> <span class="text-[#008481] font-bold">Teal Box #1</span> marks <em>Generate CFDI</em> button (unlocked) &bull; <span class="text-[#008481] font-bold">Teal Box #2</span> highlights <em>Paid</em> status chevron &amp; posted journal move &bull; <span class="text-[#008481] font-bold">Box #3</span> marks SAT 3-day statutory deadline warning banner.`;
+        }
+      }
+    }
+
+    function showMexicoNominaStep6Screenshot(targetEl) {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      hideAllStepScreenshots("mexicoNominaStep6ScreenshotPopover");
+      hideAllChileStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep5Screenshot();
+
+      const popover = document.getElementById("mexicoNominaStep6ScreenshotPopover");
+      if (!popover || !targetEl) return;
+      const anchorEl = (targetEl.closest && (targetEl.closest('.group\\/nom6') || targetEl.closest('li'))) || targetEl;
+      positionMxPosPopover(popover, anchorEl);
+    }
+
+    function hideMexicoNominaStep6Screenshot() {
+      if (stepHoverTimeout) {
+        clearTimeout(stepHoverTimeout);
+        stepHoverTimeout = null;
+      }
+      if (activeRaf) {
+        cancelAnimationFrame(activeRaf);
+        activeRaf = null;
+      }
+      const popover = document.getElementById("mexicoNominaStep6ScreenshotPopover");
+      if (!popover) return;
+
+      popover.classList.remove("opacity-100", "scale-100");
+      popover.classList.add("opacity-0", "scale-95");
+
+      stepHoverTimeout = setTimeout(() => {
+        popover.style.display = "none";
+        popover.classList.add("hidden");
+        stepHoverTimeout = null;
+      }, 180);
+    }
+
+    function openMexicoNominaStep6Lightbox(mode) {
+      hideAllChileStepScreenshots();
+      hideAllStepScreenshots();
+      hideEcuadorPosSriPaymentScreenshot();
+      hideMexicoProductUnspscScreenshot();
+      hideMexicoInfonavitFonacotScreenshot();
+      hideMexicoSalaryStructureScreenshot();
+      hideMexicoNominaStep3Screenshot();
+      hideMexicoNominaStep4Screenshot();
+      hideMexicoNominaStep5Screenshot();
+      hideMexicoNominaStep6Screenshot();
+
+      setMexicoNominaStep6Image(mode || 'button');
+
+      const modal = document.getElementById("mexicoNominaStep6LightboxModal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeMexicoNominaStep6Lightbox(event) {
+      if (event && event.target && event.target.closest && event.target.closest('.rounded-2xl') && !event.target.closest('button')) return;
+      const modal = document.getElementById("mexicoNominaStep6LightboxModal");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleMexicoNominaStep6Zoom() {
+      const img = document.getElementById("mexicoNominaStep6ModalImg");
+      const txt = document.getElementById("mexicoNominaStep6ZoomText");
+      if (!img) return;
+      const isZoomed = img.classList.contains("max-w-none");
+      if (isZoomed) {
+        img.classList.remove("max-w-none", "cursor-zoom-out");
+        img.classList.add("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        if (txt) txt.textContent = "100% Zoom";
+      } else {
+        img.classList.remove("max-w-full", "max-h-[72vh]", "cursor-zoom-in");
+        img.classList.add("max-w-none", "cursor-zoom-out");
+        if (txt) txt.textContent = "Fit to Screen";
+      }
+    }
+
     function toggleCafErrorDetails(context, event) {
       if (event && event.target && event.target.closest && event.target.closest('a, [data-action="lightbox"]')) return;
       const suffix = context || 'cl-config-caf';
@@ -9438,7 +11424,7 @@
     const showScreenshotHover = showStep1Screenshot;
     const hideScreenshotHover = hideStep1Screenshot;
     function openScreenshotLightbox() { openStep1Lightbox(); }
-    function closeScreenshotLightbox() { closeStep1Lightbox(); closeStep2Lightbox(); closeStep4Lightbox(); closeStep5Lightbox(); closeChileStep1Lightbox(); closeChileStep2Lightbox(); closeChileStep3Lightbox(); closeChileStep4Lightbox(); closeChileStep5Lightbox(); closeCafErrorLightbox(); closeChileDteEmailLightbox(); closeChileCreditNoteDateLightbox(); closeMexicoReconciledPaidLightbox(); closeMxPosStep1Lightbox(); closeMxPosStep2Lightbox(); closeMxPosStep3Lightbox(); closeMxPosStep4Lightbox(); closeMxPosCancelStep1Lightbox(); closeMxPosCancelStep3Lightbox(); }
+    function closeScreenshotLightbox() { closeStep1Lightbox(); closeStep2Lightbox(); closeStep4Lightbox(); closeStep5Lightbox(); closeChileStep1Lightbox(); closeChileStep2Lightbox(); closeChileStep3Lightbox(); closeChileStep4Lightbox(); closeChileStep5Lightbox(); closeCafErrorLightbox(); closeChileDteEmailLightbox(); closeChileCreditNoteDateLightbox(); closeMexicoReconciledPaidLightbox(); closeMxPosStep1Lightbox(); closeMxPosStep2Lightbox(); closeMxPosStep3Lightbox(); closeMxPosStep4Lightbox(); closeMxPosCancelStep1Lightbox(); closeMxPosCancelStep3Lightbox(); closeMexicoInfonavitFonacotLightbox(); closeMexicoSalaryStructureLightbox(); closeMexicoNominaStep3Lightbox(); closeMexicoNominaStep4Lightbox(); closeMexicoNominaStep5Lightbox(); closeMexicoNominaStep6Lightbox(); }
 
     // ────────────────────────────────────────────────
     // ADD CARD MODAL
